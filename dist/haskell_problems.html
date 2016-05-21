@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<head> 
+	<title>99 Problems to Learn a Programming Language</title>
+	<link rel="stylesheet" href="css/99problems.css" type="text/css">
+	<!-- MathJax math rendering-->
+	<script async="true" type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+	<!-- CodeMirror syntax highlighting-->
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/codemirror/latest/codemirror.css">
+	<script async="true" type="text/javascript" href="//cdn.jsdelivr.net/codemirror/latest/codemirror.min.js"></script>
+	<script async="true" type="text/javascript" href="//cdn.jsdelivr.net/codemirror/latest/mode/haskell.js"></script>
+</head>
+<body>
+	<div id="nav"></div>
+	<div class="banner">
+		<h1>99 Problems to Learn a Programming Language</h1>
+		<h2>in haskell</h2>
+	</div>
+	<div id="problems">
+		<div class="problem">
+			<h3 class="problem-num">Problem 1<span class="difficulty-1"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> last_</span></h4>
+				<p class="description">Find the last element of a list.</p>
+				<p class="abstract-example">\( (x_1,x_2,\ldots,x_n)\mapsto x_n \)</p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+						<pre>last_ [1..10]</pre>
+						<pre>10</pre>
+						<pre>last_ &quot;abc&quot;</pre>
+						<pre>c</pre>
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 2<span class="difficulty-1"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> penultimate_</span></h4>
+				<p class="description">Find the next-to-the-last element of a list.</p>
+				<p class="abstract-example">\( (x_1,x_2,\ldots,x_{n-1},x_n)\mapsto x_{n-1} \)</p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+						<pre>penultimate_ [1..10]</pre>
+						<pre>9</pre>
+						<pre>penultimate_ &quot;abc&quot;</pre>
+						<pre>b</pre>
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 3<span class="difficulty-1"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> element_at_index_</span></h4>
+				<p class="description">Find the \(k\)th element of a list. The first element in the list is number 0.
+</p>
+				<p class="abstract-example">\( k, (x_0,x_1,\ldots,x_n)\mapsto x_{k} \)</p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 4<span class="difficulty-1"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> length_</span></h4>
+				<p class="description">Find the number of elements of a list.
+</p>
+				<p class="abstract-example">\( (x_1,\ldots,x_n)\mapsto n \)</p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 5<span class="difficulty-1"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> reverse_</span></h4>
+				<p class="description">Reverse a list.
+</p>
+				<p class="abstract-example">\( (x_1,x_2,\ldots,x_{n-1},x_n)\mapsto  (x_n,x_{n-1},\ldots,x_{2},x_1)\)</p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 6<span class="difficulty-1"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> palindromic_</span></h4>
+				<p class="description">Find out whether a list is a palindrome. A palindrome can be read forward or backward. For example &quot;xamax&quot;.</p>
+				<p class="abstract-example">\( (x_1,x_2,\ldots,x_{n-1},x_n)\mapsto \mathbf{true} \) if \(x_i=x_{n-1}\)</p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 7<span class="difficulty-2"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> flatten_</span></h4>
+				<p class="description">Flatten a nested list structure.
+</p>
+				<p class="abstract-example">\( \big(x_1,(x_2,x_3),((x_4,\ldots\big)\mapsto (x_1,x_2,x_3,x_4,\ldots) \)</p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 8<span class="difficulty-2"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> deduplicate_</span></h4>
+				<p class="description">Eliminate consecutive duplicates of list elements.
+</p>
+				<p class="abstract-example">\( (a,a,a,b,a,a,c,c,c,\ldots)\mapsto (a,b,a,c,\ldots) \)</p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 9<span class="difficulty-2"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> pack_duplicates_</span></h4>
+				<p class="description">Pack consecutive duplicates of list elements into sublists.
+If a list contains repeated elements they should be placed in separate sublists.
+</p>
+				<p class="abstract-example">\( (a,a,a,b,a,a,c,c,c,\ldots)\mapsto \big((a,a,a),(b),(a,a),(c,c,c),\ldots\big) \)</p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 10<span class="difficulty-1"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> runlength_encode_</span></h4>
+				<p class="description">Runlength encoding of a list.
+Use the result of earlier problems to implement the so-called run-length encoding data compression method. Consecutive duplicates of elements are encoded as lists \((e,n)\) where \(e\) is the value of the element and \(n\) is the number of duplicates.
+</p>
+				<p class="abstract-example">\( (a,a,a,b,a,a,c,c,c,\ldots)\mapsto \big((a,3),(b,1),(a,2),(c,3),\ldots\big) \)</p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 11<span class="difficulty-1"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> runlength_encode_b_</span></h4>
+				<p class="description">Modified run-length encoding.
+Modify the result of problem 10 in such a way that if an element has no duplicates it is simply copied into the result list. Only elements with duplicates are transferred as \((e,n)\) lists.</p>
+				<p class="abstract-example">\( (a,a,a,b,a,a,c,c,c,\ldots)\mapsto \big((a,3),b,(a,2),(c,3),\ldots\big) \)</p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 12<span class="difficulty-2"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> runlength_decode_</span></h4>
+				<p class="description">Decode a run-length encoded list.
+</p>
+				<p class="abstract-example">\( \big((a,3),b,(a,2),(c,3),\ldots\big) \mapsto (a,a,a,b,a,a,c,c,c,\ldots) \)</p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 13<span class="difficulty-2"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
+				<p class="description">(**) Run-length encoding of a list (direct solution). 
+</p>
+				<p class="abstract-example"></p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 14<span class="difficulty-1"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> double_</span></h4>
+				<p class="description">Double each element of a list.
+</p>
+				<p class="abstract-example">\( (x_1,x_2,x_3,\ldots)\mapsto (x_1,x_2,x_2,x_2,x_3,x_3,\ldots) \)</p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 15<span class="difficulty-2"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> repeat_</span></h4>
+				<p class="description">Repeat each element of a list a given number of times.
+</p>
+				<p class="abstract-example">\( k,(x_1,x_2,\ldots)\mapsto (\underbrace{x_1,\ldots,x_1}_{k},\underbrace{x_2,\ldots,x_2}_{k},\ldots) \)</p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 16<span class="difficulty-2"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> drop_sequence_</span></h4>
+				<p class="description">Drop every \(k\)th element from a list.
+</p>
+				<p class="abstract-example">\( k,(x_1,x_2,\ldots)\mapsto (x_1,x_2,\ldots,x_{k-1},x_{k+1},\ldots,x_{2k-1},x_{2k+1},\ldots) \)</p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 17<span class="difficulty-1"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> split_</span></h4>
+				<p class="description">When given a length, split a list into two parts with the first part being of the specified length.
+</p>
+				<p class="abstract-example">\( k,(x_1,x_2,\ldots,x_n)\mapsto (x_1,x_2,\ldots,x_{k}),(x_{k+1},\ldots,x_{n}) \)</p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 18<span class="difficulty-2"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> slice_</span></h4>
+				<p class="description">Extract a slice from a list. Given numbers \(i\) and \(j\), return a sublist consisting of elements whose indices are between \(i\) and \(j\).</p>
+				<p class="abstract-example"></p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 19<span class="difficulty-2"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> roll_</span></h4>
+				<p class="description">Rotate a list \(n\) places to the left.
+</p>
+				<p class="abstract-example"></p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 20<span class="difficulty-1"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> pluck_</span></h4>
+				<p class="description">Remove the K'th element from a list and return that element and the list with that element removed.
+</p>
+				<p class="abstract-example"></p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 21<span class="difficulty-null"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
+				<p class="description">Insert an element at a given position into a list.
+</p>
+				<p class="abstract-example"></p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 22<span class="difficulty-null"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
+				<p class="description">Create a list containing all integers within a given range.
+</p>
+				<p class="abstract-example"></p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 23<span class="difficulty-null"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
+				<p class="description">Extract a given number of randomly selected elements from a list. 
+</p>
+				<p class="abstract-example"></p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 24<span class="difficulty-null"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
+				<p class="description">Lotto: Draw N different random numbers from the set 1..M.
+</p>
+				<p class="abstract-example"></p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 25<span class="difficulty-null"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
+				<p class="description">Generate a random permutation of the elements of a list.
+</p>
+				<p class="abstract-example"></p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 26<span class="difficulty-null"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
+				<p class="description">(**) Generate the combinations of K distinct objects chosen from the N elements of a list
+</p>
+				<p class="abstract-example"></p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 27<span class="difficulty-null"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
+				<p class="description">Group the elements of a set into disjoint subsets.
+</p>
+				<p class="abstract-example"></p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 28<span class="difficulty-null"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
+				<p class="description">Sorting a list of lists according to length of sublists
+</p>
+				<p class="abstract-example"></p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 31<span class="difficulty-null"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
+				<p class="description">(**) Determine whether a given integer number is prime.
+</p>
+				<p class="abstract-example"></p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 32<span class="difficulty-null"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
+				<p class="description">(**) Determine the greatest common divisor of two positive integer numbers. Use &lt;a rel=&quot;nofollow&quot; class=&quot;external text&quot; href=&quot;http://en.wikipedia.org/wiki/Euclidean_algorithm&quot;&gt;Euclid's algorithm&lt;/a&gt;.
+</p>
+				<p class="abstract-example"></p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 33<span class="difficulty-null"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
+				<p class="description">(*) Determine whether two positive integer numbers are coprime. Two numbers are coprime if their greatest common divisor equals 1.
+</p>
+				<p class="abstract-example"></p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 34<span class="difficulty-null"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
+				<p class="description">(**) Calculate Euler's totient function phi(m).
+</p>
+				<p class="abstract-example"></p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 35<span class="difficulty-null"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
+				<p class="description">(**) Determine the prime factors of a given positive integer. Construct a flat list containing the prime factors in ascending order.
+</p>
+				<p class="abstract-example"></p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 36<span class="difficulty-null"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
+				<p class="description">(**) Determine the prime factors of a given positive integer.
+</p>
+				<p class="abstract-example"></p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 37<span class="difficulty-null"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
+				<p class="description">(**) Calculate Euler's totient function phi(m) (improved).
+</p>
+				<p class="abstract-example"></p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 38<span class="difficulty-null"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
+				<p class="description">(*) Compare the two methods of calculating Euler's totient function.
+</p>
+				<p class="abstract-example"></p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 39<span class="difficulty-null"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
+				<p class="description">(*) A list of prime numbers.
+</p>
+				<p class="abstract-example"></p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 40<span class="difficulty-null"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
+				<p class="description">(**) Goldbach's conjecture.
+</p>
+				<p class="abstract-example"></p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 41<span class="difficulty-null"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
+				<p class="description">(**) Given a range of integers by its lower and upper limit, print a list of all even numbers and their Goldbach composition.
+</p>
+				<p class="abstract-example"></p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 46<span class="difficulty-null"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
+				<p class="description">(**) Define predicates and/2, or/2, nand/2, nor/2, xor/2, impl/2 and equ/2 (for logical equivalence) which succeed or fail according to the result of their respective operations; e.g. and(A,B) will succeed, if and only if both A and B succeed.
+</p>
+				<p class="abstract-example"></p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 47<span class="difficulty-null"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
+				<p class="description">(*) Truth tables for logical expressions (2).
+</p>
+				<p class="abstract-example"></p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 48<span class="difficulty-null"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
+				<p class="description">(**) Truth tables for logical expressions (3).
+</p>
+				<p class="abstract-example"></p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 49<span class="difficulty-null"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
+				<p class="description">(**) Gray codes.
+</p>
+				<p class="abstract-example"></p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 50<span class="difficulty-null"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
+				<p class="description">(***) Huffman codes.
+</p>
+				<p class="abstract-example"></p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+	</div>
+</body>

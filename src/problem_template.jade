@@ -1,0 +1,44 @@
+doctype html
+
+- var language = global.problems.language || "haskell"
+- var problemlist = global.problems.problemlist || {}
+
+head 
+    title 99 Problems to Learn a Programming Language
+
+    link(rel="stylesheet", href="css/99problems.css", type="text/css")
+
+    // MathJax math rendering
+    script(async="true", type="text/javascript", src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML")
+
+    // CodeMirror syntax highlighting
+    link(rel="stylesheet", href="//cdn.jsdelivr.net/codemirror/latest/codemirror.css")
+    script(async="true", type="text/javascript", href="//cdn.jsdelivr.net/codemirror/latest/codemirror.min.js")
+    script(async="true", type="text/javascript", href="//cdn.jsdelivr.net/codemirror/latest/mode/haskell.js")
+
+
+body
+    div(id="nav")
+
+    div(class="banner")
+        h1 99 Problems to Learn a Programming Language
+        h2 in #{language}
+
+
+    div(id="problems")
+        each val, index in problemlist
+            div(class="problem")
+                h3(class="problem-num") Problem #{index}
+                    span(class="difficulty-#{val['difficulty']}")
+                div(class="problem-contents")
+                    h4(class="function-name-header") Function Name:
+                        span(class="function-name")  #{val['function-name']}
+                    p(class="description") #{val.description}
+                    p(class="abstract-example") #{val['abstract-example']}
+                    h4(class="examples") Examples:
+                        div(class="example-contents")
+                            for e in ((val['language-overrides'][language] || {}).examples || [])
+                                pre #{e.input}
+                                pre #{e.output}
+
+
