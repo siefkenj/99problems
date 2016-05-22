@@ -9,7 +9,7 @@
 		"haskell": {
 			"examples": [
 				{"input": "FN [1..10]", "output": "10"},
-				{"input": "FN \"abc\"", "output": "c"}
+				{"input": "FN \"abc\"", "output": "'c'"}
 			]
 		}
 	}
@@ -24,7 +24,7 @@
 		"haskell": {
 			"examples": [
 				{"input": "FN [1..10]", "output": "9"},
-				{"input": "FN \"abc\"", "output": "b"}
+				{"input": "FN \"abc\"", "output": "'b'"}
 			]
 		}
 	}
@@ -35,7 +35,14 @@
         "function-name": "element at index",
 	"abstract-example": "\\( k, (x_0,x_1,\\ldots,x_n)\\mapsto x_{k} \\)",
 	"category": "Lists",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN 2 [0..10]", "output": "2"},
+				{"input": "FN 1 \"abc\"", "output": "'b'"}
+			]
+		}
+	}
     },
     "4": {
         "description": "Find the number of elements of a list.\n",
@@ -44,7 +51,14 @@
         "example": "",
 	"abstract-example": "\\( (x_1,\\ldots,x_n)\\mapsto n \\)",
 	"category": "Lists",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN [1..10]", "output": "10"},
+				{"input": "FN \"abc\"", "output": "3"}
+			]
+		}
+	}
     },
     "5": {
         "description": "Reverse a list.\n",
@@ -52,15 +66,29 @@
         "function-name": "reverse",
 	"abstract-example": "\\( (x_1,x_2,\\ldots,x_{n-1},x_n)\\mapsto  (x_n,x_{n-1},\\ldots,x_{2},x_1)\\)",
 	"category": "Lists",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN [1..10]", "output": "[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]"},
+				{"input": "FN \"abc\"", "output": "\"cba\""}
+			]
+		}
+	}
     },
     "6": {
         "description": "Find out whether a list is a palindrome. A palindrome can be read forward or backward. For example \"xamax\".",
         "difficulty": 1,
         "function-name": "palindromic",
-	"abstract-example": "\\( (x_1,x_2,\\ldots,x_{n-1},x_n)\\mapsto \\mathbf{true} \\) if \\(x_i=x_{n-1}\\)",
+	"abstract-example": "\\( (x_1,x_2,\\ldots,x_{n-1},x_n)\\mapsto \\mathbf{True} \\) if \\(x_i=x_{n-1}\\) and \\(\\mathbf{False}\\) otherwise.",
 	"category": "Lists",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN \"abc\"", "output": "False"},
+				{"input": "FN \"abcba\"", "output": "True"}
+			]
+		}
+	}
     },
     "7": {
         "description": "Flatten a nested list structure.\n",
@@ -76,7 +104,13 @@
         "function-name": "deduplicate",
 	"abstract-example": "\\( (a,a,a,b,a,a,c,c,c,\\ldots)\\mapsto (a,b,a,c,\\ldots) \\)",
 	"category": "Lists",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN \"aaaabccaadeeee\"", "output": "\"abcade\""}
+			]
+		}
+	}
     },
     "9": {
         "description": "Pack consecutive duplicates of list elements into sublists.\nIf a list contains repeated elements they should be placed in separate sublists.\n",
@@ -84,7 +118,13 @@
         "function-name": "pack duplicates",
 	"abstract-example": "\\( (a,a,a,b,a,a,c,c,c,\\ldots)\\mapsto \\big((a,a,a),(b),(a,a),(c,c,c),\\ldots\\big) \\)",
 	"category": "Lists",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN \"aaaabccaadeeee\"", "output": "[\"aaaa\",\"b\",\"cc\",\"aa\",\"d\",\"eeee\"]"}
+			]
+		}
+	}
     },
     "10": {
         "description": "Runlength encoding of a list.\nUse the result of earlier problems to implement the so-called run-length encoding data compression method. Consecutive duplicates of elements are encoded as lists \\((e,n)\\) where \\(e\\) is the value of the element and \\(n\\) is the number of duplicates.\n",
@@ -92,7 +132,13 @@
         "function-name": "runlength encode",
 	"abstract-example": "\\( (a,a,a,b,a,a,c,c,c,\\ldots)\\mapsto \\big((a,3),(b,1),(a,2),(c,3),\\ldots\\big) \\)",
 	"category": "Lists",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN \"aaaabccaadeeee\"", "output": "[('a',3),('b',1),('c',2),('a',2),('d',1),('e',4)]"}
+			]
+		}
+	}
     },
     "11": {
         "description": "Modified run-length encoding.\nModify the result of problem 10 in such a way that if an element has no duplicates it is simply copied into the result list. Only elements with duplicates are transferred as \\((e,n)\\) lists.",
@@ -125,7 +171,13 @@
 	"abstract-example": "\\( (x_1,x_2,x_3,\\ldots)\\mapsto (x_1,x_2,x_2,x_2,x_3,x_3,\\ldots) \\)",
         "example": "",
 	"category": "Lists",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN [1..4]", "output": "[1,1,2,2,3,3,4,4]"}
+			]
+		}
+	}
     },
     "15": {
         "description": "Repeat each element of a list a given number of times.\n",
@@ -133,7 +185,13 @@
         "function-name": "repeat",
 	"abstract-example": "\\( k,(x_1,x_2,\\ldots)\\mapsto (\\underbrace{x_1,\\ldots,x_1}_{k},\\underbrace{x_2,\\ldots,x_2}_{k},\\ldots) \\)",
 	"category": "Lists",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN 3 [1..4]", "output": "[1,1,1,2,2,2,3,3,3,4,4,4]"}
+			]
+		}
+	}
     },
     "16": {
         "description": "Drop every \\(k\\)th element from a list.\n",
@@ -141,7 +199,13 @@
         "function-name": "drop sequence",
 	"abstract-example": "\\( k,(x_1,x_2,\\ldots)\\mapsto (x_1,x_2,\\ldots,x_{k-1},x_{k+1},\\ldots,x_{2k-1},x_{2k+1},\\ldots) \\)",
 	"category": "Lists",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN 3 [1..10]", "output": "[1,2,4,5,7,8,10]"}
+			]
+		}
+	}
     },
     "17": {
         "description": "When given a length, split a list into two parts with the first part being of the specified length.\n",
@@ -155,142 +219,156 @@
         "description": "Extract a slice from a list. Given numbers \\(i\\) and \\(j\\), return a sublist consisting of elements whose indices are between \\(i\\) and \\(j\\).",
         "difficulty": 2,
         "function-name": "slice",
-        "example": "",
+        "abstract-example": "\\( i, j, (x_1,x_2,\\ldots,x_n)\\mapsto (x_i,x_{i+1},\\ldots,x_{j}) \\)",
 	"category": "Lists",
         "language-overrides": {}
     },
     "19": {
-        "description": "Rotate a list \\(n\\) places to the left.\n",
+        "description": "Rotate a list \\(k\\) places to the left.\n",
         "difficulty": 2,
         "function-name": "roll",
-        "example": "",
+        "abstract-example": "\\( k, (x_0,x_2,\\ldots,x_n)\\mapsto (x_k,x_{k+1},\\ldots,x_{n}, x_0,x_1,\\ldots,x_{k-1}) \\)",
 	"category": "Lists",
         "language-overrides": {}
     },
     "20": {
-        "description": "Remove the K'th element from a list and return that element and the list with that element removed.\n",
+        "description": "Remove the \\(k\\)th element from a list and return that element and the list with that element removed.\n",
         "difficulty": 1,
         "function-name": "pluck",
-        "example": "",
+        "abstract-example": "\\( k, (x_0,x_2,\\ldots,x_n)\\mapsto x_k, (x_0,\\ldots,x_{k-1},x_{k+1},\\ldots,x_n) \\)",
 	"category": "Lists",
         "language-overrides": {}
     },
     "21": {
         "description": "Insert an element at a given position into a list.\n",
-        "difficulty": null,
-        "function-name": "",
-        "example": "",
+        "difficulty": 1,
+        "function-name": "insert",
+        "abstract-example": "\\( k,e, (x_0,x_2,\\ldots,x_n)\\mapsto x_k, (x_0,\\ldots,x_{k-1},e,x_{k},x_{k+1},\\ldots,x_n) \\)",
 	"category": "Lists",
         "language-overrides": {}
     },
     "22": {
         "description": "Create a list containing all integers within a given range.\n",
-        "difficulty": null,
-        "function-name": "",
-        "example": "",
+        "difficulty": 1,
+        "function-name": "range",
+        "abstract-example": "\\( i, j\\mapsto (i, i+1, \\ldots, j-1, j) \\)",
 	"category": "Lists",
         "language-overrides": {}
     },
     "23": {
         "description": "Extract a given number of randomly selected elements from a list. \n",
-        "difficulty": null,
-        "function-name": "",
-        "example": "",
+        "difficulty": 2,
+        "function-name": "take random",
+        "abstract-example": "\\( i, (x_1,\\ldots,x_n)\\mapsto (x_{a_1}, x_{a_2}, \\ldots, x_{a_i}) \\) where \\((a_k)_{k=1,\\ldots, i}\\) is a random sequence with no repetitions.",
 	"category": "Lists",
         "language-overrides": {}
     },
     "24": {
-        "description": "Lotto: Draw N different random numbers from the set 1..M.\n",
-        "difficulty": null,
-        "function-name": "",
-        "example": "",
+        "description": "Lotto: Draw \\(k\\) different random numbers from the set \\(1,2,\\ldots, k\\).\n",
+        "difficulty": 1,
+        "function-name": "lotto",
+        "abstract-example": "\\( i \\mapsto ({a_1}, {a_2}, \\ldots, {a_i}) \\) where \\((a_k)_{k=1,\\ldots, i}\\) is a random sequence of integers with no repetitions.",
 	"category": "Lists",
         "language-overrides": {}
     },
     "25": {
         "description": "Generate a random permutation of the elements of a list.\n",
-        "difficulty": null,
-        "function-name": "",
-        "example": "",
+        "difficulty": 1,
+        "function-name": "permute",
+        "abstract-example": "\\( (x_1,\\ldots,x_n)\\mapsto (x_{a_1}, x_{a_2}, \\ldots, x_{a_n}) \\) where \\((a_k)_{k=1,\\ldots, n}\\) is a random permutation of \\(1,2,\\ldots,n\\).",
 	"category": "Lists",
         "language-overrides": {}
     },
     "26": {
-        "description": "(**) Generate the combinations of K distinct objects chosen from the N elements of a list\n",
-        "difficulty": null,
-        "function-name": "",
-        "example": "",
+        "description": "Generate all combinations of \\(k\\) elements from a list.  For example, you might want to find all possible committees of size 3 from a list of names of size 12.  There would be 220 such possibilities since the order of the comittee doesn't matter for combinations.  You can read more about combinations at <a href='https://en.wikipedia.org/wiki/Combination'>Wikipedia: Combinations</a>.",
+        "difficulty": 2,
+        "abstract-example": "\\( k, (x_1,\\ldots,x_n)\\mapsto \\big((x_1,\\ldots,x_k), (x_1,x_3,\\ldots,x_{k+1}),(x_1,x_2,x_4,\\ldots,x_{k+1}),\\ldots  \\big)\\)",
+        "function-name": "combinations",
 	"category": "Lists",
         "language-overrides": {}
     },
-    "27": {
-        "description": "Group the elements of a set into disjoint subsets.\n",
-        "difficulty": null,
-        "function-name": "",
-        "example": "",
+    "27a": {
+        "description": "List every way that a set of size 9 can be split into disjoint groups of sizes 2,3, and 4.",
+        "difficulty": 2,
+        "function-name": "group234",
+        "abstract-example": "\\( (x_1,\\ldots,x_9)\\mapsto \\big([(x_1,x_2),(x_3,x_4,x_5),(x_6,\\ldots,x_9)], [(x_1,x_3),(x_2,x_4,x_5),(x_6,\\ldots,x_9)], \\ldots \\big)\\)",
 	"category": "Lists",
         "language-overrides": {}
     },
-    "28": {
-        "description": "Sorting a list of lists according to length of sublists\n",
-        "difficulty": null,
-        "function-name": "",
-        "example": "",
+    "27b": {
+        "description": "Given a list of sizes \\((a,b,c,\\ldots)\\), list every way that a set of size \\(k\\) can be split into disjoint groups of sizes \\(a,b,c,\\ldots\\).",
+        "difficulty": 2,
+        "function-name": "group",
+	"category": "Lists",
+        "language-overrides": {}
+    },
+    "28a": {
+        "description": "Sort a list of lists according to length of sublists.\n",
+        "difficulty": 2,
+        "function-name": "sort by length",
+        "abstract-example": "\\( (L_1,\\ldots,L_n)\\mapsto (L_{a_1},\\ldots,L_{a_n})\\) satisfying \\(|L_{a_i}|\\leq |L_{a_j}|\\) whenever \\(i\\leq j\\).",
+	"category": "Lists",
+        "language-overrides": {}
+    },
+    "28b": {
+        "description": "Sort a list of lists according the frequency with which the length of the list appears.\n",
+        "difficulty": 2,
+        "function-name": "sort by length frequency",
+        "abstract-example": "\\( (L_1,\\ldots,L_n)\\mapsto (L_{a_1},\\ldots,L_{a_n})\\) satisfying \\(\\#\\{k:|L_{k}|=|L_{a_i}|\\}\\leq \\#\\{k:|L_{k}|=|L_{a_j}|\\}\\) whenever \\(i\\leq j\\).",
 	"category": "Lists",
         "language-overrides": {}
     },
     "31": {
-        "description": "(**) Determine whether a given integer number is prime.\n",
-        "difficulty": null,
-        "function-name": "",
-        "example": "",
+        "description": "Determine whether a given positive integer number is prime.\n",
+        "difficulty": 2,
+        "function-name": "prime",
+        "abstract-example": "\\( n\\mapsto \\mathbf{True}\\) if \\(n\\) is prime and \\(\\mathbf{False}\\) otherwise.",
 	"category": "Arithmetic",
         "language-overrides": {}
     },
     "32": {
-        "description": "(**) Determine the greatest common divisor of two positive integer numbers. Use <a rel=\"nofollow\" class=\"external text\" href=\"http://en.wikipedia.org/wiki/Euclidean_algorithm\">Euclid's algorithm</a>.\n",
-        "difficulty": null,
-        "function-name": "",
-        "example": "",
+        "description": "Determine the greatest common divisor of two integers. Use <a href='http://en.wikipedia.org/wiki/Euclidean_algorithm'>Euclid's algorithm</a>.\n",
+        "difficulty": 2,
+        "function-name": "gcd",
+        "abstract-example": "\\( a,b\\mapsto k\\) satisfying \\(k\\geq 0\\) and for any \\(d\\) so that \\(d| a\\) and \\(d| b\\) then \\(d| k\\).",
 	"category": "Arithmetic",
         "language-overrides": {}
     },
     "33": {
-        "description": "(*) Determine whether two positive integer numbers are coprime. Two numbers are coprime if their greatest common divisor equals 1.\n",
-        "difficulty": null,
-        "function-name": "",
-        "example": "",
+        "description": "Determine whether two positive integer numbers are coprime. Two numbers are coprime if their greatest common divisor equals 1.\n",
+        "difficulty": 1,
+        "function-name": "coprime",
+        "abstract-example": "\\( a,b\\mapsto \\mathbf{True}\\) if \\(\\mathrm{gcd}(a,b)=1\\) and \\(\\mathbf{False}\\) otherwise.",
         "language-overrides": {}
     },
     "34": {
-        "description": "(**) Calculate Euler's totient function phi(m).\n",
-        "difficulty": null,
-        "function-name": "",
-        "example": "",
+        "description": "Calculate Euler's totient function \\(\\phi(n)\\).  That is, the number of integers in the range \\(1,2,\\ldots,n\\) that are relatively prime to \\(n\\).",
+        "difficulty": 2,
+        "function-name": "totient",
+        "abstract-example": "\\( \\displaystyle n\\mapsto \\sum_{\\substack{1\\leq i\\leq n\\\\\\mathrm{gcd}(i,n)=1}} 1\\)",
 	"category": "Arithmetic",
         "language-overrides": {}
     },
     "35": {
-        "description": "(**) Determine the prime factors of a given positive integer. Construct a flat list containing the prime factors in ascending order.\n",
-        "difficulty": null,
-        "function-name": "",
-        "example": "",
+        "description": "List the prime factors of a given positive integer in ascending order, repeating factors if they occur multiple times.",
+        "difficulty": 2,
+        "function-name": "factor",
+        "abstract-example": "\\( n\\mapsto (p_1,p_2,\\ldots,p_k)\\) satisfying that \\(p_i\\) is prime for all \\(i\\), \\(p_i\\leq p_j\\) if \\(i\\leq j\\), and \\(\\displaystyle n=p_1p_2\\cdots p_k\\).",
 	"category": "Arithmetic",
         "language-overrides": {}
     },
     "36": {
-        "description": "(**) Determine the prime factors of a given positive integer.\n",
-        "difficulty": null,
-        "function-name": "",
-        "example": "",
+        "description": "List the prime factors of a given number and their multiplicity.",
+        "difficulty": 2,
+        "function-name": "factors",
+        "abstract-example": "\\( n\\mapsto \\big((p_1,a_1),(p_2,a_2),\\ldots,(p_k,a_k)\\big)\\) satisfying that \\(p_i\\) is prime for all \\(i\\), \\(p_i\\leq p_j\\) if \\(i\\leq j\\), and \\(n=p_1^{a_1}p_2^{a_2}\\cdots p_k^{a_k}\\).",
 	"category": "Arithmetic",
         "language-overrides": {}
     },
     "37": {
-        "description": "(**) Calculate Euler's totient function phi(m) (improved).\n",
-        "difficulty": null,
-        "function-name": "",
-        "example": "",
+        "description": "Calculate Euler's totient function \\(\\phi(n)\\) using the efficient formula \\[\\phi(n)=(p_1-1)p_1^{a_1-1}(p_2-1)p_2^{a_2-1}\\cdots(p_k-1)p_k^{a_k-1}\\] where \\(n=p_1^{a_1}p_2^{a_2}\\cdots p_k^{a_k}\\) is the prime factorization of \\(n\\).",
+        "difficulty": 2,
+        "function-name": "efficient totient",
 	"category": "Arithmetic",
         "language-overrides": {}
     },
@@ -298,23 +376,22 @@
         "description": "(*) Compare the two methods of calculating Euler's totient function.\n",
         "difficulty": null,
         "function-name": "",
-        "example": "",
 	"category": "Arithmetic",
         "language-overrides": {}
     },
     "39": {
-        "description": "(*) A list of prime numbers.\n",
-        "difficulty": null,
-        "function-name": "",
-        "example": "",
+        "description": "List all prime numbers in a given range.",
+        "difficulty": 1,
+        "function-name": "primes",
+        "abstract-example": "\\( i,j\\mapsto (p_1,p_2,\\ldots, p_k)\\) where \\(i\\leq p_n\\leq j\\) exhaustively list the primes between \\(i\\) and \\(j\\).",
 	"category": "Arithmetic",
         "language-overrides": {}
     },
     "40": {
-        "description": "(**) Goldbach's conjecture.\n",
-        "difficulty": null,
-        "function-name": "",
-        "example": "",
+        "description": "Goldbach's conjecture states that any <i>even</i> integer greater than 2 can be written as the sum of two primes.  For example, \\(28=5+23\\).  This conjecture has not been proved, but has been verified up to very large numbers.  Given a number, write it as the sum of two primes.",
+        "difficulty": 2,
+        "function-name": "goldbach",
+        "abstract-example": "\\( 2n\\mapsto p_1,p_2\\) where \\(p_1,p_2\\) are prime and \\(2n=p_1+p_2\\).",
 	"category": "Arithmetic",
         "language-overrides": {}
     },
@@ -322,7 +399,6 @@
         "description": "(**) Given a range of integers by its lower and upper limit, print a list of all even numbers and their Goldbach composition.\n",
         "difficulty": null,
         "function-name": "",
-        "example": "",
 	"category": "Arithmetic",
         "language-overrides": {}
     },
@@ -330,7 +406,6 @@
         "description": "(**) Define predicates and/2, or/2, nand/2, nor/2, xor/2, impl/2 and equ/2 (for logical equivalence) which succeed or fail according to the result of their respective operations; e.g. and(A,B) will succeed, if and only if both A and B succeed.\n",
         "difficulty": null,
         "function-name": "",
-        "example": "",
 	"category": "Arithmetic",
         "language-overrides": {}
     },
@@ -338,7 +413,6 @@
         "description": "(*) Truth tables for logical expressions (2).\n",
         "difficulty": null,
         "function-name": "",
-        "example": "",
 	"category": "Arithmetic",
         "language-overrides": {}
     },
@@ -346,7 +420,6 @@
         "description": "(**) Truth tables for logical expressions (3).\n",
         "difficulty": null,
         "function-name": "",
-        "example": "",
 	"category": "Arithmetic",
         "language-overrides": {}
     },
@@ -354,7 +427,6 @@
         "description": "(**) Gray codes.\n",
         "difficulty": null,
         "function-name": "",
-        "example": "",
 	"category": "Arithmetic",
         "language-overrides": {}
     },
@@ -362,7 +434,6 @@
         "description": "(***) Huffman codes.\n",
         "difficulty": null,
         "function-name": "",
-        "example": "",
 	"category": "Arithmetic",
         "language-overrides": {}
     }

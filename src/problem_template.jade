@@ -26,15 +26,16 @@ body
 
 
     div(id="problems")
-        each val, index in problemlist
+        each index in Object.keys(problemlist).sort(function(a, b) {var numcompare=+/\d+/.exec(a)[0] - +/\d+/.exec(b)[0]; return numcompare == 0 ? a > b : numcompare;})
+            - var val = problemlist[index]
             div(class="problem")
                 h3(class="problem-num") Problem #{index}
                     span(class="difficulty-#{val['difficulty']}")
                 div(class="problem-contents")
                     h4(class="function-name-header") Function Name:
                         span(class="function-name")  #{val['function-name']}
-                    p(class="description") #{val.description}
-                    p(class="abstract-example") #{val['abstract-example']}
+                    p(class="description") !{val.description}
+                    p(class="abstract-example") !{val['abstract-example']}
                     h4(class="examples") Examples:
                         div(class="example-contents")
                             for e in ((val['language-overrides'][language] || {}).examples || [])
