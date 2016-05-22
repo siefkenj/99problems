@@ -15,7 +15,7 @@
 		"prolog": {
 			"examples": [
 				{"input": "FN([1,2,3,4],X).", "output": "X = 4"},
-				{"input": "FN([a,b,c],X).", "output": "X = c"},
+				{"input": "FN([a,b,c],X).", "output": "X = c"}
 			]
 		}
 	}
@@ -36,7 +36,7 @@
 		"prolog": {
 			"examples": [
 				{"input": "FN([1,2,3,4],X).", "output": "X = 3"},
-				{"input": "FN([a,b,c],X).", "output": "X = b"},
+				{"input": "FN([a,b,c],X).", "output": "X = b"}
 			]
 		}
 	}
@@ -57,7 +57,7 @@
 		"prolog": {
 			"examples": [
 				{"input": "FN(2,[0,1,2,3,4],X).", "output": "X = 2"},
-				{"input": "FN(1,[a,b,c],X).", "output": "X = b"},
+				{"input": "FN(1,[a,b,c],X).", "output": "X = b"}
 			]
 		}
 	}
@@ -79,7 +79,7 @@
 		"prolog": {
 			"examples": [
 				{"input": "FN([1,2,3,4],X).", "output": "X = 4"},
-				{"input": "FN([a,b,c],X).", "output": "X = 3"},
+				{"input": "FN([a,b,c],X).", "output": "X = 3"}
 			]
 		}
 	}
@@ -100,7 +100,7 @@
 		"prolog": {
 			"examples": [
 				{"input": "FN([1,2,3,4],X).", "output": "X = [4,3,2,1]"},
-				{"input": "FN([a,b,c],X).", "output": "X = [c,b,a]"},
+				{"input": "FN([a,b,c],X).", "output": "X = [c,b,a]"}
 			]
 		}
 	}
@@ -121,7 +121,7 @@
 		"prolog": {
 			"examples": [
 				{"input": "FN([1,2,3,4]).", "output": "no"},
-				{"input": "FN([a,b,c,b,a]).", "output": "yes"},
+				{"input": "FN([a,b,c,b,a]).", "output": "yes"}
 			]
 		}
 	}
@@ -145,7 +145,7 @@
 		"prolog": {
 			"examples": [
 				{"input": "FN(1,X).", "output": "X = [1]"},
-				{"input": "FN([1,[[],2,[3]],4],X).", "output": "X = [1,2,3,4]"},
+				{"input": "FN([1,[[],2,[3]],4],X).", "output": "X = [1,2,3,4]"}
 			]
 		}
 	}
