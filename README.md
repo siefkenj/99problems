@@ -35,3 +35,8 @@ web server with
 	python2 -m SimpleHTTPServer
 
 and then view 99 Problems by visiting `localhost:8000/` in your webbrowser.
+
+## Contributing
+
+If you'd like to add a language to 99 Problems, just edit `src/problemlist.json` and
+add `language-overrides` for your favorite language.  Then file a pull request!

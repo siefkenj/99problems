@@ -27,7 +27,7 @@
 						<pre>last_ [1..10]</pre>
 						<pre>10</pre>
 						<pre>last_ &quot;abc&quot;</pre>
-						<pre>c</pre>
+						<pre>'c'</pre>
 					</div>
 				</h4>
 			</div>
@@ -43,7 +43,7 @@
 						<pre>penultimate_ [1..10]</pre>
 						<pre>9</pre>
 						<pre>penultimate_ &quot;abc&quot;</pre>
-						<pre>b</pre>
+						<pre>'b'</pre>
 					</div>
 				</h4>
 			</div>
@@ -57,6 +57,10 @@
 				<p class="abstract-example">\( k, (x_0,x_1,\ldots,x_n)\mapsto x_{k} \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
+						<pre>element_at_index_ 2 [0..10]</pre>
+						<pre>2</pre>
+						<pre>element_at_index_ 1 &quot;abc&quot;</pre>
+						<pre>'b'</pre>
 					</div>
 				</h4>
 			</div>
@@ -70,6 +74,10 @@
 				<p class="abstract-example">\( (x_1,\ldots,x_n)\mapsto n \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
+						<pre>length_ [1..10]</pre>
+						<pre>10</pre>
+						<pre>length_ &quot;abc&quot;</pre>
+						<pre>3</pre>
 					</div>
 				</h4>
 			</div>
@@ -83,6 +91,10 @@
 				<p class="abstract-example">\( (x_1,x_2,\ldots,x_{n-1},x_n)\mapsto  (x_n,x_{n-1},\ldots,x_{2},x_1)\)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
+						<pre>reverse_ [1..10]</pre>
+						<pre>[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]</pre>
+						<pre>reverse_ &quot;abc&quot;</pre>
+						<pre>&quot;cba&quot;</pre>
 					</div>
 				</h4>
 			</div>
@@ -91,10 +103,14 @@
 			<h3 class="problem-num">Problem 6<span class="difficulty-1"></span></h3>
 			<div class="problem-contents">
 				<h4 class="function-name-header">Function Name:<span class="function-name"> palindromic_</span></h4>
-				<p class="description">Find out whether a list is a palindrome. A palindrome can be read forward or backward. For example &quot;xamax&quot;.</p>
-				<p class="abstract-example">\( (x_1,x_2,\ldots,x_{n-1},x_n)\mapsto \mathbf{true} \) if \(x_i=x_{n-1}\)</p>
+				<p class="description">Find out whether a list is a palindrome. A palindrome can be read forward or backward. For example "xamax".</p>
+				<p class="abstract-example">\( (x_1,x_2,\ldots,x_{n-1},x_n)\mapsto \mathbf{True} \) if \(x_i=x_{n-1}\) and \(\mathbf{False}\) otherwise.</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
+						<pre>palindromic_ &quot;abc&quot;</pre>
+						<pre>False</pre>
+						<pre>palindromic_ &quot;abcba&quot;</pre>
+						<pre>True</pre>
 					</div>
 				</h4>
 			</div>
@@ -121,6 +137,8 @@
 				<p class="abstract-example">\( (a,a,a,b,a,a,c,c,c,\ldots)\mapsto (a,b,a,c,\ldots) \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
+						<pre>deduplicate_ &quot;aaaabccaadeeee&quot;</pre>
+						<pre>&quot;abcade&quot;</pre>
 					</div>
 				</h4>
 			</div>
@@ -135,6 +153,8 @@ If a list contains repeated elements they should be placed in separate sublists.
 				<p class="abstract-example">\( (a,a,a,b,a,a,c,c,c,\ldots)\mapsto \big((a,a,a),(b),(a,a),(c,c,c),\ldots\big) \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
+						<pre>pack_duplicates_ &quot;aaaabccaadeeee&quot;</pre>
+						<pre>[&quot;aaaa&quot;,&quot;b&quot;,&quot;cc&quot;,&quot;aa&quot;,&quot;d&quot;,&quot;eeee&quot;]</pre>
 					</div>
 				</h4>
 			</div>
@@ -149,6 +169,8 @@ Use the result of earlier problems to implement the so-called run-length encodin
 				<p class="abstract-example">\( (a,a,a,b,a,a,c,c,c,\ldots)\mapsto \big((a,3),(b,1),(a,2),(c,3),\ldots\big) \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
+						<pre>runlength_encode_ &quot;aaaabccaadeeee&quot;</pre>
+						<pre>[('a',3),('b',1),('c',2),('a',2),('d',1),('e',4)]</pre>
 					</div>
 				</h4>
 			</div>
@@ -201,6 +223,8 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 				<p class="abstract-example">\( (x_1,x_2,x_3,\ldots)\mapsto (x_1,x_2,x_2,x_2,x_3,x_3,\ldots) \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
+						<pre>double_ [1..4]</pre>
+						<pre>[1,1,2,2,3,3,4,4]</pre>
 					</div>
 				</h4>
 			</div>
@@ -214,6 +238,8 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 				<p class="abstract-example">\( k,(x_1,x_2,\ldots)\mapsto (\underbrace{x_1,\ldots,x_1}_{k},\underbrace{x_2,\ldots,x_2}_{k},\ldots) \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
+						<pre>repeat_ 3 [1..4]</pre>
+						<pre>[1,1,1,2,2,2,3,3,3,4,4,4]</pre>
 					</div>
 				</h4>
 			</div>
@@ -227,6 +253,8 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 				<p class="abstract-example">\( k,(x_1,x_2,\ldots)\mapsto (x_1,x_2,\ldots,x_{k-1},x_{k+1},\ldots,x_{2k-1},x_{2k+1},\ldots) \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
+						<pre>drop_sequence_ 3 [1..10]</pre>
+						<pre>[1,2,4,5,7,8,10]</pre>
 					</div>
 				</h4>
 			</div>
@@ -249,7 +277,7 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 			<div class="problem-contents">
 				<h4 class="function-name-header">Function Name:<span class="function-name"> slice_</span></h4>
 				<p class="description">Extract a slice from a list. Given numbers \(i\) and \(j\), return a sublist consisting of elements whose indices are between \(i\) and \(j\).</p>
-				<p class="abstract-example"></p>
+				<p class="abstract-example">\( i, j, (x_1,x_2,\ldots,x_n)\mapsto (x_i,x_{i+1},\ldots,x_{j}) \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
 					</div>
@@ -260,9 +288,9 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 			<h3 class="problem-num">Problem 19<span class="difficulty-2"></span></h3>
 			<div class="problem-contents">
 				<h4 class="function-name-header">Function Name:<span class="function-name"> roll_</span></h4>
-				<p class="description">Rotate a list \(n\) places to the left.
+				<p class="description">Rotate a list \(k\) places to the left.
 </p>
-				<p class="abstract-example"></p>
+				<p class="abstract-example">\( k, (x_0,x_2,\ldots,x_n)\mapsto (x_k,x_{k+1},\ldots,x_{n}, x_0,x_1,\ldots,x_{k-1}) \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
 					</div>
@@ -273,9 +301,9 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 			<h3 class="problem-num">Problem 20<span class="difficulty-1"></span></h3>
 			<div class="problem-contents">
 				<h4 class="function-name-header">Function Name:<span class="function-name"> pluck_</span></h4>
-				<p class="description">Remove the K'th element from a list and return that element and the list with that element removed.
+				<p class="description">Remove the \(k\)th element from a list and return that element and the list with that element removed.
 </p>
-				<p class="abstract-example"></p>
+				<p class="abstract-example">\( k, (x_0,x_2,\ldots,x_n)\mapsto x_k, (x_0,\ldots,x_{k-1},x_{k+1},\ldots,x_n) \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
 					</div>
@@ -283,12 +311,12 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 			</div>
 		</div>
 		<div class="problem">
-			<h3 class="problem-num">Problem 21<span class="difficulty-null"></span></h3>
+			<h3 class="problem-num">Problem 21<span class="difficulty-1"></span></h3>
 			<div class="problem-contents">
-				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
+				<h4 class="function-name-header">Function Name:<span class="function-name"> insert_</span></h4>
 				<p class="description">Insert an element at a given position into a list.
 </p>
-				<p class="abstract-example"></p>
+				<p class="abstract-example">\( k,e, (x_0,x_2,\ldots,x_n)\mapsto x_k, (x_0,\ldots,x_{k-1},e,x_{k},x_{k+1},\ldots,x_n) \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
 					</div>
@@ -296,12 +324,12 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 			</div>
 		</div>
 		<div class="problem">
-			<h3 class="problem-num">Problem 22<span class="difficulty-null"></span></h3>
+			<h3 class="problem-num">Problem 22<span class="difficulty-1"></span></h3>
 			<div class="problem-contents">
-				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
+				<h4 class="function-name-header">Function Name:<span class="function-name"> range_</span></h4>
 				<p class="description">Create a list containing all integers within a given range.
 </p>
-				<p class="abstract-example"></p>
+				<p class="abstract-example">\( i, j\mapsto (i, i+1, \ldots, j-1, j) \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
 					</div>
@@ -309,12 +337,12 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 			</div>
 		</div>
 		<div class="problem">
-			<h3 class="problem-num">Problem 23<span class="difficulty-null"></span></h3>
+			<h3 class="problem-num">Problem 23<span class="difficulty-2"></span></h3>
 			<div class="problem-contents">
-				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
+				<h4 class="function-name-header">Function Name:<span class="function-name"> take_random_</span></h4>
 				<p class="description">Extract a given number of randomly selected elements from a list. 
 </p>
-				<p class="abstract-example"></p>
+				<p class="abstract-example">\( i, (x_1,\ldots,x_n)\mapsto (x_{a_1}, x_{a_2}, \ldots, x_{a_i}) \) where \((a_k)_{k=1,\ldots, i}\) is a random sequence with no repetitions.</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
 					</div>
@@ -322,12 +350,12 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 			</div>
 		</div>
 		<div class="problem">
-			<h3 class="problem-num">Problem 24<span class="difficulty-null"></span></h3>
+			<h3 class="problem-num">Problem 24<span class="difficulty-1"></span></h3>
 			<div class="problem-contents">
-				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
-				<p class="description">Lotto: Draw N different random numbers from the set 1..M.
+				<h4 class="function-name-header">Function Name:<span class="function-name"> lotto_</span></h4>
+				<p class="description">Lotto: Draw \(k\) different random numbers from the set \(1,2,\ldots, k\).
 </p>
-				<p class="abstract-example"></p>
+				<p class="abstract-example">\( i \mapsto ({a_1}, {a_2}, \ldots, {a_i}) \) where \((a_k)_{k=1,\ldots, i}\) is a random sequence of integers with no repetitions.</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
 					</div>
@@ -335,11 +363,47 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 			</div>
 		</div>
 		<div class="problem">
-			<h3 class="problem-num">Problem 25<span class="difficulty-null"></span></h3>
+			<h3 class="problem-num">Problem 25<span class="difficulty-1"></span></h3>
 			<div class="problem-contents">
-				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
+				<h4 class="function-name-header">Function Name:<span class="function-name"> permute_</span></h4>
 				<p class="description">Generate a random permutation of the elements of a list.
 </p>
+				<p class="abstract-example">\( (x_1,\ldots,x_n)\mapsto (x_{a_1}, x_{a_2}, \ldots, x_{a_n}) \) where \((a_k)_{k=1,\ldots, n}\) is a random permutation of \(1,2,\ldots,n\).</p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 26<span class="difficulty-2"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> combinations_</span></h4>
+				<p class="description">Generate all combinations of \(k\) elements from a list.  For example, you might want to find all possible committees of size 3 from a list of names of size 12.  There would be 220 such possibilities since the order of the comittee doesn't matter for combinations.  You can read more about combinations at <a href='https://en.wikipedia.org/wiki/Combination'>Wikipedia: Combinations</a>.</p>
+				<p class="abstract-example">\( k, (x_1,\ldots,x_n)\mapsto \big((x_1,\ldots,x_k), (x_1,x_3,\ldots,x_{k+1}),(x_1,x_2,x_4,\ldots,x_{k+1}),\ldots  \big)\)</p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 27a<span class="difficulty-2"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> group234_</span></h4>
+				<p class="description">List every way that a set of size 9 can be split into disjoint groups of sizes 2,3, and 4.</p>
+				<p class="abstract-example">\( (x_1,\ldots,x_9)\mapsto \big([(x_1,x_2),(x_3,x_4,x_5),(x_6,\ldots,x_9)], [(x_1,x_3),(x_2,x_4,x_5),(x_6,\ldots,x_9)], \ldots \big)\)</p>
+				<h4 class="examples">Examples:
+					<div class="example-contents">
+					</div>
+				</h4>
+			</div>
+		</div>
+		<div class="problem">
+			<h3 class="problem-num">Problem 27b<span class="difficulty-2"></span></h3>
+			<div class="problem-contents">
+				<h4 class="function-name-header">Function Name:<span class="function-name"> group_</span></h4>
+				<p class="description">Given a list of sizes \((a,b,c,\ldots)\), list every way that a set of size \(k\) can be split into disjoint groups of sizes \(a,b,c,\ldots\).</p>
 				<p class="abstract-example"></p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
@@ -348,12 +412,12 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 			</div>
 		</div>
 		<div class="problem">
-			<h3 class="problem-num">Problem 26<span class="difficulty-null"></span></h3>
+			<h3 class="problem-num">Problem 28a<span class="difficulty-2"></span></h3>
 			<div class="problem-contents">
-				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
-				<p class="description">(**) Generate the combinations of K distinct objects chosen from the N elements of a list
+				<h4 class="function-name-header">Function Name:<span class="function-name"> sort_by_length_</span></h4>
+				<p class="description">Sort a list of lists according to length of sublists.
 </p>
-				<p class="abstract-example"></p>
+				<p class="abstract-example">\( (L_1,\ldots,L_n)\mapsto (L_{a_1},\ldots,L_{a_n})\) satisfying \(|L_{a_i}|\leq |L_{a_j}|\) whenever \(i\leq j\).</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
 					</div>
@@ -361,12 +425,12 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 			</div>
 		</div>
 		<div class="problem">
-			<h3 class="problem-num">Problem 27<span class="difficulty-null"></span></h3>
+			<h3 class="problem-num">Problem 28b<span class="difficulty-2"></span></h3>
 			<div class="problem-contents">
-				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
-				<p class="description">Group the elements of a set into disjoint subsets.
+				<h4 class="function-name-header">Function Name:<span class="function-name"> sort_by_length_frequency_</span></h4>
+				<p class="description">Sort a list of lists according the frequency with which the length of the list appears.
 </p>
-				<p class="abstract-example"></p>
+				<p class="abstract-example">\( (L_1,\ldots,L_n)\mapsto (L_{a_1},\ldots,L_{a_n})\) satisfying \(\#\{k:|L_{k}|=|L_{a_i}|\}\leq \#\{k:|L_{k}|=|L_{a_j}|\}\) whenever \(i\leq j\).</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
 					</div>
@@ -374,12 +438,12 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 			</div>
 		</div>
 		<div class="problem">
-			<h3 class="problem-num">Problem 28<span class="difficulty-null"></span></h3>
+			<h3 class="problem-num">Problem 31<span class="difficulty-2"></span></h3>
 			<div class="problem-contents">
-				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
-				<p class="description">Sorting a list of lists according to length of sublists
+				<h4 class="function-name-header">Function Name:<span class="function-name"> prime_</span></h4>
+				<p class="description">Determine whether a given positive integer number is prime.
 </p>
-				<p class="abstract-example"></p>
+				<p class="abstract-example">\( n\mapsto \mathbf{True}\) if \(n\) is prime and \(\mathbf{False}\) otherwise.</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
 					</div>
@@ -387,12 +451,12 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 			</div>
 		</div>
 		<div class="problem">
-			<h3 class="problem-num">Problem 31<span class="difficulty-null"></span></h3>
+			<h3 class="problem-num">Problem 32<span class="difficulty-2"></span></h3>
 			<div class="problem-contents">
-				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
-				<p class="description">(**) Determine whether a given integer number is prime.
+				<h4 class="function-name-header">Function Name:<span class="function-name"> gcd_</span></h4>
+				<p class="description">Determine the greatest common divisor of two integers. Use <a href='http://en.wikipedia.org/wiki/Euclidean_algorithm'>Euclid's algorithm</a>.
 </p>
-				<p class="abstract-example"></p>
+				<p class="abstract-example">\( a,b\mapsto k\) satisfying \(k\geq 0\) and for any \(d\) so that \(d| a\) and \(d| b\) then \(d| k\).</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
 					</div>
@@ -400,12 +464,12 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 			</div>
 		</div>
 		<div class="problem">
-			<h3 class="problem-num">Problem 32<span class="difficulty-null"></span></h3>
+			<h3 class="problem-num">Problem 33<span class="difficulty-1"></span></h3>
 			<div class="problem-contents">
-				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
-				<p class="description">(**) Determine the greatest common divisor of two positive integer numbers. Use &lt;a rel=&quot;nofollow&quot; class=&quot;external text&quot; href=&quot;http://en.wikipedia.org/wiki/Euclidean_algorithm&quot;&gt;Euclid's algorithm&lt;/a&gt;.
+				<h4 class="function-name-header">Function Name:<span class="function-name"> coprime_</span></h4>
+				<p class="description">Determine whether two positive integer numbers are coprime. Two numbers are coprime if their greatest common divisor equals 1.
 </p>
-				<p class="abstract-example"></p>
+				<p class="abstract-example">\( a,b\mapsto \mathbf{True}\) if \(\mathrm{gcd}(a,b)=1\) and \(\mathbf{False}\) otherwise.</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
 					</div>
@@ -413,12 +477,11 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 			</div>
 		</div>
 		<div class="problem">
-			<h3 class="problem-num">Problem 33<span class="difficulty-null"></span></h3>
+			<h3 class="problem-num">Problem 34<span class="difficulty-2"></span></h3>
 			<div class="problem-contents">
-				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
-				<p class="description">(*) Determine whether two positive integer numbers are coprime. Two numbers are coprime if their greatest common divisor equals 1.
-</p>
-				<p class="abstract-example"></p>
+				<h4 class="function-name-header">Function Name:<span class="function-name"> totient_</span></h4>
+				<p class="description">Calculate Euler's totient function \(\phi(n)\).  That is, the number of integers in the range \(1,2,\ldots,n\) that are relatively prime to \(n\).</p>
+				<p class="abstract-example">\( \displaystyle n\mapsto \sum_{\substack{1\leq i\leq n\\\mathrm{gcd}(i,n)=1}} 1\)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
 					</div>
@@ -426,12 +489,11 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 			</div>
 		</div>
 		<div class="problem">
-			<h3 class="problem-num">Problem 34<span class="difficulty-null"></span></h3>
+			<h3 class="problem-num">Problem 35<span class="difficulty-2"></span></h3>
 			<div class="problem-contents">
-				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
-				<p class="description">(**) Calculate Euler's totient function phi(m).
-</p>
-				<p class="abstract-example"></p>
+				<h4 class="function-name-header">Function Name:<span class="function-name"> factor_</span></h4>
+				<p class="description">List the prime factors of a given positive integer in ascending order, repeating factors if they occur multiple times.</p>
+				<p class="abstract-example">\( n\mapsto (p_1,p_2,\ldots,p_k)\) satisfying that \(p_i\) is prime for all \(i\), \(p_i\leq p_j\) if \(i\leq j\), and \(\displaystyle n=p_1p_2\cdots p_k\).</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
 					</div>
@@ -439,12 +501,11 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 			</div>
 		</div>
 		<div class="problem">
-			<h3 class="problem-num">Problem 35<span class="difficulty-null"></span></h3>
+			<h3 class="problem-num">Problem 36<span class="difficulty-2"></span></h3>
 			<div class="problem-contents">
-				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
-				<p class="description">(**) Determine the prime factors of a given positive integer. Construct a flat list containing the prime factors in ascending order.
-</p>
-				<p class="abstract-example"></p>
+				<h4 class="function-name-header">Function Name:<span class="function-name"> factors_</span></h4>
+				<p class="description">List the prime factors of a given number and their multiplicity.</p>
+				<p class="abstract-example">\( n\mapsto \big((p_1,a_1),(p_2,a_2),\ldots,(p_k,a_k)\big)\) satisfying that \(p_i\) is prime for all \(i\), \(p_i\leq p_j\) if \(i\leq j\), and \(n=p_1^{a_1}p_2^{a_2}\cdots p_k^{a_k}\).</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
 					</div>
@@ -452,24 +513,10 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 			</div>
 		</div>
 		<div class="problem">
-			<h3 class="problem-num">Problem 36<span class="difficulty-null"></span></h3>
+			<h3 class="problem-num">Problem 37<span class="difficulty-2"></span></h3>
 			<div class="problem-contents">
-				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
-				<p class="description">(**) Determine the prime factors of a given positive integer.
-</p>
-				<p class="abstract-example"></p>
-				<h4 class="examples">Examples:
-					<div class="example-contents">
-					</div>
-				</h4>
-			</div>
-		</div>
-		<div class="problem">
-			<h3 class="problem-num">Problem 37<span class="difficulty-null"></span></h3>
-			<div class="problem-contents">
-				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
-				<p class="description">(**) Calculate Euler's totient function phi(m) (improved).
-</p>
+				<h4 class="function-name-header">Function Name:<span class="function-name"> efficient_totient_</span></h4>
+				<p class="description">Calculate Euler's totient function \(\phi(n)\) using the efficient formula \[\phi(n)=(p_1-1)p_1^{a_1-1}(p_2-1)p_2^{a_2-1}\cdots(p_k-1)p_k^{a_k-1}\] where \(n=p_1^{a_1}p_2^{a_2}\cdots p_k^{a_k}\) is the prime factorization of \(n\).</p>
 				<p class="abstract-example"></p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
@@ -491,12 +538,11 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 			</div>
 		</div>
 		<div class="problem">
-			<h3 class="problem-num">Problem 39<span class="difficulty-null"></span></h3>
+			<h3 class="problem-num">Problem 39<span class="difficulty-1"></span></h3>
 			<div class="problem-contents">
-				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
-				<p class="description">(*) A list of prime numbers.
-</p>
-				<p class="abstract-example"></p>
+				<h4 class="function-name-header">Function Name:<span class="function-name"> primes_</span></h4>
+				<p class="description">List all prime numbers in a given range.</p>
+				<p class="abstract-example">\( i,j\mapsto (p_1,p_2,\ldots, p_k)\) where \(i\leq p_n\leq j\) exhaustively list the primes between \(i\) and \(j\).</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
 					</div>
@@ -504,12 +550,11 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 			</div>
 		</div>
 		<div class="problem">
-			<h3 class="problem-num">Problem 40<span class="difficulty-null"></span></h3>
+			<h3 class="problem-num">Problem 40<span class="difficulty-2"></span></h3>
 			<div class="problem-contents">
-				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
-				<p class="description">(**) Goldbach's conjecture.
-</p>
-				<p class="abstract-example"></p>
+				<h4 class="function-name-header">Function Name:<span class="function-name"> goldbach_</span></h4>
+				<p class="description">Goldbach's conjecture states that any <i>even</i> integer greater than 2 can be written as the sum of two primes.  For example, \(28=5+23\).  This conjecture has not been proved, but has been verified up to very large numbers.  Given a number, write it as the sum of two primes.</p>
+				<p class="abstract-example">\( 2n\mapsto p_1,p_2\) where \(p_1,p_2\) are prime and \(2n=p_1+p_2\).</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
 					</div>
