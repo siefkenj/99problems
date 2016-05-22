@@ -11,6 +11,12 @@
 				{"input": "FN [1..10]", "output": "10"},
 				{"input": "FN \"abc\"", "output": "'c'"}
 			]
+		},
+		"prolog": {
+			"examples": [
+				{"input": "FN([1,2,3,4],X).", "output": "X = 4"},
+				{"input": "FN([a,b,c],X).", "output": "X = c"}
+			]
 		}
 	}
     },
@@ -26,6 +32,12 @@
 				{"input": "FN [1..10]", "output": "9"},
 				{"input": "FN \"abc\"", "output": "'b'"}
 			]
+		},
+		"prolog": {
+			"examples": [
+				{"input": "FN([1,2,3,4],X).", "output": "X = 3"},
+				{"input": "FN([a,b,c],X).", "output": "X = b"}
+			]
 		}
 	}
     },
@@ -40,6 +52,12 @@
 			"examples": [
 				{"input": "FN 2 [0..10]", "output": "2"},
 				{"input": "FN 1 \"abc\"", "output": "'b'"}
+			]
+		},
+		"prolog": {
+			"examples": [
+				{"input": "FN(2,[0,1,2,3,4],X).", "output": "X = 2"},
+				{"input": "FN(1,[a,b,c],X).", "output": "X = b"}
 			]
 		}
 	}
@@ -57,6 +75,12 @@
 				{"input": "FN [1..10]", "output": "10"},
 				{"input": "FN \"abc\"", "output": "3"}
 			]
+		},
+		"prolog": {
+			"examples": [
+				{"input": "FN([1,2,3,4],X).", "output": "X = 4"},
+				{"input": "FN([a,b,c],X).", "output": "X = 3"}
+			]
 		}
 	}
     },
@@ -71,6 +95,12 @@
 			"examples": [
 				{"input": "FN [1..10]", "output": "[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]"},
 				{"input": "FN \"abc\"", "output": "\"cba\""}
+			]
+		},
+		"prolog": {
+			"examples": [
+				{"input": "FN([1,2,3,4],X).", "output": "X = [4,3,2,1]"},
+				{"input": "FN([a,b,c],X).", "output": "X = [c,b,a]"}
 			]
 		}
 	}
@@ -87,6 +117,12 @@
 				{"input": "FN \"abc\"", "output": "False"},
 				{"input": "FN \"abcba\"", "output": "True"}
 			]
+		},
+		"prolog": {
+			"examples": [
+				{"input": "FN([1,2,3,4]).", "output": "no"},
+				{"input": "FN([a,b,c,b,a]).", "output": "yes"}
+			]
 		}
 	}
     },
@@ -96,7 +132,23 @@
         "function-name": "flatten",
 	"abstract-example": "\\( \\big(x_1,(x_2,x_3),((x_4,\\ldots\\big)\\mapsto (x_1,x_2,x_3,x_4,\\ldots) \\)",
 	"category": "Lists",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"hints": [
+				{"hint": "Haskell's type system requires lists to be homogeneous (they must have the exact same type). So you cannot define arbitrarily nested lists. For this problem, you will need to define a data type that simulates nested lists. Use:\ndata NestedList a = Elem a | List [NestedList a]"}
+			],
+			"examples": [
+				{"input": "FN (Elem 1)", "output": "[1]"},
+				{"input": "FN (List [Elem 1, List [List [], Elem 2, List [Elem 3]], Elem 4])", "output": "[1,2,3,4]"}
+			]
+		},
+		"prolog": {
+			"examples": [
+				{"input": "FN(1,X).", "output": "X = [1]"},
+				{"input": "FN([1,[[],2,[3]],4],X).", "output": "X = [1,2,3,4]"}
+			]
+		}
+	}
     },
     "8": {
         "description": "Eliminate consecutive duplicates of list elements.\n",
@@ -108,6 +160,12 @@
 		"haskell": {
 			"examples": [
 				{"input": "FN \"aaaabccaadeeee\"", "output": "\"abcade\""}
+			]
+		},
+		"prolog": {
+			"examples": [
+				{"input": "FN([1,2,3,4],X).", "output": "X = [1,2,3,4]"},
+				{"input": "FN([a,a,a,b,a,a,c,c,c,c,b],X).", "output": "X = [a,b,a,c,b]"}
 			]
 		}
 	}
@@ -123,6 +181,11 @@
 			"examples": [
 				{"input": "FN \"aaaabccaadeeee\"", "output": "[\"aaaa\",\"b\",\"cc\",\"aa\",\"d\",\"eeee\"]"}
 			]
+		},
+		"prolog": {
+			"examples": [
+				{"input": "FN([a,a,a,a,b,c,c,a,a,d,e,e,e,e],X).", "output": "X = [[a,a,a],[b],[c,c],[a,a],[d],[e,e,e,e]]"}
+			]
 		}
 	}
     },
@@ -137,6 +200,11 @@
 			"examples": [
 				{"input": "FN \"aaaabccaadeeee\"", "output": "[('a',3),('b',1),('c',2),('a',2),('d',1),('e',4)]"}
 			]
+		},
+		"prolog": {
+			"examples": [
+				{"input": "FN([a,a,a,a,b,c,c,a,a,d,e,e,e,e],X).", "output": "X = [[a,3],[b,1],[c,2],[a,2],[d,1],[e,4]]"}
+			]
 		}
 	}
     },
@@ -146,7 +214,18 @@
         "function-name": "runlength encode b",
 	"abstract-example": "\\( (a,a,a,b,a,a,c,c,c,\\ldots)\\mapsto \\big((a,3),b,(a,2),(c,3),\\ldots\\big) \\)",
 	"category": "Lists",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN \"aaaabccaadeeee\"", "output": "[(Multiple 'a' 3),(Single 'b'),(Multiple 'c' 2),(Multiple 'a' 2),(Single 'd'),(Multiple 'e' 4)]"}
+			]
+		},
+		"prolog": {
+			"examples": [
+				{"input": "FN([a,a,a,a,b,c,c,a,a,d,e,e,e,e],X).", "output": "X = [[a,3],b,[c,2],[a,2],d,[e,4]]"}
+			]
+		}
+	}
     },
     "12": {
         "description": "Decode a run-length encoded list.\n",
