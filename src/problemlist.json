@@ -135,7 +135,7 @@
         "language-overrides": {
 		"haskell": {
 			"hints": [
-				{"Haskell's type system requires lists to ibe homogeneous (they must have the exact same type). So you cannot define arbitrarily nested lists. For this problem, you will need to define a data type that simulates nested lists. Use:\ndata NestedList a = Elem a | List [NestedList a]"}
+				{"hint": "Haskell's type system requires lists to ibe homogeneous (they must have the exact same type). So you cannot define arbitrarily nested lists. For this problem, you will need to define a data type that simulates nested lists. Use:\ndata NestedList a = Elem a | List [NestedList a]"}
 			],
 			"examples": [
 				{"input": "FN (Elem 1)", "output": "[1]"},
