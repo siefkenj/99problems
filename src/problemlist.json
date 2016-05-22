@@ -343,10 +343,10 @@
         "language-overrides": {}
     },
     "24": {
-        "description": "Lotto: Draw \\(k\\) different random numbers from the set \\(1,2,\\ldots, k\\).\n",
+        "description": "Lotto: Draw \\(k\\) different random numbers from the set \\(1,2,\\ldots, n\\).\n",
         "difficulty": 1,
         "function-name": "lotto",
-        "abstract-example": "\\( i \\mapsto ({a_1}, {a_2}, \\ldots, {a_i}) \\) where \\((a_k)_{k=1,\\ldots, i}\\) is a random sequence of integers with no repetitions.",
+	"abstract-example": "\\( i,n \\mapsto ({a_1}, {a_2}, \\ldots, {a_i}) \\) where \\((a_k)_{k=1,\\ldots, i}\\) is a random sequence of integers with no repetitions satisfying \\(1\\leq a_k\\leq n\\).",
 	"category": "Lists",
         "language-overrides": {}
     },

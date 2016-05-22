@@ -13,7 +13,7 @@
 	<div id="nav"></div>
 	<div class="banner">
 		<h1>99 Problems to Learn a Programming Language</h1>
-		<h2>in haskell</h2>
+		<h2>in prolog</h2>
 	</div>
 	<div id="problems">
 		<div class="problem">
@@ -24,10 +24,10 @@
 				<p class="abstract-example">\( (x_1,x_2,\ldots,x_n)\mapsto x_n \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
-						<pre>last_ [1..10]</pre>
-						<pre>10</pre>
-						<pre>last_ &quot;abc&quot;</pre>
-						<pre>'c'</pre>
+						<pre>last_([1,2,3,4],X).</pre>
+						<pre>X = 4</pre>
+						<pre>last_([a,b,c],X).</pre>
+						<pre>X = c</pre>
 					</div>
 				</h4>
 			</div>
@@ -40,10 +40,10 @@
 				<p class="abstract-example">\( (x_1,x_2,\ldots,x_{n-1},x_n)\mapsto x_{n-1} \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
-						<pre>penultimate_ [1..10]</pre>
-						<pre>9</pre>
-						<pre>penultimate_ &quot;abc&quot;</pre>
-						<pre>'b'</pre>
+						<pre>penultimate_([1,2,3,4],X).</pre>
+						<pre>X = 3</pre>
+						<pre>penultimate_([a,b,c],X).</pre>
+						<pre>X = b</pre>
 					</div>
 				</h4>
 			</div>
@@ -57,10 +57,10 @@
 				<p class="abstract-example">\( k, (x_0,x_1,\ldots,x_n)\mapsto x_{k} \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
-						<pre>element_at_index_ 2 [0..10]</pre>
-						<pre>2</pre>
-						<pre>element_at_index_ 1 &quot;abc&quot;</pre>
-						<pre>'b'</pre>
+						<pre>element_at_index_(2,[0,1,2,3,4],X).</pre>
+						<pre>X = 2</pre>
+						<pre>element_at_index_(1,[a,b,c],X).</pre>
+						<pre>X = b</pre>
 					</div>
 				</h4>
 			</div>
@@ -74,10 +74,10 @@
 				<p class="abstract-example">\( (x_1,\ldots,x_n)\mapsto n \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
-						<pre>length_ [1..10]</pre>
-						<pre>10</pre>
-						<pre>length_ &quot;abc&quot;</pre>
-						<pre>3</pre>
+						<pre>length_([1,2,3,4],X).</pre>
+						<pre>X = 4</pre>
+						<pre>length_([a,b,c],X).</pre>
+						<pre>X = 3</pre>
 					</div>
 				</h4>
 			</div>
@@ -91,10 +91,10 @@
 				<p class="abstract-example">\( (x_1,x_2,\ldots,x_{n-1},x_n)\mapsto  (x_n,x_{n-1},\ldots,x_{2},x_1)\)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
-						<pre>reverse_ [1..10]</pre>
-						<pre>[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]</pre>
-						<pre>reverse_ &quot;abc&quot;</pre>
-						<pre>&quot;cba&quot;</pre>
+						<pre>reverse_([1,2,3,4],X).</pre>
+						<pre>X = [4,3,2,1]</pre>
+						<pre>reverse_([a,b,c],X).</pre>
+						<pre>X = [c,b,a]</pre>
 					</div>
 				</h4>
 			</div>
@@ -107,10 +107,10 @@
 				<p class="abstract-example">\( (x_1,x_2,\ldots,x_{n-1},x_n)\mapsto \mathbf{True} \) if \(x_i=x_{n-1}\) and \(\mathbf{False}\) otherwise.</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
-						<pre>palindromic_ &quot;abc&quot;</pre>
-						<pre>False</pre>
-						<pre>palindromic_ &quot;abcba&quot;</pre>
-						<pre>True</pre>
+						<pre>palindromic_([1,2,3,4]).</pre>
+						<pre>no</pre>
+						<pre>palindromic_([a,b,c,b,a]).</pre>
+						<pre>yes</pre>
 					</div>
 				</h4>
 			</div>
@@ -124,10 +124,10 @@
 				<p class="abstract-example">\( \big(x_1,(x_2,x_3),((x_4,\ldots\big)\mapsto (x_1,x_2,x_3,x_4,\ldots) \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
-						<pre>flatten_ (Elem 1)</pre>
-						<pre>[1]</pre>
-						<pre>flatten_ (List [Elem 1, List [List [], Elem 2, List [Elem 3]], Elem 4])</pre>
-						<pre>[1,2,3,4]</pre>
+						<pre>flatten_(1,X).</pre>
+						<pre>X = [1]</pre>
+						<pre>flatten_([1,[[],2,[3]],4],X).</pre>
+						<pre>X = [1,2,3,4]</pre>
 					</div>
 				</h4>
 			</div>
@@ -141,8 +141,10 @@
 				<p class="abstract-example">\( (a,a,a,b,a,a,c,c,c,\ldots)\mapsto (a,b,a,c,\ldots) \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
-						<pre>deduplicate_ &quot;aaaabccaadeeee&quot;</pre>
-						<pre>&quot;abcade&quot;</pre>
+						<pre>deduplicate_([1,2,3,4],X).</pre>
+						<pre>X = [1,2,3,4]</pre>
+						<pre>deduplicate_([a,a,a,b,a,a,c,c,c,c,b],X).</pre>
+						<pre>X = [a,b,a,c,b]</pre>
 					</div>
 				</h4>
 			</div>
@@ -157,8 +159,8 @@ If a list contains repeated elements they should be placed in separate sublists.
 				<p class="abstract-example">\( (a,a,a,b,a,a,c,c,c,\ldots)\mapsto \big((a,a,a),(b),(a,a),(c,c,c),\ldots\big) \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
-						<pre>pack_duplicates_ &quot;aaaabccaadeeee&quot;</pre>
-						<pre>[&quot;aaaa&quot;,&quot;b&quot;,&quot;cc&quot;,&quot;aa&quot;,&quot;d&quot;,&quot;eeee&quot;]</pre>
+						<pre>pack_duplicates_([a,a,a,a,b,c,c,a,a,d,e,e,e,e],X).</pre>
+						<pre>X = [[a,a,a],[b],[c,c],[a,a],[d],[e,e,e,e]]</pre>
 					</div>
 				</h4>
 			</div>
@@ -173,8 +175,8 @@ Use the result of earlier problems to implement the so-called run-length encodin
 				<p class="abstract-example">\( (a,a,a,b,a,a,c,c,c,\ldots)\mapsto \big((a,3),(b,1),(a,2),(c,3),\ldots\big) \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
-						<pre>runlength_encode_ &quot;aaaabccaadeeee&quot;</pre>
-						<pre>[('a',3),('b',1),('c',2),('a',2),('d',1),('e',4)]</pre>
+						<pre>runlength_encode_([a,a,a,a,b,c,c,a,a,d,e,e,e,e],X).</pre>
+						<pre>X = [[a,3],[b,1],[c,2],[a,2],[d,1],[e,4]]</pre>
 					</div>
 				</h4>
 			</div>
@@ -188,8 +190,8 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 				<p class="abstract-example">\( (a,a,a,b,a,a,c,c,c,\ldots)\mapsto \big((a,3),b,(a,2),(c,3),\ldots\big) \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
-						<pre>runlength_encode_b_ &quot;aaaabccaadeeee&quot;</pre>
-						<pre>[(Multiple 'a' 3),(Single 'b'),(Multiple 'c' 2),(Multiple 'a' 2),(Single 'd'),(Multiple 'e' 4)]</pre>
+						<pre>runlength_encode_b_([a,a,a,a,b,c,c,a,a,d,e,e,e,e],X).</pre>
+						<pre>X = [[a,3],b,[c,2],[a,2],d,[e,4]]</pre>
 					</div>
 				</h4>
 			</div>
@@ -229,8 +231,6 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 				<p class="abstract-example">\( (x_1,x_2,x_3,\ldots)\mapsto (x_1,x_2,x_2,x_2,x_3,x_3,\ldots) \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
-						<pre>double_ [1..4]</pre>
-						<pre>[1,1,2,2,3,3,4,4]</pre>
 					</div>
 				</h4>
 			</div>
@@ -244,8 +244,6 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 				<p class="abstract-example">\( k,(x_1,x_2,\ldots)\mapsto (\underbrace{x_1,\ldots,x_1}_{k},\underbrace{x_2,\ldots,x_2}_{k},\ldots) \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
-						<pre>repeat_ 3 [1..4]</pre>
-						<pre>[1,1,1,2,2,2,3,3,3,4,4,4]</pre>
 					</div>
 				</h4>
 			</div>
@@ -259,8 +257,6 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 				<p class="abstract-example">\( k,(x_1,x_2,\ldots)\mapsto (x_1,x_2,\ldots,x_{k-1},x_{k+1},\ldots,x_{2k-1},x_{2k+1},\ldots) \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
-						<pre>drop_sequence_ 3 [1..10]</pre>
-						<pre>[1,2,4,5,7,8,10]</pre>
 					</div>
 				</h4>
 			</div>
