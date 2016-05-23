@@ -1,6 +1,7 @@
 doctype html
 
 - var language = global.problems.language || "haskell"
+- var language_extension = global.problems.language_extension || "hs"
 - var problemlist = global.problems.problemlist || {}
 
 head 
@@ -24,6 +25,8 @@ body
         h1 99 Problems to Learn a Programming Language
         h2 in #{language}
 
+    div
+        | Download a stub file for #{language} <a href="problem_stubs/#{language}_problems.#{language_extension}">#{language}_problems.#{language_extension}</a>
 
     div(id="problems")
         each index in Object.keys(problemlist).sort(function(a, b) {var numcompare=+/\d+/.exec(a)[0] - +/\d+/.exec(b)[0]; return numcompare == 0 ? a > b : numcompare;})
