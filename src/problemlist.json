@@ -475,45 +475,384 @@
         "language-overrides": {}
     },
     "41": {
-        "description": "(**) Given a range of integers by its lower and upper limit, print a list of all even numbers and their Goldbach composition.\n",
-        "difficulty": null,
-        "function-name": "",
+        "description": "Given a range of integers by its lower and upper limit, print a list of all even numbers and their Goldbach composition.\n",
+        "difficulty": 2,
+        "function-name": "goldbach range",
 	"category": "Arithmetic",
         "language-overrides": {}
     },
     "46": {
-        "description": "(**) Define predicates and/2, or/2, nand/2, nor/2, xor/2, impl/2 and equ/2 (for logical equivalence) which succeed or fail according to the result of their respective operations; e.g. and(A,B) will succeed, if and only if both A and B succeed.\n",
-        "difficulty": null,
-        "function-name": "",
-	"category": "Arithmetic",
+        "description": "Define binary functions for and, or, nand, nor, xor, implies, and equivalent (for logical equivalence) which succeed or fail according to the result of their respective operations; e.g. and(A,B) will succeed, if and only if both A and B succeed.\n  Given a composition of binary operators that it itself a binary operator, make a truth table for it.",
+        "difficulty": 2,
+        "function-name": "binary truth table",
+	"category": "Logic and Codes",
         "language-overrides": {}
     },
     "47": {
-        "description": "(*) Truth tables for logical expressions (2).\n",
-        "difficulty": null,
+        "description": "Modify the functions from 46 so they may be used as infix operators.\n",
+        "difficulty": 1,
         "function-name": "",
-	"category": "Arithmetic",
+	"category": "Logic and Codes",
         "language-overrides": {}
     },
     "48": {
-        "description": "(**) Truth tables for logical expressions (3).\n",
-        "difficulty": null,
-        "function-name": "",
-	"category": "Arithmetic",
+        "description": "Given \\(n\\) variables and an \\(n\\)-ary boolean operator, construct a truth table.\n",
+        "difficulty": 2,
+        "function-name": "truth table",
+	"category": "Logic and Codes",
         "language-overrides": {}
     },
     "49": {
-        "description": "(**) Gray codes.\n",
-        "difficulty": null,
-        "function-name": "",
-	"category": "Arithmetic",
-        "language-overrides": {}
+        "description": "Gray codes.  A Gray code of length \\(n\\) is a list of all \\(n\\) bit sequences satisfying the property that adjacent elements in the list differ by exactly one bit.  Read about Gray codes <a href='https://en.wikipedia.org/wiki/Gray_code'>on Wikipedia</a> and then enumerate Gray codes of length \\(n\\)",
+        "difficulty": 2,
+        "function-name": "gray",
+	"category": "Logic and Codes",
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN 3", "output": "[\"000\",\"001\",\"011\",\"010\",\"110\",\"111\",\"101\",\"100\"]"}
+			]
+		}
+	}
     },
     "50": {
-        "description": "(***) Huffman codes.\n",
+        "description": "Huffman codes.  Given a list of items and their frequency, a Huffman dictionary (or Huffman code) is a way to assign items to bit-strings in a maximally-efficient way.  A consequence is that if an item appears more frequently, its bit-string representation is shorter.  You can read about Huffman encoding <a href='https://en.wikipedia.org/wiki/Huffman_coding'>on Wikipedi</a> or watch a video <a href='https://www.youtube.com/watch?v=ZdooBTdW5bM'>on YouTube</a> about how to build a Huffman dictionary.",
+        "difficulty": 3,
+        "abstract-example": "\\( (e_1,f_1), (e_2,f_2),\\ldots \\mapsto (e_1,c_1), (e_2,c_2),\\ldots\\) where \\(e_i\\) are items, \\(f_i\\) is the frequency of \\(e_i\\) and \\(c_i\\) is the Huffman code corresponding to \\(e_i\\).",
+        "function-name": "huffman dictionary",
+	"category": "Logic and Codes",
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN [('a',45),('b',13),('c',12),('d',16),('e',9),('f',5)]", "output": "[('a',\"0\"),('b',\"101\"),('c',\"100\"),('d',\"111\"),('e',\"1101\"),('f',\"1100\")]"}
+			]
+		}
+	}
+    },
+    "54A": {
+        "description": "(*) Check whether a given term represents a binary tree\n",
         "difficulty": null,
         "function-name": "",
-	"category": "Arithmetic",
+	"category": "Binary Trees",
+        "example": "",
+        "language-overrides": {}
+    },
+    "55": {
+        "description": "Enumerate balanced binary trees.  In a completely balanced binary tree, the following property holds for every node: The number of nodes in its left subtree and the number of nodes in its right subtree are almost equal, which means their difference is not greater than one.",
+        "difficulty": 2,
+        "function-name": "balanced trees",
+	"category": "Binary Trees",
+        "example": "",
+        "language-overrides": {}
+    },
+    "56": {
+        "description": "Determine whether a given binary tree is symmetric.  A binary tree is symmetric if, cutting at the root the left side is a reflection of the right side.",
+        "difficulty": 2,
+        "function-name": "symmetric tree",
+	"category": "Binary Trees",
+        "example": "",
+        "language-overrides": {}
+    },
+    "57": {
+        "description": "Construct a binary search tree (dictionary) from a list of numbers.  Information about binary search trees can be found <a href='https://en.wikipedia.org/wiki/Binary_search_tree'>on Wikipedia</a>.\n",
+        "difficulty": 2,
+        "function-name": "construct tree",
+	"category": "Binary Trees",
+        "example": "",
+        "language-overrides": {}
+    },
+    "58": {
+        "description": "Construct all completely balanced, symmetric binary trees of a given size.",
+        "difficulty": 2,
+        "function-name": "balanced symmetric trees",
+	"category": "Binary Trees",
+        "example": "",
+        "language-overrides": {}
+    },
+    "59": {
+        "description": "Given a height, construct all height-balanced binary trees of that height.  In a height-balanced binary tree, the following property holds for every node: The height of its left subtree and the height of its right subtree are almost equal, which means their difference is not greater than one.",
+        "difficulty": 2,
+        "function-name": "height balanced trees of height",
+	"category": "Binary Trees",
+        "example": "",
+        "language-overrides": {}
+    },
+    "60": {
+        "description": "Given a number of nodes, construct all height-balanced binary trees with that number of nodes.",
+        "difficulty": 2,
+        "function-name": "height balanced trees",
+	"category": "Binary Trees",
+        "example": "",
+        "language-overrides": {}
+    },
+    "61a": {
+        "description": "Count the leaves of a binary tree",
+        "difficulty": 1,
+        "function-name": "count leaves",
+	"category": "Binary Trees",
+        "example": "",
+        "language-overrides": {}
+    },
+    "61b": {
+        "description": "Find the leaves of a binary tree.",
+        "difficulty": 1,
+        "function-name": "leaves",
+	"category": "Binary Trees",
+        "example": "",
+        "language-overrides": {}
+    },
+    "62a": {
+        "description": "Find the internal nodes of a binary tree.  That is, all of the non-leaf nodes.",
+        "difficulty": 1,
+        "function-name": "nodes",
+	"category": "Binary Trees",
+        "example": "",
+        "language-overrides": {}
+    },
+    "62b": {
+        "description": "Find the nodes at a given height in a tree.",
+        "difficulty": 1,
+        "function-name": "nodes at height",
+	"category": "Binary Trees",
+        "example": "",
+        "language-overrides": {}
+    },
+    "63": {
+        "description": "Construct a complete binary tree\n",
+        "difficulty": 2,
+        "function-name": "complete tree",
+	"category": "Binary Trees",
+        "example": "",
+        "language-overrides": {}
+    },
+    "64": {
+        "description": "Given a binary tree as the usual Prolog term t(X,L,R) (or nil). As a preparation for drawing the tree, a layout algorithm is required to determine the position of each node in a rectangular grid. Several layout methods are conceivable, one of them is shown in the illustration below:\n",
+        "difficulty": 2,
+        "function-name": "layout tree",
+	"category": "Binary Trees",
+        "example": "",
+        "language-overrides": {}
+    },
+    "65": {
+        "description": "An alternative layout method is depicted in the illustration below:\n",
+        "difficulty": 2,
+        "function-name": "layout tree spaced",
+	"category": "Binary Trees",
+        "example": "",
+        "language-overrides": {}
+    },
+    "66": {
+        "description": "Yet another layout strategy is shown in the illustration below:\n",
+        "difficulty": 3,
+        "function-name": "layout tree compact",
+	"category": "Binary Trees",
+        "example": "",
+        "language-overrides": {}
+    },
+    "67A": {
+        "description": "A string representation of binary trees\n",
+        "difficulty": 2,
+        "function-name": "tree to string",
+	"category": "Binary Trees",
+        "example": "",
+        "language-overrides": {}
+    },
+    "68": {
+        "description": "Preorder and inorder sequences of binary trees. We consider binary trees with nodes that are identified by single lower-case letters, as in the example of problem P67.\n",
+        "difficulty": 2,
+        "function-name": "",
+	"category": "Binary Trees",
+        "example": "",
+        "language-overrides": {}
+    },
+    "69": {
+        "description": "Dotstring representation of binary trees.\n",
+        "difficulty": 2,
+        "function-name": "",
+        "example": "",
+        "language-overrides": {}
+    },
+    "70": {
+        "description": "(**) Tree construction from a node string.\n",
+        "difficulty": null,
+        "function-name": "",
+	"category": "Binary Trees",
+        "example": "",
+        "language-overrides": {}
+    },
+    "70B": {
+        "description": "(*) Check whether a given term represents a multiway tree.\n",
+        "difficulty": null,
+        "function-name": "",
+        "example": "",
+        "language-overrides": {}
+    },
+    "70C": {
+        "description": "(*) Count the nodes of a multiway tree.\n",
+        "difficulty": null,
+        "function-name": "",
+        "example": "",
+        "language-overrides": {}
+    },
+    "71": {
+        "description": "(*) Determine the internal path length of a tree.\n",
+        "difficulty": null,
+        "function-name": "",
+        "example": "",
+        "language-overrides": {}
+    },
+    "72": {
+        "description": "(*) Construct the bottom-up order sequence of the tree nodes.\n",
+        "difficulty": null,
+        "function-name": "",
+        "example": "",
+        "language-overrides": {}
+    },
+    "73": {
+        "description": "(**) Lisp-like tree representation.\n",
+        "difficulty": null,
+        "function-name": "",
+        "example": "",
+        "language-overrides": {}
+    },
+    "80": {
+        "description": "(***) Conversions\n",
+        "difficulty": null,
+        "function-name": "",
+        "example": "",
+        "language-overrides": {}
+    },
+    "81": {
+        "description": "(**) Path from one node to another one\n",
+        "difficulty": null,
+        "function-name": "",
+        "example": "",
+        "language-overrides": {}
+    },
+    "82": {
+        "description": "(*) Cycle from a given node\n",
+        "difficulty": null,
+        "function-name": "",
+        "example": "",
+        "language-overrides": {}
+    },
+    "83": {
+        "description": "(**) Construct all spanning trees \n",
+        "difficulty": null,
+        "function-name": "",
+        "example": "",
+        "language-overrides": {}
+    },
+    "84": {
+        "description": "(**) Construct the minimal spanning tree\n",
+        "difficulty": null,
+        "function-name": "",
+        "example": "",
+        "language-overrides": {}
+    },
+    "85": {
+        "description": "(**) Graph isomorphism\n",
+        "difficulty": null,
+        "function-name": "",
+        "example": "",
+        "language-overrides": {}
+    },
+    "86": {
+        "description": "(**) Node degree and graph coloration\n",
+        "difficulty": null,
+        "function-name": "",
+        "example": "",
+        "language-overrides": {}
+    },
+    "87": {
+        "description": "(**) Depth-first order graph traversal (alternative solution)\n",
+        "difficulty": null,
+        "function-name": "",
+        "example": "",
+        "language-overrides": {}
+    },
+    "88": {
+        "description": "(**) Connected components (alternative solution)\n",
+        "difficulty": null,
+        "function-name": "",
+        "example": "",
+        "language-overrides": {}
+    },
+    "89": {
+        "description": "(**) Bipartite graphs\n",
+        "difficulty": null,
+        "function-name": "",
+        "example": "",
+        "language-overrides": {}
+    },
+    "90": {
+        "description": "(**) Eight queens problem\n",
+        "difficulty": null,
+        "function-name": "",
+        "example": "",
+        "language-overrides": {}
+    },
+    "91": {
+        "description": "(**) Knight's tour\n",
+        "difficulty": null,
+        "function-name": "",
+        "example": "",
+        "language-overrides": {}
+    },
+    "92": {
+        "description": "(***) Von Koch's conjecture\n",
+        "difficulty": null,
+        "function-name": "",
+        "example": "",
+        "language-overrides": {}
+    },
+    "93": {
+        "description": "(***) An arithmetic puzzle\n",
+        "difficulty": null,
+        "function-name": "",
+        "example": "",
+        "language-overrides": {}
+    },
+    "94": {
+        "description": "(***) Generate K-regular simple graphs with N nodes\n",
+        "difficulty": null,
+        "function-name": "",
+        "example": "",
+        "language-overrides": {}
+    },
+    "95": {
+        "description": "(**) English number words\n",
+        "difficulty": null,
+        "function-name": "",
+        "example": "",
+        "language-overrides": {}
+    },
+    "96": {
+        "description": "(**) Syntax checker\n",
+        "difficulty": null,
+        "function-name": "",
+        "example": "",
+        "language-overrides": {}
+    },
+    "97": {
+        "description": "(**) Sudoku\n",
+        "difficulty": null,
+        "function-name": "",
+        "example": "",
+        "language-overrides": {}
+    },
+    "98": {
+        "description": "(***) Nonograms\n",
+        "difficulty": null,
+        "function-name": "",
+        "example": "",
+        "language-overrides": {}
+    },
+    "99": {
+        "description": "(***) Crossword puzzle\n",
+        "difficulty": null,
+        "function-name": "",
+        "example": "",
         "language-overrides": {}
     }
 }
