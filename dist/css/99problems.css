@@ -25,6 +25,14 @@ body {
     padding-left: 20px;
 }
 
+.stub {
+    width: 100%;
+    text-align: right;
+    padding: 2px;
+    font-family: sans-serif;
+    padding-right: 10px;
+}
+
 .difficulty-1, .difficulty-2, .difficulty-3:after {
     font-weight: 400;
     font-size: smaller;
@@ -57,4 +65,27 @@ body {
 
 .example-contents {
     padding-left: 20px;
+}
+
+h4.notes {
+    display: inline;
+}
+div.note {
+    display: inline;
+    font-weight: normal;
+}
+
+.code {
+    white-space: pre;
+    font-family: monospace;
+    font-weight: bold;
+}
+.code.input,.code.output {
+    display: block;
+}
+.code.input {
+    margin-top: 1em;
+}
+.code.output {
+    margin-top: .5em;
 }

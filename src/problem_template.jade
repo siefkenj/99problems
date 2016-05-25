@@ -25,7 +25,7 @@ body
         h1 99 Problems to Learn a Programming Language
         h2 in #{language}
 
-    div
+    div(class="stub")
         | Download a stub file for #{language} <a href="problem_stubs/#{language}_problems.#{language_extension}">#{language}_problems.#{language_extension}</a>
 
     div(id="problems")
@@ -39,10 +39,13 @@ body
                         span(class="function-name")  #{val['function-name']}
                     p(class="description") !{val.description}
                     p(class="abstract-example") !{val['abstract-example']}
+                    each n in ((val['language-overrides'][language] || {}).notes || [])
+                        h4(class="notes") Note:
+                            div(class="note") !{n}
                     h4(class="examples") Examples:
                         div(class="example-contents")
                             for e in ((val['language-overrides'][language] || {}).examples || [])
-                                pre #{e.input}
-                                pre #{e.output}
+                                code.code.input #{e.input}
+                                code.code.output #{e.output}
 
 

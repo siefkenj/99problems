@@ -134,8 +134,8 @@
 	"category": "Lists",
         "language-overrides": {
 		"haskell": {
-			"hints": [
-				{"hint": "Haskell's type system requires lists to be homogeneous (they must have the exact same type). So you cannot define arbitrarily nested lists. For this problem, you will need to define a data type that simulates nested lists. Use:\ndata NestedList a = Elem a | List [NestedList a]"}
+			"notes": [
+				"Haskell's type system requires lists to be homogeneous (they must have the exact same type). So you cannot define arbitrarily nested lists. For this problem, you will need to define a data type that simulates nested lists. Use: <code class='code'>data NestedList a = Elem a | List [NestedList a]</code>"
 			],
 			"examples": [
 				{"input": "FN (Elem 1)", "output": "[1]"},
@@ -216,6 +216,9 @@
 	"category": "Lists",
         "language-overrides": {
 		"haskell": {
+			"notes": [
+				"Haskell's type system requires lists to be homogeneous (they must have the exact same type), so you must create a new datatype which may be accomplished with: <code class='code'>data RunLen a = Single a | Multiple Int a    deriving Show</code>"
+			],
 			"examples": [
 				{"input": "FN \"aaaabccaadeeee\"", "output": "[(Multiple 'a' 3),(Single 'b'),(Multiple 'c' 2),(Multiple 'a' 2),(Single 'd'),(Multiple 'e' 4)]"}
 			]

@@ -15,7 +15,7 @@
 		<h1>99 Problems to Learn a Programming Language</h1>
 		<h2>in haskell</h2>
 	</div>
-	<div>Download a stub file for haskell <a href="problem_stubs/haskell_problems.hs">haskell_problems.hs</a></div>
+	<div class="stub">Download a stub file for haskell <a href="problem_stubs/haskell_problems.hs">haskell_problems.hs</a></div>
 	<div id="problems">
 		<div class="problem">
 			<h3 class="problem-num">Problem 1<span class="difficulty-1"></span></h3>
@@ -24,11 +24,7 @@
 				<p class="description">Find the last element of a list.</p>
 				<p class="abstract-example">\( (x_1,x_2,\ldots,x_n)\mapsto x_n \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
-						<pre>last_ [1..10]</pre>
-						<pre>10</pre>
-						<pre>last_ &quot;abc&quot;</pre>
-						<pre>'c'</pre>
+					<div class="example-contents"><code class="code input">last_ [1..10]</code><code class="code output">10</code><code class="code input">last_ &quot;abc&quot;</code><code class="code output">'c'</code>
 					</div>
 				</h4>
 			</div>
@@ -40,11 +36,7 @@
 				<p class="description">Find the next-to-the-last element of a list.</p>
 				<p class="abstract-example">\( (x_1,x_2,\ldots,x_{n-1},x_n)\mapsto x_{n-1} \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
-						<pre>penultimate_ [1..10]</pre>
-						<pre>9</pre>
-						<pre>penultimate_ &quot;abc&quot;</pre>
-						<pre>'b'</pre>
+					<div class="example-contents"><code class="code input">penultimate_ [1..10]</code><code class="code output">9</code><code class="code input">penultimate_ &quot;abc&quot;</code><code class="code output">'b'</code>
 					</div>
 				</h4>
 			</div>
@@ -57,11 +49,7 @@
 </p>
 				<p class="abstract-example">\( k, (x_0,x_1,\ldots,x_n)\mapsto x_{k} \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
-						<pre>element_at_index_ 2 [0..10]</pre>
-						<pre>2</pre>
-						<pre>element_at_index_ 1 &quot;abc&quot;</pre>
-						<pre>'b'</pre>
+					<div class="example-contents"><code class="code input">element_at_index_ 2 [0..10]</code><code class="code output">2</code><code class="code input">element_at_index_ 1 &quot;abc&quot;</code><code class="code output">'b'</code>
 					</div>
 				</h4>
 			</div>
@@ -74,11 +62,7 @@
 </p>
 				<p class="abstract-example">\( (x_1,\ldots,x_n)\mapsto n \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
-						<pre>length_ [1..10]</pre>
-						<pre>10</pre>
-						<pre>length_ &quot;abc&quot;</pre>
-						<pre>3</pre>
+					<div class="example-contents"><code class="code input">length_ [1..10]</code><code class="code output">10</code><code class="code input">length_ &quot;abc&quot;</code><code class="code output">3</code>
 					</div>
 				</h4>
 			</div>
@@ -91,11 +75,7 @@
 </p>
 				<p class="abstract-example">\( (x_1,x_2,\ldots,x_{n-1},x_n)\mapsto  (x_n,x_{n-1},\ldots,x_{2},x_1)\)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
-						<pre>reverse_ [1..10]</pre>
-						<pre>[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]</pre>
-						<pre>reverse_ &quot;abc&quot;</pre>
-						<pre>&quot;cba&quot;</pre>
+					<div class="example-contents"><code class="code input">reverse_ [1..10]</code><code class="code output">[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]</code><code class="code input">reverse_ &quot;abc&quot;</code><code class="code output">&quot;cba&quot;</code>
 					</div>
 				</h4>
 			</div>
@@ -107,11 +87,7 @@
 				<p class="description">Find out whether a list is a palindrome. A palindrome can be read forward or backward. For example "xamax".</p>
 				<p class="abstract-example">\( (x_1,x_2,\ldots,x_{n-1},x_n)\mapsto \mathbf{True} \) if \(x_i=x_{n-1}\) and \(\mathbf{False}\) otherwise.</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
-						<pre>palindromic_ &quot;abc&quot;</pre>
-						<pre>False</pre>
-						<pre>palindromic_ &quot;abcba&quot;</pre>
-						<pre>True</pre>
+					<div class="example-contents"><code class="code input">palindromic_ &quot;abc&quot;</code><code class="code output">False</code><code class="code input">palindromic_ &quot;abcba&quot;</code><code class="code output">True</code>
 					</div>
 				</h4>
 			</div>
@@ -123,12 +99,11 @@
 				<p class="description">Flatten a nested list structure.
 </p>
 				<p class="abstract-example">\( \big(x_1,(x_2,x_3),((x_4,\ldots\big)\mapsto (x_1,x_2,x_3,x_4,\ldots) \)</p>
+				<h4 class="notes">Note:
+					<div class="note">Haskell's type system requires lists to be homogeneous (they must have the exact same type). So you cannot define arbitrarily nested lists. For this problem, you will need to define a data type that simulates nested lists. Use: <code class='code'>data NestedList a = Elem a | List [NestedList a]</code></div>
+				</h4>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
-						<pre>flatten_ (Elem 1)</pre>
-						<pre>[1]</pre>
-						<pre>flatten_ (List [Elem 1, List [List [], Elem 2, List [Elem 3]], Elem 4])</pre>
-						<pre>[1,2,3,4]</pre>
+					<div class="example-contents"><code class="code input">flatten_ (Elem 1)</code><code class="code output">[1]</code><code class="code input">flatten_ (List [Elem 1, List [List [], Elem 2, List [Elem 3]], Elem 4])</code><code class="code output">[1,2,3,4]</code>
 					</div>
 				</h4>
 			</div>
@@ -141,9 +116,7 @@
 </p>
 				<p class="abstract-example">\( (a,a,a,b,a,a,c,c,c,\ldots)\mapsto (a,b,a,c,\ldots) \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
-						<pre>deduplicate_ &quot;aaaabccaadeeee&quot;</pre>
-						<pre>&quot;abcade&quot;</pre>
+					<div class="example-contents"><code class="code input">deduplicate_ &quot;aaaabccaadeeee&quot;</code><code class="code output">&quot;abcade&quot;</code>
 					</div>
 				</h4>
 			</div>
@@ -157,9 +130,7 @@ If a list contains repeated elements they should be placed in separate sublists.
 </p>
 				<p class="abstract-example">\( (a,a,a,b,a,a,c,c,c,\ldots)\mapsto \big((a,a,a),(b),(a,a),(c,c,c),\ldots\big) \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
-						<pre>pack_duplicates_ &quot;aaaabccaadeeee&quot;</pre>
-						<pre>[&quot;aaaa&quot;,&quot;b&quot;,&quot;cc&quot;,&quot;aa&quot;,&quot;d&quot;,&quot;eeee&quot;]</pre>
+					<div class="example-contents"><code class="code input">pack_duplicates_ &quot;aaaabccaadeeee&quot;</code><code class="code output">[&quot;aaaa&quot;,&quot;b&quot;,&quot;cc&quot;,&quot;aa&quot;,&quot;d&quot;,&quot;eeee&quot;]</code>
 					</div>
 				</h4>
 			</div>
@@ -173,9 +144,7 @@ Use the result of earlier problems to implement the so-called run-length encodin
 </p>
 				<p class="abstract-example">\( (a,a,a,b,a,a,c,c,c,\ldots)\mapsto \big((a,3),(b,1),(a,2),(c,3),\ldots\big) \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
-						<pre>runlength_encode_ &quot;aaaabccaadeeee&quot;</pre>
-						<pre>[('a',3),('b',1),('c',2),('a',2),('d',1),('e',4)]</pre>
+					<div class="example-contents"><code class="code input">runlength_encode_ &quot;aaaabccaadeeee&quot;</code><code class="code output">[('a',3),('b',1),('c',2),('a',2),('d',1),('e',4)]</code>
 					</div>
 				</h4>
 			</div>
@@ -187,10 +156,11 @@ Use the result of earlier problems to implement the so-called run-length encodin
 				<p class="description">Modified run-length encoding.
 Modify the result of problem 10 in such a way that if an element has no duplicates it is simply copied into the result list. Only elements with duplicates are transferred as \((e,n)\) lists.</p>
 				<p class="abstract-example">\( (a,a,a,b,a,a,c,c,c,\ldots)\mapsto \big((a,3),b,(a,2),(c,3),\ldots\big) \)</p>
+				<h4 class="notes">Note:
+					<div class="note">Haskell's type system requires lists to be homogeneous (they must have the exact same type), so you must create a new datatype which may be accomplished with: <code class='code'>data RunLen a = Single a | Multiple Int a    deriving Show</code></div>
+				</h4>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
-						<pre>runlength_encode_b_ &quot;aaaabccaadeeee&quot;</pre>
-						<pre>[(Multiple 'a' 3),(Single 'b'),(Multiple 'c' 2),(Multiple 'a' 2),(Single 'd'),(Multiple 'e' 4)]</pre>
+					<div class="example-contents"><code class="code input">runlength_encode_b_ &quot;aaaabccaadeeee&quot;</code><code class="code output">[(Multiple 'a' 3),(Single 'b'),(Multiple 'c' 2),(Multiple 'a' 2),(Single 'd'),(Multiple 'e' 4)]</code>
 					</div>
 				</h4>
 			</div>
@@ -229,9 +199,7 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 </p>
 				<p class="abstract-example">\( (x_1,x_2,x_3,\ldots)\mapsto (x_1,x_2,x_2,x_2,x_3,x_3,\ldots) \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
-						<pre>double_ [1..4]</pre>
-						<pre>[1,1,2,2,3,3,4,4]</pre>
+					<div class="example-contents"><code class="code input">double_ [1..4]</code><code class="code output">[1,1,2,2,3,3,4,4]</code>
 					</div>
 				</h4>
 			</div>
@@ -244,9 +212,7 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 </p>
 				<p class="abstract-example">\( k,(x_1,x_2,\ldots)\mapsto (\underbrace{x_1,\ldots,x_1}_{k},\underbrace{x_2,\ldots,x_2}_{k},\ldots) \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
-						<pre>repeat_ 3 [1..4]</pre>
-						<pre>[1,1,1,2,2,2,3,3,3,4,4,4]</pre>
+					<div class="example-contents"><code class="code input">repeat_ 3 [1..4]</code><code class="code output">[1,1,1,2,2,2,3,3,3,4,4,4]</code>
 					</div>
 				</h4>
 			</div>
@@ -259,9 +225,7 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 </p>
 				<p class="abstract-example">\( k,(x_1,x_2,\ldots)\mapsto (x_1,x_2,\ldots,x_{k-1},x_{k+1},\ldots,x_{2k-1},x_{2k+1},\ldots) \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
-						<pre>drop_sequence_ 3 [1..10]</pre>
-						<pre>[1,2,4,5,7,8,10]</pre>
+					<div class="example-contents"><code class="code input">drop_sequence_ 3 [1..10]</code><code class="code output">[1,2,4,5,7,8,10]</code>
 					</div>
 				</h4>
 			</div>
@@ -627,9 +591,7 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 				<p class="description">Gray codes.  A Gray code of length \(n\) is a list of all \(n\) bit sequences satisfying the property that adjacent elements in the list differ by exactly one bit.  Read about Gray codes <a href='https://en.wikipedia.org/wiki/Gray_code'>on Wikipedia</a> and then enumerate Gray codes of length \(n\)</p>
 				<p class="abstract-example"></p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
-						<pre>gray_ 3</pre>
-						<pre>[&quot;000&quot;,&quot;001&quot;,&quot;011&quot;,&quot;010&quot;,&quot;110&quot;,&quot;111&quot;,&quot;101&quot;,&quot;100&quot;]</pre>
+					<div class="example-contents"><code class="code input">gray_ 3</code><code class="code output">[&quot;000&quot;,&quot;001&quot;,&quot;011&quot;,&quot;010&quot;,&quot;110&quot;,&quot;111&quot;,&quot;101&quot;,&quot;100&quot;]</code>
 					</div>
 				</h4>
 			</div>
@@ -641,9 +603,7 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 				<p class="description">Huffman codes.  Given a list of items and their frequency, a Huffman dictionary (or Huffman code) is a way to assign items to bit-strings in a maximally-efficient way.  A consequence is that if an item appears more frequently, its bit-string representation is shorter.  You can read about Huffman encoding <a href='https://en.wikipedia.org/wiki/Huffman_coding'>on Wikipedi</a> or watch a video <a href='https://www.youtube.com/watch?v=ZdooBTdW5bM'>on YouTube</a> about how to build a Huffman dictionary.</p>
 				<p class="abstract-example">\( (e_1,f_1), (e_2,f_2),\ldots \mapsto (e_1,c_1), (e_2,c_2),\ldots\) where \(e_i\) are items, \(f_i\) is the frequency of \(e_i\) and \(c_i\) is the Huffman code corresponding to \(e_i\).</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
-						<pre>huffman_dictionary_ [('a',45),('b',13),('c',12),('d',16),('e',9),('f',5)]</pre>
-						<pre>[('a',&quot;0&quot;),('b',&quot;101&quot;),('c',&quot;100&quot;),('d',&quot;111&quot;),('e',&quot;1101&quot;),('f',&quot;1100&quot;)]</pre>
+					<div class="example-contents"><code class="code input">huffman_dictionary_ [('a',45),('b',13),('c',12),('d',16),('e',9),('f',5)]</code><code class="code output">[('a',&quot;0&quot;),('b',&quot;101&quot;),('c',&quot;100&quot;),('d',&quot;111&quot;),('e',&quot;1101&quot;),('f',&quot;1100&quot;)]</code>
 					</div>
 				</h4>
 			</div>
