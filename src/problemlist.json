@@ -534,7 +534,7 @@
     },
     "54A": {
         "description": "(*) Check whether a given term represents a binary tree\n",
-        "difficulty": null,
+        "difficulty": 1,
         "function-name": "",
 	"category": "Binary Trees",
         "example": "",
@@ -546,7 +546,18 @@
         "function-name": "balanced trees",
 	"category": "Binary Trees",
         "example": "",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"notes": [
+				"In Haskell you can create a tree data-structure with <code class='code'>data Tree a = Empty | Branch a (Tree a) (Tree a)    deriving Show</code>"
+			],
+			"examples": [
+				{"input": "FN 1", "output": "[Branch 0 Empty Empty]"},
+				{"input": "FN 2", "output": "[Branch 0 (Branch 0 Empty Empty) Empty,Branch 0 Empty (Branch 0 Empty Empty)]"},
+				{"input": "FN 4", "output": "[Branch 0 (Branch 0 (Branch 0 Empty Empty) Empty) (Branch 0 Empty Empty),Branch 0 (Branch 0 Empty (Branch 0 Empty Empty)) (Branch 0 Empty Empty),Branch 0 (Branch 0 Empty Empty) (Branch 0 (Branch 0 Empty Empty) Empty),Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty (Branch 0 Empty Empty))]"}
+			]
+		}
+	}
     },
     "56": {
         "description": "Determine whether a given binary tree is symmetric.  A binary tree is symmetric if, cutting at the root the left side is a reflection of the right side.",
@@ -554,10 +565,20 @@
         "function-name": "symmetric tree",
 	"category": "Binary Trees",
         "example": "",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"notes": [
+				"In Haskell you can create a tree data-structure with <code class='code'>data Tree a = Empty | Branch a (Tree a) (Tree a)    deriving Show</code>"
+			],
+			"examples": [
+				{"input": "FN (Branch 'x' (Branch 'x' Empty Empty) Empty)", "output": "False"},
+				{"input": "FN (Branch 'x' (Branch 'x' Empty Empty) (Branch 'x' Empty Empty))", "output": "True"}
+			]
+		}
+	}
     },
     "57": {
-        "description": "Construct a binary search tree (dictionary) from a list of numbers.  Information about binary search trees can be found <a href='https://en.wikipedia.org/wiki/Binary_search_tree'>on Wikipedia</a>.\n",
+        "description": "Construct a binary search tree (dictionary) of minimum depth from a list of numbers.  Information about binary search trees can be found <a href='https://en.wikipedia.org/wiki/Binary_search_tree'>on Wikipedia</a>.\n",
         "difficulty": 2,
         "function-name": "construct tree",
 	"category": "Binary Trees",
