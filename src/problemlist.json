@@ -231,12 +231,23 @@
 	}
     },
     "12": {
-        "description": "Decode a run-length encoded list.\n",
+        "description": "Decode a run-length encoded list.\nThis should undo the encoding from problem 11.",
         "difficulty": 2,
         "function-name": "runlength decode",
 	"abstract-example": "\\( \\big((a,3),b,(a,2),(c,3),\\ldots\\big) \\mapsto (a,a,a,b,a,a,c,c,c,\\ldots) \\)",
 	"category": "Lists",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "[(Multiple 'a' 3),(Single 'b'),(Multiple 'c' 2),(Multiple 'a' 2),(Single 'd'),(Multiple 'e' 4)]", "output": "FN \"aaaabccaadeeee\""}
+			]
+		},
+		"prolog": {
+			"examples": [
+				{"input": "FN([[a,3],b,[c,2],[a,2],d,[e,4]],X).", "output": "X = [a,a,a,a,b,c,c,a,a,d,e,e,e,e]"}
+			]
+		}
+	}
     },
     "13": {
         "description": "(**) Run-length encoding of a list (direct solution). \n",
@@ -258,6 +269,11 @@
 			"examples": [
 				{"input": "FN [1..4]", "output": "[1,1,2,2,3,3,4,4]"}
 			]
+		},
+		"prolog": {
+			"examples": [
+				{"input": "FN([1,2,3,a,b,c],X).", "output": "X = [1,1,2,2,3,3,a,a,b,b,c,c]"}
+			]
 		}
 	}
     },
@@ -271,6 +287,11 @@
 		"haskell": {
 			"examples": [
 				{"input": "FN 3 [1..4]", "output": "[1,1,1,2,2,2,3,3,3,4,4,4]"}
+			]
+		},
+		"prolog": {
+			"examples": [
+				{"input": "FN(3,[1,2,3,a,b,c],X).", "output": "X = [1,1,1,2,2,2,3,3,3,a,a,a,b,b,b,c,c,c]"}
 			]
 		}
 	}
@@ -286,6 +307,11 @@
 			"examples": [
 				{"input": "FN 3 [1..10]", "output": "[1,2,4,5,7,8,10]"}
 			]
+		},
+		"prolog": {
+			"examples": [
+				{"input": "FN(3,[1,2,3,4,5,6,7,8,9,10],X).", "output": "X = [1,2,4,5,7,8,10]"}
+			]
 		}
 	}
     },
@@ -295,7 +321,18 @@
         "function-name": "split",
 	"abstract-example": "\\( k,(x_1,x_2,\\ldots,x_n)\\mapsto (x_1,x_2,\\ldots,x_{k}),(x_{k+1},\\ldots,x_{n}) \\)",
 	"category": "Lists",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN 3 [1..10]", "output": "([1,2,3],[4,5,6,7,8,9,10])"}
+			]
+		},
+		"prolog": {
+			"examples": [
+				{"input": "FN(3,[1,2,3,4,5,6,7,8,9,10],X,Y).", "output": "X = [1,2,3], Y = [4,5,6,7,8,9,10]"}
+			]
+		}
+	}
     },
     "18": {
         "description": "Extract a slice from a list. Given numbers \\(i\\) and \\(j\\), return a sublist consisting of elements whose indices are between \\(i\\) and \\(j\\).",
@@ -303,7 +340,18 @@
         "function-name": "slice",
         "abstract-example": "\\( i, j, (x_1,x_2,\\ldots,x_n)\\mapsto (x_i,x_{i+1},\\ldots,x_{j}) \\)",
 	"category": "Lists",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN 3 7 [1..10]", "output": "[3,4,5,6,7]"}
+			]
+		},
+		"prolog": {
+			"examples": [
+				{"input": "FN(3,7,[1,2,3,4,5,6,7,8,9,10],X).", "output": "X = [3,4,5,6,7]"}
+			]
+		}
+	}
     },
     "19": {
         "description": "Rotate a list \\(k\\) places to the left.\n",
@@ -311,7 +359,20 @@
         "function-name": "roll",
         "abstract-example": "\\( k, (x_0,x_2,\\ldots,x_n)\\mapsto (x_k,x_{k+1},\\ldots,x_{n}, x_0,x_1,\\ldots,x_{k-1}) \\)",
 	"category": "Lists",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN 3 [1..10]", "output": "[4,5,6,7,8,9,10,1,2,3]"},
+				{"input": "FN (-2) \"abcdef\"", "output": "\"efabcd\""}
+			]
+		},
+		"prolog": {
+			"examples": [
+				{"input": "FN(3,[1,2,3,4,5,6,7,8,9,10],X).", "output": "X = [4,5,6,7,8,9,10,1,2,3]"},
+				{"input": "FN(-2,[a,b,c,d,e,f],X).", "output": "X = [e,f,a,b,c,d]"}
+			]
+		}
+	}
     },
     "20": {
         "description": "Remove the \\(k\\)th element from a list and return that element and the list with that element removed.\n",
@@ -319,7 +380,18 @@
         "function-name": "pluck",
         "abstract-example": "\\( k, (x_0,x_2,\\ldots,x_n)\\mapsto x_k, (x_0,\\ldots,x_{k-1},x_{k+1},\\ldots,x_n) \\)",
 	"category": "Lists",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN 3 [1..10]", "output": "(3,[1,2,4,5,6,7,8,9,10])"}
+			]
+		},
+		"prolog": {
+			"examples": [
+				{"input": "FN(3,[1,2,3,4,5,6,7,8,9,10],X,Y).", "output": "X = 3, Y = [1,2,4,5,6,7,8,9,10]"}
+			]
+		}
+	}
     },
     "21": {
         "description": "Insert an element at a given position into a list.\n",
@@ -327,7 +399,20 @@
         "function-name": "insert",
         "abstract-example": "\\( k,e, (x_0,x_2,\\ldots,x_n)\\mapsto x_k, (x_0,\\ldots,x_{k-1},e,x_{k},x_{k+1},\\ldots,x_n) \\)",
 	"category": "Lists",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN 3 15 [1..10]", "output": "[1,2,15,3,4,5,6,7,8,9,10]"},
+				{"input": "FN 5 'x' \"abcdef\"", "output": "\"abcdxef\""}
+			]
+		},
+		"prolog": {
+			"examples": [
+				{"input": "FN(3,15,[1,2,3,4,5,6,7,8,9,10],X).", "output": "X = [1,2,15,3,4,5,6,7,8,9,10]"},
+				{"input": "FN(5,x,[a,b,c,d,e,f],X).", "output": "[a,b,c,d,x,e,f]"}
+			]
+		}
+	}
     },
     "22": {
         "description": "Create a list containing all integers within a given range.\n",
@@ -335,7 +420,18 @@
         "function-name": "range",
         "abstract-example": "\\( i, j\\mapsto (i, i+1, \\ldots, j-1, j) \\)",
 	"category": "Lists",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN 3 8", "output": "[3,4,5,6,7,8]"}
+			]
+		},
+		"prolog": {
+			"examples": [
+				{"input": "FN(3,8,X).", "output": "X = [3,4,5,6,7,8]"}
+			]
+		}
+	}
     },
     "23": {
         "description": "Extract a given number of randomly selected elements from a list. \n",
