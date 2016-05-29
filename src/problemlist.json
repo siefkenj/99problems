@@ -343,7 +343,17 @@
         "function-name": "take random",
         "abstract-example": "\\( i, (x_1,\\ldots,x_n)\\mapsto (x_{a_1}, x_{a_2}, \\ldots, x_{a_i}) \\) where \\((a_k)_{k=1,\\ldots, i}\\) is a random sequence with no repetitions.",
 	"category": "Lists",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"notes": [
+				"Haskell is a purely functional language, so in order to get non-deterministic results, you must use <emph>monads</emph>.  Read about monads in Haskell to get your bearings. To make Haskell's random-number monads available, add <code class='code'>import System.Random</code> to the top of your problems file.  To get a single random number between \\(i\\) and \\(j\\) wrapped in a monad, you can use the code <code class='code'>newStdGen &gt;&gt;= (\\g -&gt; return (head (randomRs (i, j) g)))</code>"
+			],
+			"examples": [
+				{"input": "FN \"abcdefg\"", "output": "'c'"},
+				{"input": "FN \"abcdefg\"", "output": "'g'"}
+			]
+		}
+	}
     },
     "24": {
         "description": "Lotto: Draw \\(k\\) different random numbers from the set \\(1,2,\\ldots, n\\).\n",
@@ -560,7 +570,7 @@
 	}
     },
     "56": {
-        "description": "Determine whether a given binary tree is symmetric.  A binary tree is symmetric if, cutting at the root the left side is a reflection of the right side.",
+        "description": "Determine whether a given binary tree is symmetric.  A binary tree is symmetric if, cutting at the root the left side's branches are a reflection of the right side's.  That is, we only care about the structure of the tree and not the contents of the nodes.",
         "difficulty": 2,
         "function-name": "symmetric tree",
 	"category": "Binary Trees",
@@ -572,7 +582,8 @@
 			],
 			"examples": [
 				{"input": "FN (Branch 'x' (Branch 'x' Empty Empty) Empty)", "output": "False"},
-				{"input": "FN (Branch 'x' (Branch 'x' Empty Empty) (Branch 'x' Empty Empty))", "output": "True"}
+				{"input": "FN (Branch 'x' (Branch 'x' Empty Empty) (Branch 'x' Empty Empty))", "output": "True"},
+				{"input": "FN (Branch 'x' (Branch 'y' Empty Empty) (Branch 'z' Empty Empty))", "output": "True"}
 			]
 		}
 	}
@@ -580,10 +591,21 @@
     "57": {
         "description": "Construct a binary search tree (dictionary) of minimum depth from a list of numbers.  Information about binary search trees can be found <a href='https://en.wikipedia.org/wiki/Binary_search_tree'>on Wikipedia</a>.\n",
         "difficulty": 2,
-        "function-name": "construct tree",
+        "function-name": "construct search tree",
 	"category": "Binary Trees",
         "example": "",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"notes": [
+				"In Haskell you can create a tree data-structure with <code class='code'>data Tree a = Empty | Branch a (Tree a) (Tree a)    deriving Show</code>"
+			],
+			"examples": [
+				{"input": "FN [3, 2, 5, 7, 1]", "output": "Branch 3 (Branch 2 (Branch 1 Empty Empty) Empty) (Branch 5 Empty (Branch 7 Empty Empty))"},
+				{"input": "symmetric_tree_ . FN $ [3, 2, 5, 7, 4]", "output": "False"},
+				{"input": "symmetric_tree_ . FN $ [5, 3, 18, 1, 4, 12, 21]", "output": "True"}
+			]
+		}
+	}
     },
     "58": {
         "description": "Construct all completely balanced, symmetric binary trees of a given size.",
@@ -591,7 +613,16 @@
         "function-name": "balanced symmetric trees",
 	"category": "Binary Trees",
         "example": "",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"notes": [
+				"In Haskell you can create a tree data-structure with <code class='code'>data Tree a = Empty | Branch a (Tree a) (Tree a)    deriving Show</code>"
+			],
+			"examples": [
+				{"input": "FN 5", "output": "[Branch 0 (Branch 0 (Branch 0 Empty Empty) Empty) (Branch 0 Empty (Branch 0 Empty Empty)),\nBranch 0 (Branch 0 Empty (Branch 0 Empty Empty)) (Branch 0 (Branch 0 Empty Empty) Empty)]"}
+			]
+		}
+	}
     },
     "59": {
         "description": "Given a height, construct all height-balanced binary trees of that height.  In a height-balanced binary tree, the following property holds for every node: The height of its left subtree and the height of its right subtree are almost equal, which means their difference is not greater than one.",
@@ -599,10 +630,19 @@
         "function-name": "height balanced trees of height",
 	"category": "Binary Trees",
         "example": "",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"notes": [
+				"In Haskell you can create a tree data-structure with <code class='code'>data Tree a = Empty | Branch a (Tree a) (Tree a)    deriving Show</code>"
+			],
+			"examples": [
+				{"input": "FN 3", "output": "[Branch 0 (Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty Empty)) (Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty Empty)),\nBranch 0 (Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty Empty)) (Branch 0 (Branch 0 Empty Empty) Empty),\nBranch 0 (Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty Empty)) (Branch 0 Empty (Branch 0 Empty Empty)),\nBranch 0 (Branch 0 (Branch 0 Empty Empty) Empty) (Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty Empty)),\nBranch 0 (Branch 0 (Branch 0 Empty Empty) Empty) (Branch 0 (Branch 0 Empty Empty) Empty),\nBranch 0 (Branch 0 (Branch 0 Empty Empty) Empty) (Branch 0 Empty (Branch 0 Empty Empty)),\nBranch 0 (Branch 0 Empty (Branch 0 Empty Empty)) (Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty Empty)),\nBranch 0 (Branch 0 Empty (Branch 0 Empty Empty)) (Branch 0 (Branch 0 Empty Empty) Empty),\nBranch 0 (Branch 0 Empty (Branch 0 Empty Empty)) (Branch 0 Empty (Branch 0 Empty Empty)),\nBranch 0 (Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty Empty)) (Branch 0 Empty Empty),\nBranch 0 (Branch 0 (Branch 0 Empty Empty) Empty) (Branch 0 Empty Empty),\nBranch 0 (Branch 0 Empty (Branch 0 Empty Empty)) (Branch 0 Empty Empty),\nBranch 0 (Branch 0 Empty Empty) (Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty Empty)),\nBranch 0 (Branch 0 Empty Empty) (Branch 0 (Branch 0 Empty Empty) Empty),\nBranch 0 (Branch 0 Empty Empty) (Branch 0 Empty (Branch 0 Empty Empty))]"}
+			]
+		}
+	}
     },
     "60": {
-        "description": "Given a number of nodes, construct all height-balanced binary trees with that number of nodes.",
+        "description": "Given a number of nodes, construct all height-balanced binary trees with that number of nodes.  It might help to first find the maximum and minimum number of nodes that a height-balanced tree of a certain height can have.",
         "difficulty": 2,
         "function-name": "height balanced trees",
 	"category": "Binary Trees",

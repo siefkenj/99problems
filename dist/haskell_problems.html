@@ -314,8 +314,11 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 				<p class="description">Extract a given number of randomly selected elements from a list. 
 </p>
 				<p class="abstract-example">\( i, (x_1,\ldots,x_n)\mapsto (x_{a_1}, x_{a_2}, \ldots, x_{a_i}) \) where \((a_k)_{k=1,\ldots, i}\) is a random sequence with no repetitions.</p>
+				<h4 class="notes">Note:
+					<div class="note">Haskell is a purely functional language, so in order to get non-deterministic results, you must use <emph>monads</emph>.  Read about monads in Haskell to get your bearings. To make Haskell's random-number monads available, add <code class='code'>import System.Random</code> to the top of your problems file.  To get a single random number between \(i\) and \(j\) wrapped in a monad, you can use the code <code class='code'>newStdGen &gt;&gt;= (\g -&gt; return (head (randomRs (i, j) g)))</code></div>
+				</h4>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">take_random_ &quot;abcdefg&quot;</code><code class="code output">'c'</code><code class="code input">take_random_ &quot;abcdefg&quot;</code><code class="code output">'g'</code>
 					</div>
 				</h4>
 			</div>
@@ -640,13 +643,13 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 			<h3 class="problem-num">Problem 56<span class="difficulty-2"></span></h3>
 			<div class="problem-contents">
 				<h4 class="function-name-header">Function Name:<span class="function-name"> symmetric_tree_</span></h4>
-				<p class="description">Determine whether a given binary tree is symmetric.  A binary tree is symmetric if, cutting at the root the left side is a reflection of the right side.</p>
+				<p class="description">Determine whether a given binary tree is symmetric.  A binary tree is symmetric if, cutting at the root the left side's branches are a reflection of the right side's.  That is, we only care about the structure of the tree and not the contents of the nodes.</p>
 				<p class="abstract-example"></p>
 				<h4 class="notes">Note:
 					<div class="note">In Haskell you can create a tree data-structure with <code class='code'>data Tree a = Empty | Branch a (Tree a) (Tree a)    deriving Show</code></div>
 				</h4>
 				<h4 class="examples">Examples:
-					<div class="example-contents"><code class="code input">symmetric_tree_ (Branch 'x' (Branch 'x' Empty Empty) Empty)</code><code class="code output">False</code><code class="code input">symmetric_tree_ (Branch 'x' (Branch 'x' Empty Empty) (Branch 'x' Empty Empty))</code><code class="code output">True</code>
+					<div class="example-contents"><code class="code input">symmetric_tree_ (Branch 'x' (Branch 'x' Empty Empty) Empty)</code><code class="code output">False</code><code class="code input">symmetric_tree_ (Branch 'x' (Branch 'x' Empty Empty) (Branch 'x' Empty Empty))</code><code class="code output">True</code><code class="code input">symmetric_tree_ (Branch 'x' (Branch 'y' Empty Empty) (Branch 'z' Empty Empty))</code><code class="code output">True</code>
 					</div>
 				</h4>
 			</div>
@@ -654,12 +657,15 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 		<div class="problem">
 			<h3 class="problem-num">Problem 57<span class="difficulty-2"></span></h3>
 			<div class="problem-contents">
-				<h4 class="function-name-header">Function Name:<span class="function-name"> construct_tree_</span></h4>
+				<h4 class="function-name-header">Function Name:<span class="function-name"> construct_search_tree_</span></h4>
 				<p class="description">Construct a binary search tree (dictionary) of minimum depth from a list of numbers.  Information about binary search trees can be found <a href='https://en.wikipedia.org/wiki/Binary_search_tree'>on Wikipedia</a>.
 </p>
 				<p class="abstract-example"></p>
+				<h4 class="notes">Note:
+					<div class="note">In Haskell you can create a tree data-structure with <code class='code'>data Tree a = Empty | Branch a (Tree a) (Tree a)    deriving Show</code></div>
+				</h4>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">construct_search_tree_ [3, 2, 5, 7, 1]</code><code class="code output">Branch 3 (Branch 2 (Branch 1 Empty Empty) Empty) (Branch 5 Empty (Branch 7 Empty Empty))</code><code class="code input">symmetric_tree_ . construct_search_tree_ $ [3, 2, 5, 7, 4]</code><code class="code output">False</code><code class="code input">symmetric_tree_ . construct_search_tree_ $ [5, 3, 18, 1, 4, 12, 21]</code><code class="code output">True</code>
 					</div>
 				</h4>
 			</div>
@@ -670,8 +676,12 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 				<h4 class="function-name-header">Function Name:<span class="function-name"> balanced_symmetric_trees_</span></h4>
 				<p class="description">Construct all completely balanced, symmetric binary trees of a given size.</p>
 				<p class="abstract-example"></p>
+				<h4 class="notes">Note:
+					<div class="note">In Haskell you can create a tree data-structure with <code class='code'>data Tree a = Empty | Branch a (Tree a) (Tree a)    deriving Show</code></div>
+				</h4>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">balanced_symmetric_trees_ 5</code><code class="code output">[Branch 0 (Branch 0 (Branch 0 Empty Empty) Empty) (Branch 0 Empty (Branch 0 Empty Empty)),
+Branch 0 (Branch 0 Empty (Branch 0 Empty Empty)) (Branch 0 (Branch 0 Empty Empty) Empty)]</code>
 					</div>
 				</h4>
 			</div>
@@ -682,8 +692,25 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 				<h4 class="function-name-header">Function Name:<span class="function-name"> height_balanced_trees_of_height_</span></h4>
 				<p class="description">Given a height, construct all height-balanced binary trees of that height.  In a height-balanced binary tree, the following property holds for every node: The height of its left subtree and the height of its right subtree are almost equal, which means their difference is not greater than one.</p>
 				<p class="abstract-example"></p>
+				<h4 class="notes">Note:
+					<div class="note">In Haskell you can create a tree data-structure with <code class='code'>data Tree a = Empty | Branch a (Tree a) (Tree a)    deriving Show</code></div>
+				</h4>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">height_balanced_trees_of_height_ 3</code><code class="code output">[Branch 0 (Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty Empty)) (Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty Empty)),
+Branch 0 (Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty Empty)) (Branch 0 (Branch 0 Empty Empty) Empty),
+Branch 0 (Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty Empty)) (Branch 0 Empty (Branch 0 Empty Empty)),
+Branch 0 (Branch 0 (Branch 0 Empty Empty) Empty) (Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty Empty)),
+Branch 0 (Branch 0 (Branch 0 Empty Empty) Empty) (Branch 0 (Branch 0 Empty Empty) Empty),
+Branch 0 (Branch 0 (Branch 0 Empty Empty) Empty) (Branch 0 Empty (Branch 0 Empty Empty)),
+Branch 0 (Branch 0 Empty (Branch 0 Empty Empty)) (Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty Empty)),
+Branch 0 (Branch 0 Empty (Branch 0 Empty Empty)) (Branch 0 (Branch 0 Empty Empty) Empty),
+Branch 0 (Branch 0 Empty (Branch 0 Empty Empty)) (Branch 0 Empty (Branch 0 Empty Empty)),
+Branch 0 (Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty Empty)) (Branch 0 Empty Empty),
+Branch 0 (Branch 0 (Branch 0 Empty Empty) Empty) (Branch 0 Empty Empty),
+Branch 0 (Branch 0 Empty (Branch 0 Empty Empty)) (Branch 0 Empty Empty),
+Branch 0 (Branch 0 Empty Empty) (Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty Empty)),
+Branch 0 (Branch 0 Empty Empty) (Branch 0 (Branch 0 Empty Empty) Empty),
+Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty (Branch 0 Empty Empty))]</code>
 					</div>
 				</h4>
 			</div>
