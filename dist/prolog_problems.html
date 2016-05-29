@@ -15,7 +15,7 @@
 		<h1>99 Problems to Learn a Programming Language</h1>
 		<h2>in prolog</h2>
 	</div>
-	<div>Download a stub file for prolog <a href="problem_stubs/prolog_problems.pl">prolog_problems.pl</a></div>
+	<div class="stub">Download a stub file for prolog <a href="problem_stubs/prolog_problems.pl">prolog_problems.pl</a></div>
 	<div id="problems">
 		<div class="problem">
 			<h3 class="problem-num">Problem 1<span class="difficulty-1"></span></h3>
@@ -24,11 +24,7 @@
 				<p class="description">Find the last element of a list.</p>
 				<p class="abstract-example">\( (x_1,x_2,\ldots,x_n)\mapsto x_n \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
-						<pre>last_([1,2,3,4],X).</pre>
-						<pre>X = 4</pre>
-						<pre>last_([a,b,c],X).</pre>
-						<pre>X = c</pre>
+					<div class="example-contents"><code class="code input">last_([1,2,3,4],X).</code><code class="code output">X = 4</code><code class="code input">last_([a,b,c],X).</code><code class="code output">X = c</code>
 					</div>
 				</h4>
 			</div>
@@ -40,11 +36,7 @@
 				<p class="description">Find the next-to-the-last element of a list.</p>
 				<p class="abstract-example">\( (x_1,x_2,\ldots,x_{n-1},x_n)\mapsto x_{n-1} \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
-						<pre>penultimate_([1,2,3,4],X).</pre>
-						<pre>X = 3</pre>
-						<pre>penultimate_([a,b,c],X).</pre>
-						<pre>X = b</pre>
+					<div class="example-contents"><code class="code input">penultimate_([1,2,3,4],X).</code><code class="code output">X = 3</code><code class="code input">penultimate_([a,b,c],X).</code><code class="code output">X = b</code>
 					</div>
 				</h4>
 			</div>
@@ -57,11 +49,7 @@
 </p>
 				<p class="abstract-example">\( k, (x_0,x_1,\ldots,x_n)\mapsto x_{k} \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
-						<pre>element_at_index_(2,[0,1,2,3,4],X).</pre>
-						<pre>X = 2</pre>
-						<pre>element_at_index_(1,[a,b,c],X).</pre>
-						<pre>X = b</pre>
+					<div class="example-contents"><code class="code input">element_at_index_(2,[0,1,2,3,4],X).</code><code class="code output">X = 2</code><code class="code input">element_at_index_(1,[a,b,c],X).</code><code class="code output">X = b</code>
 					</div>
 				</h4>
 			</div>
@@ -74,11 +62,7 @@
 </p>
 				<p class="abstract-example">\( (x_1,\ldots,x_n)\mapsto n \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
-						<pre>length_([1,2,3,4],X).</pre>
-						<pre>X = 4</pre>
-						<pre>length_([a,b,c],X).</pre>
-						<pre>X = 3</pre>
+					<div class="example-contents"><code class="code input">length_([1,2,3,4],X).</code><code class="code output">X = 4</code><code class="code input">length_([a,b,c],X).</code><code class="code output">X = 3</code>
 					</div>
 				</h4>
 			</div>
@@ -91,11 +75,7 @@
 </p>
 				<p class="abstract-example">\( (x_1,x_2,\ldots,x_{n-1},x_n)\mapsto  (x_n,x_{n-1},\ldots,x_{2},x_1)\)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
-						<pre>reverse_([1,2,3,4],X).</pre>
-						<pre>X = [4,3,2,1]</pre>
-						<pre>reverse_([a,b,c],X).</pre>
-						<pre>X = [c,b,a]</pre>
+					<div class="example-contents"><code class="code input">reverse_([1,2,3,4],X).</code><code class="code output">X = [4,3,2,1]</code><code class="code input">reverse_([a,b,c],X).</code><code class="code output">X = [c,b,a]</code>
 					</div>
 				</h4>
 			</div>
@@ -107,11 +87,7 @@
 				<p class="description">Find out whether a list is a palindrome. A palindrome can be read forward or backward. For example "xamax".</p>
 				<p class="abstract-example">\( (x_1,x_2,\ldots,x_{n-1},x_n)\mapsto \mathbf{True} \) if \(x_i=x_{n-1}\) and \(\mathbf{False}\) otherwise.</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
-						<pre>palindromic_([1,2,3,4]).</pre>
-						<pre>no</pre>
-						<pre>palindromic_([a,b,c,b,a]).</pre>
-						<pre>yes</pre>
+					<div class="example-contents"><code class="code input">palindromic_([1,2,3,4]).</code><code class="code output">no</code><code class="code input">palindromic_([a,b,c,b,a]).</code><code class="code output">yes</code>
 					</div>
 				</h4>
 			</div>
@@ -124,11 +100,7 @@
 </p>
 				<p class="abstract-example">\( \big(x_1,(x_2,x_3),((x_4,\ldots\big)\mapsto (x_1,x_2,x_3,x_4,\ldots) \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
-						<pre>flatten_(1,X).</pre>
-						<pre>X = [1]</pre>
-						<pre>flatten_([1,[[],2,[3]],4],X).</pre>
-						<pre>X = [1,2,3,4]</pre>
+					<div class="example-contents"><code class="code input">flatten_(1,X).</code><code class="code output">X = [1]</code><code class="code input">flatten_([1,[[],2,[3]],4],X).</code><code class="code output">X = [1,2,3,4]</code>
 					</div>
 				</h4>
 			</div>
@@ -141,11 +113,7 @@
 </p>
 				<p class="abstract-example">\( (a,a,a,b,a,a,c,c,c,\ldots)\mapsto (a,b,a,c,\ldots) \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
-						<pre>deduplicate_([1,2,3,4],X).</pre>
-						<pre>X = [1,2,3,4]</pre>
-						<pre>deduplicate_([a,a,a,b,a,a,c,c,c,c,b],X).</pre>
-						<pre>X = [a,b,a,c,b]</pre>
+					<div class="example-contents"><code class="code input">deduplicate_([1,2,3,4],X).</code><code class="code output">X = [1,2,3,4]</code><code class="code input">deduplicate_([a,a,a,b,a,a,c,c,c,c,b],X).</code><code class="code output">X = [a,b,a,c,b]</code>
 					</div>
 				</h4>
 			</div>
@@ -159,9 +127,7 @@ If a list contains repeated elements they should be placed in separate sublists.
 </p>
 				<p class="abstract-example">\( (a,a,a,b,a,a,c,c,c,\ldots)\mapsto \big((a,a,a),(b),(a,a),(c,c,c),\ldots\big) \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
-						<pre>pack_duplicates_([a,a,a,a,b,c,c,a,a,d,e,e,e,e],X).</pre>
-						<pre>X = [[a,a,a],[b],[c,c],[a,a],[d],[e,e,e,e]]</pre>
+					<div class="example-contents"><code class="code input">pack_duplicates_([a,a,a,a,b,c,c,a,a,d,e,e,e,e],X).</code><code class="code output">X = [[a,a,a],[b],[c,c],[a,a],[d],[e,e,e,e]]</code>
 					</div>
 				</h4>
 			</div>
@@ -175,9 +141,7 @@ Use the result of earlier problems to implement the so-called run-length encodin
 </p>
 				<p class="abstract-example">\( (a,a,a,b,a,a,c,c,c,\ldots)\mapsto \big((a,3),(b,1),(a,2),(c,3),\ldots\big) \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
-						<pre>runlength_encode_([a,a,a,a,b,c,c,a,a,d,e,e,e,e],X).</pre>
-						<pre>X = [[a,3],[b,1],[c,2],[a,2],[d,1],[e,4]]</pre>
+					<div class="example-contents"><code class="code input">runlength_encode_([a,a,a,a,b,c,c,a,a,d,e,e,e,e],X).</code><code class="code output">X = [[a,3],[b,1],[c,2],[a,2],[d,1],[e,4]]</code>
 					</div>
 				</h4>
 			</div>
@@ -190,9 +154,7 @@ Use the result of earlier problems to implement the so-called run-length encodin
 Modify the result of problem 10 in such a way that if an element has no duplicates it is simply copied into the result list. Only elements with duplicates are transferred as \((e,n)\) lists.</p>
 				<p class="abstract-example">\( (a,a,a,b,a,a,c,c,c,\ldots)\mapsto \big((a,3),b,(a,2),(c,3),\ldots\big) \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
-						<pre>runlength_encode_b_([a,a,a,a,b,c,c,a,a,d,e,e,e,e],X).</pre>
-						<pre>X = [[a,3],b,[c,2],[a,2],d,[e,4]]</pre>
+					<div class="example-contents"><code class="code input">runlength_encode_b_([a,a,a,a,b,c,c,a,a,d,e,e,e,e],X).</code><code class="code output">X = [[a,3],b,[c,2],[a,2],d,[e,4]]</code>
 					</div>
 				</h4>
 			</div>
@@ -202,10 +164,10 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 			<div class="problem-contents">
 				<h4 class="function-name-header">Function Name:<span class="function-name"> runlength_decode_</span></h4>
 				<p class="description">Decode a run-length encoded list.
-</p>
+This should undo the encoding from problem 11.</p>
 				<p class="abstract-example">\( \big((a,3),b,(a,2),(c,3),\ldots\big) \mapsto (a,a,a,b,a,a,c,c,c,\ldots) \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">runlength_decode_([[a,3],b,[c,2],[a,2],d,[e,4]],X).</code><code class="code output">X = [a,a,a,a,b,c,c,a,a,d,e,e,e,e]</code>
 					</div>
 				</h4>
 			</div>
@@ -231,7 +193,7 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 </p>
 				<p class="abstract-example">\( (x_1,x_2,x_3,\ldots)\mapsto (x_1,x_2,x_2,x_2,x_3,x_3,\ldots) \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">double_([1,2,3,a,b,c],X).</code><code class="code output">X = [1,1,2,2,3,3,a,a,b,b,c,c]</code>
 					</div>
 				</h4>
 			</div>
@@ -244,7 +206,7 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 </p>
 				<p class="abstract-example">\( k,(x_1,x_2,\ldots)\mapsto (\underbrace{x_1,\ldots,x_1}_{k},\underbrace{x_2,\ldots,x_2}_{k},\ldots) \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">repeat_(3,[1,2,3,a,b,c],X).</code><code class="code output">X = [1,1,1,2,2,2,3,3,3,a,a,a,b,b,b,c,c,c]</code>
 					</div>
 				</h4>
 			</div>
@@ -257,7 +219,7 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 </p>
 				<p class="abstract-example">\( k,(x_1,x_2,\ldots)\mapsto (x_1,x_2,\ldots,x_{k-1},x_{k+1},\ldots,x_{2k-1},x_{2k+1},\ldots) \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">drop_sequence_(3,[1,2,3,4,5,6,7,8,9,10],X).</code><code class="code output">X = [1,2,4,5,7,8,10]</code>
 					</div>
 				</h4>
 			</div>
@@ -270,7 +232,7 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 </p>
 				<p class="abstract-example">\( k,(x_1,x_2,\ldots,x_n)\mapsto (x_1,x_2,\ldots,x_{k}),(x_{k+1},\ldots,x_{n}) \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">split_(3,[1,2,3,4,5,6,7,8,9,10],X,Y).</code><code class="code output">X = [1,2,3], Y = [4,5,6,7,8,9,10]</code>
 					</div>
 				</h4>
 			</div>
@@ -282,7 +244,7 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 				<p class="description">Extract a slice from a list. Given numbers \(i\) and \(j\), return a sublist consisting of elements whose indices are between \(i\) and \(j\).</p>
 				<p class="abstract-example">\( i, j, (x_1,x_2,\ldots,x_n)\mapsto (x_i,x_{i+1},\ldots,x_{j}) \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">slice_(3,7,[1,2,3,4,5,6,7,8,9,10],X).</code><code class="code output">X = [3,4,5,6,7]</code>
 					</div>
 				</h4>
 			</div>
@@ -295,7 +257,7 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 </p>
 				<p class="abstract-example">\( k, (x_0,x_2,\ldots,x_n)\mapsto (x_k,x_{k+1},\ldots,x_{n}, x_0,x_1,\ldots,x_{k-1}) \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">roll_(3,[1,2,3,4,5,6,7,8,9,10],X).</code><code class="code output">X = [4,5,6,7,8,9,10,1,2,3]</code><code class="code input">roll_(-2,[a,b,c,d,e,f],X).</code><code class="code output">X = [e,f,a,b,c,d]</code>
 					</div>
 				</h4>
 			</div>
@@ -308,7 +270,7 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 </p>
 				<p class="abstract-example">\( k, (x_0,x_2,\ldots,x_n)\mapsto x_k, (x_0,\ldots,x_{k-1},x_{k+1},\ldots,x_n) \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">pluck_(3,[1,2,3,4,5,6,7,8,9,10],X,Y).</code><code class="code output">X = 3, Y = [1,2,4,5,6,7,8,9,10]</code>
 					</div>
 				</h4>
 			</div>
@@ -321,7 +283,7 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 </p>
 				<p class="abstract-example">\( k,e, (x_0,x_2,\ldots,x_n)\mapsto x_k, (x_0,\ldots,x_{k-1},e,x_{k},x_{k+1},\ldots,x_n) \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">insert_(3,15,[1,2,3,4,5,6,7,8,9,10],X).</code><code class="code output">X = [1,2,15,3,4,5,6,7,8,9,10]</code><code class="code input">insert_(5,x,[a,b,c,d,e,f],X).</code><code class="code output">[a,b,c,d,x,e,f]</code>
 					</div>
 				</h4>
 			</div>
@@ -334,7 +296,7 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 </p>
 				<p class="abstract-example">\( i, j\mapsto (i, i+1, \ldots, j-1, j) \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">range_(3,8,X).</code><code class="code output">X = [3,4,5,6,7,8]</code>
 					</div>
 				</h4>
 			</div>
@@ -641,7 +603,7 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 			</div>
 		</div>
 		<div class="problem">
-			<h3 class="problem-num">Problem 54A<span class="difficulty-null"></span></h3>
+			<h3 class="problem-num">Problem 54A<span class="difficulty-1"></span></h3>
 			<div class="problem-contents">
 				<h4 class="function-name-header">Function Name:<span class="function-name"> _</span></h4>
 				<p class="description">(*) Check whether a given term represents a binary tree
@@ -681,7 +643,7 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 			<h3 class="problem-num">Problem 57<span class="difficulty-2"></span></h3>
 			<div class="problem-contents">
 				<h4 class="function-name-header">Function Name:<span class="function-name"> construct_tree_</span></h4>
-				<p class="description">Construct a binary search tree (dictionary) from a list of numbers.  Information about binary search trees can be found <a href='https://en.wikipedia.org/wiki/Binary_search_tree'>on Wikipedia</a>.
+				<p class="description">Construct a binary search tree (dictionary) of minimum depth from a list of numbers.  Information about binary search trees can be found <a href='https://en.wikipedia.org/wiki/Binary_search_tree'>on Wikipedia</a>.
 </p>
 				<p class="abstract-example"></p>
 				<h4 class="examples">Examples:
@@ -730,7 +692,7 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 			<h3 class="problem-num">Problem 61a<span class="difficulty-1"></span></h3>
 			<div class="problem-contents">
 				<h4 class="function-name-header">Function Name:<span class="function-name"> count_leaves_</span></h4>
-				<p class="description">Count the leaves of a binary tree</p>
+				<p class="description">Count the leaves of a binary tree. A leaf is a node with no successor.</p>
 				<p class="abstract-example"></p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
@@ -778,8 +740,7 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 			<h3 class="problem-num">Problem 63<span class="difficulty-2"></span></h3>
 			<div class="problem-contents">
 				<h4 class="function-name-header">Function Name:<span class="function-name"> complete_tree_</span></h4>
-				<p class="description">Construct a complete binary tree
-</p>
+				<p class="description">Construct a complete binary tree.  A complete binary tree of height \(h\) is one where every level up to \(h-1\) is full and all nodes at level \(h\) are as left as possible.</p>
 				<p class="abstract-example"></p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
@@ -791,8 +752,7 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 			<h3 class="problem-num">Problem 64<span class="difficulty-2"></span></h3>
 			<div class="problem-contents">
 				<h4 class="function-name-header">Function Name:<span class="function-name"> layout_tree_</span></h4>
-				<p class="description">Given a binary tree as the usual Prolog term t(X,L,R) (or nil). As a preparation for drawing the tree, a layout algorithm is required to determine the position of each node in a rectangular grid. Several layout methods are conceivable, one of them is shown in the illustration below:
-</p>
+				<p class="description">Layout a tree. As a preparation for drawing the tree, a layout algorithm is required to determine the position of each node in a rectangular grid. Several layout methods are conceivable, one of them is shown in the illustration below:<br/><img src='images/64tree.svg'></p>
 				<p class="abstract-example"></p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
@@ -804,8 +764,7 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 			<h3 class="problem-num">Problem 65<span class="difficulty-2"></span></h3>
 			<div class="problem-contents">
 				<h4 class="function-name-header">Function Name:<span class="function-name"> layout_tree_spaced_</span></h4>
-				<p class="description">An alternative layout method is depicted in the illustration below:
-</p>
+				<p class="description">Layout a tree in a more spaced out way.  An alternative layout method is depicted in the illustration below: <br><img src='images/65tree.svg'></p>
 				<p class="abstract-example"></p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
@@ -817,8 +776,7 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 			<h3 class="problem-num">Problem 66<span class="difficulty-3"></span></h3>
 			<div class="problem-contents">
 				<h4 class="function-name-header">Function Name:<span class="function-name"> layout_tree_compact_</span></h4>
-				<p class="description">Yet another layout strategy is shown in the illustration below:
-</p>
+				<p class="description">Layout a tree in a compact way.  Yet another layout strategy is shown in the illustration below: <br><img src='images/66tree.svg'></p>
 				<p class="abstract-example"></p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
