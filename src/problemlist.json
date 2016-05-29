@@ -610,7 +610,7 @@
         "language-overrides": {}
     },
     "61a": {
-        "description": "Count the leaves of a binary tree",
+        "description": "Count the leaves of a binary tree. A leaf is a node with no successor.",
         "difficulty": 1,
         "function-name": "count leaves",
 	"category": "Binary Trees",
@@ -642,7 +642,7 @@
         "language-overrides": {}
     },
     "63": {
-        "description": "Construct a complete binary tree\n",
+        "description": "Construct a complete binary tree.  A complete binary tree of height \\(h\\) is one where every level up to \\(h-1\\) is full and all nodes at level \\(h\\) are as left as possible.",
         "difficulty": 2,
         "function-name": "complete tree",
 	"category": "Binary Trees",
@@ -650,7 +650,7 @@
         "language-overrides": {}
     },
     "64": {
-        "description": "Given a binary tree as the usual Prolog term t(X,L,R) (or nil). As a preparation for drawing the tree, a layout algorithm is required to determine the position of each node in a rectangular grid. Several layout methods are conceivable, one of them is shown in the illustration below:\n",
+        "description": "Layout a tree. As a preparation for drawing the tree, a layout algorithm is required to determine the position of each node in a rectangular grid. Several layout methods are conceivable, one of them is shown in the illustration below:<br/><img src='images/64tree.svg'>",
         "difficulty": 2,
         "function-name": "layout tree",
 	"category": "Binary Trees",
@@ -658,7 +658,7 @@
         "language-overrides": {}
     },
     "65": {
-        "description": "An alternative layout method is depicted in the illustration below:\n",
+        "description": "Layout a tree in a more spaced out way.  An alternative layout method is depicted in the illustration below: <br><img src='images/65tree.svg'>",
         "difficulty": 2,
         "function-name": "layout tree spaced",
 	"category": "Binary Trees",
@@ -666,7 +666,7 @@
         "language-overrides": {}
     },
     "66": {
-        "description": "Yet another layout strategy is shown in the illustration below:\n",
+        "description": "Layout a tree in a compact way.  Yet another layout strategy is shown in the illustration below: <br><img src='images/66tree.svg'>",
         "difficulty": 3,
         "function-name": "layout tree compact",
 	"category": "Binary Trees",
