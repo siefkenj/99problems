@@ -4,7 +4,7 @@
         "difficulty": 1,
         "function-name": "last",
 	"category": "Lists",
-	"abstract-example": "\\( (x_1,x_2,\\ldots,x_n)\\mapsto x_n \\)",
+	"abstract-example": "\\( (x_0,x_2,\\ldots,x_n)\\mapsto x_n \\)",
         "language-overrides": {
 		"haskell": {
 			"examples": [
@@ -25,7 +25,7 @@
         "difficulty": 1,
         "function-name": "penultimate",
 	"category": "Lists",
-	"abstract-example": "\\( (x_1,x_2,\\ldots,x_{n-1},x_n)\\mapsto x_{n-1} \\)",
+	"abstract-example": "\\( (x_0,x_2,\\ldots,x_{n-1},x_n)\\mapsto x_{n-1} \\)",
         "language-overrides": {
 		"haskell": {
 			"examples": [
@@ -88,7 +88,7 @@
         "description": "Reverse a list.\n",
         "difficulty": 1,
         "function-name": "reverse",
-	"abstract-example": "\\( (x_1,x_2,\\ldots,x_{n-1},x_n)\\mapsto  (x_n,x_{n-1},\\ldots,x_{2},x_1)\\)",
+	"abstract-example": "\\( (x_0,x_1,\\ldots,x_{n-1},x_n)\\mapsto  (x_n,x_{n-1},\\ldots,x_{1},x_0)\\)",
 	"category": "Lists",
         "language-overrides": {
 		"haskell": {
@@ -109,7 +109,7 @@
         "description": "Find out whether a list is a palindrome. A palindrome can be read forward or backward. For example \"xamax\".",
         "difficulty": 1,
         "function-name": "palindromic",
-	"abstract-example": "\\( (x_1,x_2,\\ldots,x_{n-1},x_n)\\mapsto \\mathbf{True} \\) if \\(x_i=x_{n-1}\\) and \\(\\mathbf{False}\\) otherwise.",
+	"abstract-example": "\\( (x_0,x_1,\\ldots,x_{n-1},x_n)\\mapsto \\mathbf{True} \\) if \\(x_i=x_{n-i}\\) and \\(\\mathbf{False}\\) otherwise.",
 	"category": "Lists",
         "language-overrides": {
 		"haskell": {
@@ -130,7 +130,7 @@
         "description": "Flatten a nested list structure.\n",
         "difficulty": 2,
         "function-name": "flatten",
-	"abstract-example": "\\( \\big(x_1,(x_2,x_3),((x_4,\\ldots\\big)\\mapsto (x_1,x_2,x_3,x_4,\\ldots) \\)",
+	"abstract-example": "\\( \\big(x_0,(x_1,x_2),((x_3,\\ldots\\big)\\mapsto (x_0,x_1,x_2,x_3,\\ldots) \\)",
 	"category": "Lists",
         "language-overrides": {
 		"haskell": {
@@ -239,7 +239,7 @@
         "language-overrides": {
 		"haskell": {
 			"examples": [
-				{"input": "[(Multiple 'a' 3),(Single 'b'),(Multiple 'c' 2),(Multiple 'a' 2),(Single 'd'),(Multiple 'e' 4)]", "output": "FN \"aaaabccaadeeee\""}
+				{"input": "FN [(Multiple 'a' 3),(Single 'b'),(Multiple 'c' 2),(Multiple 'a' 2),(Single 'd'),(Multiple 'e' 4)]", "output": "\"aaaabccaadeeee\""}
 			]
 		},
 		"prolog": {
@@ -261,7 +261,7 @@
         "description": "Double each element of a list.\n",
         "difficulty": 1,
         "function-name": "double",
-	"abstract-example": "\\( (x_1,x_2,x_3,\\ldots)\\mapsto (x_1,x_2,x_2,x_2,x_3,x_3,\\ldots) \\)",
+	"abstract-example": "\\( (x_0,x_1,x_2,x_3,\\ldots)\\mapsto (x_0,x_0,x_1,x_1,x_2,x_2,x_2,x_3,x_3,\\ldots) \\)",
         "example": "",
 	"category": "Lists",
         "language-overrides": {
@@ -281,7 +281,7 @@
         "description": "Repeat each element of a list a given number of times.\n",
         "difficulty": 2,
         "function-name": "repeat",
-	"abstract-example": "\\( k,(x_1,x_2,\\ldots)\\mapsto (\\underbrace{x_1,\\ldots,x_1}_{k},\\underbrace{x_2,\\ldots,x_2}_{k},\\ldots) \\)",
+	"abstract-example": "\\( k,(x_0,x_1,\\ldots)\\mapsto (\\underbrace{x_0,\\ldots,x_0}_{k},\\underbrace{x_1,\\ldots,x_1}_{k},\\ldots) \\)",
 	"category": "Lists",
         "language-overrides": {
 		"haskell": {
@@ -338,17 +338,17 @@
         "description": "Extract a slice from a list. Given numbers \\(i\\) and \\(j\\), return a sublist consisting of elements whose indices are between \\(i\\) and \\(j\\).",
         "difficulty": 2,
         "function-name": "slice",
-        "abstract-example": "\\( i, j, (x_1,x_2,\\ldots,x_n)\\mapsto (x_i,x_{i+1},\\ldots,x_{j}) \\)",
+        "abstract-example": "\\( i, j, (x_0, x_1,x_2,\\ldots,x_n)\\mapsto (x_i,x_{i+1},\\ldots,x_{j}) \\)",
 	"category": "Lists",
         "language-overrides": {
 		"haskell": {
 			"examples": [
-				{"input": "FN 3 7 [1..10]", "output": "[3,4,5,6,7]"}
+				{"input": "FN 3 7 [0..10]", "output": "[3,4,5,6,7]"}
 			]
 		},
 		"prolog": {
 			"examples": [
-				{"input": "FN(3,7,[1,2,3,4,5,6,7,8,9,10],X).", "output": "X = [3,4,5,6,7]"}
+				{"input": "FN(3,7,[0,1,2,3,4,5,6,7,8,9,10],X).", "output": "X = [3,4,5,6,7]"}
 			]
 		}
 	}
@@ -357,7 +357,7 @@
         "description": "Rotate a list \\(k\\) places to the left.\n",
         "difficulty": 2,
         "function-name": "roll",
-        "abstract-example": "\\( k, (x_0,x_2,\\ldots,x_n)\\mapsto (x_k,x_{k+1},\\ldots,x_{n}, x_0,x_1,\\ldots,x_{k-1}) \\)",
+        "abstract-example": "\\( k, (x_0,x_1,\\ldots,x_n)\\mapsto (x_k,x_{k+1},\\ldots,x_{n}, x_0,x_1,\\ldots,x_{k-1}) \\)",
 	"category": "Lists",
         "language-overrides": {
 		"haskell": {
@@ -378,17 +378,17 @@
         "description": "Remove the \\(k\\)th element from a list and return that element and the list with that element removed.\n",
         "difficulty": 1,
         "function-name": "pluck",
-        "abstract-example": "\\( k, (x_0,x_2,\\ldots,x_n)\\mapsto x_k, (x_0,\\ldots,x_{k-1},x_{k+1},\\ldots,x_n) \\)",
+        "abstract-example": "\\( k, (x_0,x_1,\\ldots,x_n)\\mapsto x_k, (x_0,\\ldots,x_{k-1},x_{k+1},\\ldots,x_n) \\)",
 	"category": "Lists",
         "language-overrides": {
 		"haskell": {
 			"examples": [
-				{"input": "FN 3 [1..10]", "output": "(3,[1,2,4,5,6,7,8,9,10])"}
+				{"input": "FN 3 [0..10]", "output": "(3,[0,1,2,4,5,6,7,8,9,10])"}
 			]
 		},
 		"prolog": {
 			"examples": [
-				{"input": "FN(3,[1,2,3,4,5,6,7,8,9,10],X,Y).", "output": "X = 3, Y = [1,2,4,5,6,7,8,9,10]"}
+				{"input": "FN(3,[0,1,2,3,4,5,6,7,8,9,10],X,Y).", "output": "X = 3, Y = [0,1,2,4,5,6,7,8,9,10]"}
 			]
 		}
 	}
@@ -397,19 +397,19 @@
         "description": "Insert an element at a given position into a list.\n",
         "difficulty": 1,
         "function-name": "insert",
-        "abstract-example": "\\( k,e, (x_0,x_2,\\ldots,x_n)\\mapsto x_k, (x_0,\\ldots,x_{k-1},e,x_{k},x_{k+1},\\ldots,x_n) \\)",
+        "abstract-example": "\\( k,e, (x_0,x_1,\\ldots,x_n)\\mapsto x_k, (x_0,\\ldots,x_{k-1},e,x_{k},x_{k+1},\\ldots,x_n) \\)",
 	"category": "Lists",
         "language-overrides": {
 		"haskell": {
 			"examples": [
-				{"input": "FN 3 15 [1..10]", "output": "[1,2,15,3,4,5,6,7,8,9,10]"},
-				{"input": "FN 5 'x' \"abcdef\"", "output": "\"abcdxef\""}
+				{"input": "FN 3 15 [0..10]", "output": "[0,1,2,15,3,4,5,6,7,8,9,10]"},
+				{"input": "FN 4 'x' \"abcdef\"", "output": "\"abcdxef\""}
 			]
 		},
 		"prolog": {
 			"examples": [
-				{"input": "FN(3,15,[1,2,3,4,5,6,7,8,9,10],X).", "output": "X = [1,2,15,3,4,5,6,7,8,9,10]"},
-				{"input": "FN(5,x,[a,b,c,d,e,f],X).", "output": "[a,b,c,d,x,e,f]"}
+				{"input": "FN(3,15,[0,1,2,3,4,5,6,7,8,9,10],X).", "output": "X = [0,1,2,15,3,4,5,6,7,8,9,10]"},
+				{"input": "FN(4,x,[a,b,c,d,e,f],X).", "output": "[a,b,c,d,x,e,f]"}
 			]
 		}
 	}

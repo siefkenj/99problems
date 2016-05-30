@@ -22,7 +22,7 @@
 			<div class="problem-contents">
 				<h4 class="function-name-header">Function Name:<span class="function-name"> last_</span></h4>
 				<p class="description">Find the last element of a list.</p>
-				<p class="abstract-example">\( (x_1,x_2,\ldots,x_n)\mapsto x_n \)</p>
+				<p class="abstract-example">\( (x_0,x_2,\ldots,x_n)\mapsto x_n \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents"><code class="code input">last_ [1..10]</code><code class="code output">10</code><code class="code input">last_ &quot;abc&quot;</code><code class="code output">'c'</code>
 					</div>
@@ -34,7 +34,7 @@
 			<div class="problem-contents">
 				<h4 class="function-name-header">Function Name:<span class="function-name"> penultimate_</span></h4>
 				<p class="description">Find the next-to-the-last element of a list.</p>
-				<p class="abstract-example">\( (x_1,x_2,\ldots,x_{n-1},x_n)\mapsto x_{n-1} \)</p>
+				<p class="abstract-example">\( (x_0,x_2,\ldots,x_{n-1},x_n)\mapsto x_{n-1} \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents"><code class="code input">penultimate_ [1..10]</code><code class="code output">9</code><code class="code input">penultimate_ &quot;abc&quot;</code><code class="code output">'b'</code>
 					</div>
@@ -73,7 +73,7 @@
 				<h4 class="function-name-header">Function Name:<span class="function-name"> reverse_</span></h4>
 				<p class="description">Reverse a list.
 </p>
-				<p class="abstract-example">\( (x_1,x_2,\ldots,x_{n-1},x_n)\mapsto  (x_n,x_{n-1},\ldots,x_{2},x_1)\)</p>
+				<p class="abstract-example">\( (x_0,x_1,\ldots,x_{n-1},x_n)\mapsto  (x_n,x_{n-1},\ldots,x_{1},x_0)\)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents"><code class="code input">reverse_ [1..10]</code><code class="code output">[10, 9, 8, 7, 6, 5, 4, 3, 2, 1]</code><code class="code input">reverse_ &quot;abc&quot;</code><code class="code output">&quot;cba&quot;</code>
 					</div>
@@ -85,7 +85,7 @@
 			<div class="problem-contents">
 				<h4 class="function-name-header">Function Name:<span class="function-name"> palindromic_</span></h4>
 				<p class="description">Find out whether a list is a palindrome. A palindrome can be read forward or backward. For example "xamax".</p>
-				<p class="abstract-example">\( (x_1,x_2,\ldots,x_{n-1},x_n)\mapsto \mathbf{True} \) if \(x_i=x_{n-1}\) and \(\mathbf{False}\) otherwise.</p>
+				<p class="abstract-example">\( (x_0,x_1,\ldots,x_{n-1},x_n)\mapsto \mathbf{True} \) if \(x_i=x_{n-i}\) and \(\mathbf{False}\) otherwise.</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents"><code class="code input">palindromic_ &quot;abc&quot;</code><code class="code output">False</code><code class="code input">palindromic_ &quot;abcba&quot;</code><code class="code output">True</code>
 					</div>
@@ -98,7 +98,7 @@
 				<h4 class="function-name-header">Function Name:<span class="function-name"> flatten_</span></h4>
 				<p class="description">Flatten a nested list structure.
 </p>
-				<p class="abstract-example">\( \big(x_1,(x_2,x_3),((x_4,\ldots\big)\mapsto (x_1,x_2,x_3,x_4,\ldots) \)</p>
+				<p class="abstract-example">\( \big(x_0,(x_1,x_2),((x_3,\ldots\big)\mapsto (x_0,x_1,x_2,x_3,\ldots) \)</p>
 				<h4 class="notes">Note:
 					<div class="note">Haskell's type system requires lists to be homogeneous (they must have the exact same type). So you cannot define arbitrarily nested lists. For this problem, you will need to define a data type that simulates nested lists. Use: <code class='code'>data NestedList a = Elem a | List [NestedList a]</code></div>
 				</h4>
@@ -173,7 +173,7 @@ Modify the result of problem 10 in such a way that if an element has no duplicat
 This should undo the encoding from problem 11.</p>
 				<p class="abstract-example">\( \big((a,3),b,(a,2),(c,3),\ldots\big) \mapsto (a,a,a,b,a,a,c,c,c,\ldots) \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents"><code class="code input">[(Multiple 'a' 3),(Single 'b'),(Multiple 'c' 2),(Multiple 'a' 2),(Single 'd'),(Multiple 'e' 4)]</code><code class="code output">runlength_decode_ &quot;aaaabccaadeeee&quot;</code>
+					<div class="example-contents"><code class="code input">runlength_decode_ [(Multiple 'a' 3),(Single 'b'),(Multiple 'c' 2),(Multiple 'a' 2),(Single 'd'),(Multiple 'e' 4)]</code><code class="code output">&quot;aaaabccaadeeee&quot;</code>
 					</div>
 				</h4>
 			</div>
@@ -197,7 +197,7 @@ This should undo the encoding from problem 11.</p>
 				<h4 class="function-name-header">Function Name:<span class="function-name"> double_</span></h4>
 				<p class="description">Double each element of a list.
 </p>
-				<p class="abstract-example">\( (x_1,x_2,x_3,\ldots)\mapsto (x_1,x_2,x_2,x_2,x_3,x_3,\ldots) \)</p>
+				<p class="abstract-example">\( (x_0,x_1,x_2,x_3,\ldots)\mapsto (x_0,x_0,x_1,x_1,x_2,x_2,x_2,x_3,x_3,\ldots) \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents"><code class="code input">double_ [1..4]</code><code class="code output">[1,1,2,2,3,3,4,4]</code>
 					</div>
@@ -210,7 +210,7 @@ This should undo the encoding from problem 11.</p>
 				<h4 class="function-name-header">Function Name:<span class="function-name"> repeat_</span></h4>
 				<p class="description">Repeat each element of a list a given number of times.
 </p>
-				<p class="abstract-example">\( k,(x_1,x_2,\ldots)\mapsto (\underbrace{x_1,\ldots,x_1}_{k},\underbrace{x_2,\ldots,x_2}_{k},\ldots) \)</p>
+				<p class="abstract-example">\( k,(x_0,x_1,\ldots)\mapsto (\underbrace{x_0,\ldots,x_0}_{k},\underbrace{x_1,\ldots,x_1}_{k},\ldots) \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents"><code class="code input">repeat_ 3 [1..4]</code><code class="code output">[1,1,1,2,2,2,3,3,3,4,4,4]</code>
 					</div>
@@ -248,9 +248,9 @@ This should undo the encoding from problem 11.</p>
 			<div class="problem-contents">
 				<h4 class="function-name-header">Function Name:<span class="function-name"> slice_</span></h4>
 				<p class="description">Extract a slice from a list. Given numbers \(i\) and \(j\), return a sublist consisting of elements whose indices are between \(i\) and \(j\).</p>
-				<p class="abstract-example">\( i, j, (x_1,x_2,\ldots,x_n)\mapsto (x_i,x_{i+1},\ldots,x_{j}) \)</p>
+				<p class="abstract-example">\( i, j, (x_0, x_1,x_2,\ldots,x_n)\mapsto (x_i,x_{i+1},\ldots,x_{j}) \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents"><code class="code input">slice_ 3 7 [1..10]</code><code class="code output">[3,4,5,6,7]</code>
+					<div class="example-contents"><code class="code input">slice_ 3 7 [0..10]</code><code class="code output">[3,4,5,6,7]</code>
 					</div>
 				</h4>
 			</div>
@@ -261,7 +261,7 @@ This should undo the encoding from problem 11.</p>
 				<h4 class="function-name-header">Function Name:<span class="function-name"> roll_</span></h4>
 				<p class="description">Rotate a list \(k\) places to the left.
 </p>
-				<p class="abstract-example">\( k, (x_0,x_2,\ldots,x_n)\mapsto (x_k,x_{k+1},\ldots,x_{n}, x_0,x_1,\ldots,x_{k-1}) \)</p>
+				<p class="abstract-example">\( k, (x_0,x_1,\ldots,x_n)\mapsto (x_k,x_{k+1},\ldots,x_{n}, x_0,x_1,\ldots,x_{k-1}) \)</p>
 				<h4 class="examples">Examples:
 					<div class="example-contents"><code class="code input">roll_ 3 [1..10]</code><code class="code output">[4,5,6,7,8,9,10,1,2,3]</code><code class="code input">roll_ (-2) &quot;abcdef&quot;</code><code class="code output">&quot;efabcd&quot;</code>
 					</div>
@@ -274,9 +274,9 @@ This should undo the encoding from problem 11.</p>
 				<h4 class="function-name-header">Function Name:<span class="function-name"> pluck_</span></h4>
 				<p class="description">Remove the \(k\)th element from a list and return that element and the list with that element removed.
 </p>
-				<p class="abstract-example">\( k, (x_0,x_2,\ldots,x_n)\mapsto x_k, (x_0,\ldots,x_{k-1},x_{k+1},\ldots,x_n) \)</p>
+				<p class="abstract-example">\( k, (x_0,x_1,\ldots,x_n)\mapsto x_k, (x_0,\ldots,x_{k-1},x_{k+1},\ldots,x_n) \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents"><code class="code input">pluck_ 3 [1..10]</code><code class="code output">(3,[1,2,4,5,6,7,8,9,10])</code>
+					<div class="example-contents"><code class="code input">pluck_ 3 [0..10]</code><code class="code output">(3,[0,1,2,4,5,6,7,8,9,10])</code>
 					</div>
 				</h4>
 			</div>
@@ -287,9 +287,9 @@ This should undo the encoding from problem 11.</p>
 				<h4 class="function-name-header">Function Name:<span class="function-name"> insert_</span></h4>
 				<p class="description">Insert an element at a given position into a list.
 </p>
-				<p class="abstract-example">\( k,e, (x_0,x_2,\ldots,x_n)\mapsto x_k, (x_0,\ldots,x_{k-1},e,x_{k},x_{k+1},\ldots,x_n) \)</p>
+				<p class="abstract-example">\( k,e, (x_0,x_1,\ldots,x_n)\mapsto x_k, (x_0,\ldots,x_{k-1},e,x_{k},x_{k+1},\ldots,x_n) \)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents"><code class="code input">insert_ 3 15 [1..10]</code><code class="code output">[1,2,15,3,4,5,6,7,8,9,10]</code><code class="code input">insert_ 5 'x' &quot;abcdef&quot;</code><code class="code output">&quot;abcdxef&quot;</code>
+					<div class="example-contents"><code class="code input">insert_ 3 15 [0..10]</code><code class="code output">[0,1,2,15,3,4,5,6,7,8,9,10]</code><code class="code input">insert_ 4 'x' &quot;abcdef&quot;</code><code class="code output">&quot;abcdxef&quot;</code>
 					</div>
 				</h4>
 			</div>
@@ -719,7 +719,7 @@ Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty (Branch 0 Empty Empty))]</code>
 			<h3 class="problem-num">Problem 60<span class="difficulty-2"></span></h3>
 			<div class="problem-contents">
 				<h4 class="function-name-header">Function Name:<span class="function-name"> height_balanced_trees_</span></h4>
-				<p class="description">Given a number of nodes, construct all height-balanced binary trees with that number of nodes.</p>
+				<p class="description">Given a number of nodes, construct all height-balanced binary trees with that number of nodes.  It might help to first find the maximum and minimum number of nodes that a height-balanced tree of a certain height can have.</p>
 				<p class="abstract-example"></p>
 				<h4 class="examples">Examples:
 					<div class="example-contents">
