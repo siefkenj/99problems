@@ -457,7 +457,17 @@
         "function-name": "lotto",
 	"abstract-example": "\\( i,n \\mapsto ({a_1}, {a_2}, \\ldots, {a_i}) \\) where \\((a_k)_{k=1,\\ldots, i}\\) is a random sequence of integers with no repetitions satisfying \\(1\\leq a_k\\leq n\\).",
 	"category": "Lists",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"notes": [
+				"Haskell is a purely functional language, so in order to get non-deterministic results, you must use <emph>monads</emph>.  Read about monads in Haskell to get your bearings. To make Haskell's random-number monads available, add <code class='code'>import System.Random</code> to the top of your problems file.  To get a single random number between \\(i\\) and \\(j\\) wrapped in a monad, you can use the code <code class='code'>newStdGen &gt;&gt;= (\\g -&gt; return (head (randomRs (i, j) g)))</code>"
+			],
+			"examples": [
+				{"input": "FN 5 10", "output": "[6,9,7,4,2]"},
+				{"input": "FN 5 10", "output": "[1,2,7,3,8]"}
+			]
+		}
+	}
     },
     "25": {
         "description": "Generate a random permutation of the elements of a list.\n",
@@ -465,7 +475,17 @@
         "function-name": "permute",
         "abstract-example": "\\( (x_1,\\ldots,x_n)\\mapsto (x_{a_1}, x_{a_2}, \\ldots, x_{a_n}) \\) where \\((a_k)_{k=1,\\ldots, n}\\) is a random permutation of \\(1,2,\\ldots,n\\).",
 	"category": "Lists",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"notes": [
+				"Haskell is a purely functional language, so in order to get non-deterministic results, you must use <emph>monads</emph>.  Read about monads in Haskell to get your bearings. To make Haskell's random-number monads available, add <code class='code'>import System.Random</code> to the top of your problems file.  To get a single random number between \\(i\\) and \\(j\\) wrapped in a monad, you can use the code <code class='code'>newStdGen &gt;&gt;= (\\g -&gt; return (head (randomRs (i, j) g)))</code>"
+			],
+			"examples": [
+				{"input": "FN [1..10]", "output": "[9,5,6,7,1,8,4,3,10,2]"},
+				{"input": "FN [1..10]", "output": "[4,7,10,5,2,9,3,8,1,6]"}
+			]
+		}
+	}
     },
     "26": {
         "description": "Generate all combinations of \\(k\\) elements from a list.  For example, you might want to find all possible committees of size 3 from a list of names of size 12.  There would be 220 such possibilities since the order of the comittee doesn't matter for combinations.  You can read more about combinations at <a href='https://en.wikipedia.org/wiki/Combination'>Wikipedia: Combinations</a>.",
@@ -473,7 +493,13 @@
         "abstract-example": "\\( k, (x_1,\\ldots,x_n)\\mapsto \\big((x_1,\\ldots,x_k), (x_1,x_3,\\ldots,x_{k+1}),(x_1,x_2,x_4,\\ldots,x_{k+1}),\\ldots  \\big)\\)",
         "function-name": "combinations",
 	"category": "Lists",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN 3 ['a'..'e']", "output": "[\"abc\",\"abd\",\"abe\",\"acd\",\"ace\",\"ade\",\"bcd\",\"bce\",\"bde\",\"cde\"]"}
+			]
+		}
+	}
     },
     "27a": {
         "description": "List every way that a set of size 9 can be split into disjoint groups of sizes 2,3, and 4.",
@@ -481,14 +507,26 @@
         "function-name": "group234",
         "abstract-example": "\\( (x_1,\\ldots,x_9)\\mapsto \\big([(x_1,x_2),(x_3,x_4,x_5),(x_6,\\ldots,x_9)], [(x_1,x_3),(x_2,x_4,x_5),(x_6,\\ldots,x_9)], \\ldots \\big)\\)",
 	"category": "Lists",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN [\"aldo\",\"beat\",\"carla\",\"david\",\"evi\",\"flip\",\"gary\",\"hugo\",\"ida\"]", "output": "[[[\"aldo\",\"beat\"],[\"carla\",\"david\",\"evi\"],[\"flip\",\"gary\",\"hugo\",\"ida\"]],...]\n(altogether 1260 solutions)"}
+			]
+		}
+	}
     },
     "27b": {
         "description": "Given a list of sizes \\((a,b,c,\\ldots)\\), list every way that a set of size \\(k\\) can be split into disjoint groups of sizes \\(a,b,c,\\ldots\\).",
         "difficulty": 2,
         "function-name": "group",
 	"category": "Lists",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN [2,2,5] [\"aldo\",\"beat\",\"carla\",\"david\",\"evi\",\"flip\",\"gary\",\"hugo\",\"ida\"]", "output": "[[[\"aldo\",\"beat\"],[\"carla\",\"david\"],[\"evi\",\"flip\",\"gary\",\"hugo\",\"ida\"]],...]\n(altogether 756 solutions)"}
+			]
+		}
+	}
     },
     "28a": {
         "description": "Sort a list of lists according to length of sublists.\n",
@@ -496,7 +534,13 @@
         "function-name": "sort by length",
         "abstract-example": "\\( (L_1,\\ldots,L_n)\\mapsto (L_{a_1},\\ldots,L_{a_n})\\) satisfying \\(|L_{a_i}|\\leq |L_{a_j}|\\) whenever \\(i\\leq j\\).",
 	"category": "Lists",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN [\"abc\",\"de\",\"fgh\",\"de\",\"ijkl\",\"mn\",\"o\"]", "output": "[\"o\",\"de\",\"de\",\"mn\",\"abc\",\"fgh\",\"ijkl\"]"}
+			]
+		}
+	}
     },
     "28b": {
         "description": "Sort a list of lists according the frequency with which the length of the list appears.\n",
@@ -504,7 +548,13 @@
         "function-name": "sort by length frequency",
         "abstract-example": "\\( (L_1,\\ldots,L_n)\\mapsto (L_{a_1},\\ldots,L_{a_n})\\) satisfying \\(\\#\\{k:|L_{k}|=|L_{a_i}|\\}\\leq \\#\\{k:|L_{k}|=|L_{a_j}|\\}\\) whenever \\(i\\leq j\\).",
 	"category": "Lists",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN [\"abc\", \"de\", \"fgh\", \"de\", \"ijkl\", \"mn\", \"o\"]", "output": "[\"ijkl\",\"o\",\"abc\",\"fgh\",\"de\",\"de\",\"mn\"]"}
+			]
+		}
+	}
     },
     "31": {
         "description": "Determine whether a given positive integer number is prime.\n",
@@ -512,7 +562,14 @@
         "function-name": "prime",
         "abstract-example": "\\( n\\mapsto \\mathbf{True}\\) if \\(n\\) is prime and \\(\\mathbf{False}\\) otherwise.",
 	"category": "Arithmetic",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN 7", "output": "True"},
+				{"input": "FN 6", "output": "False"}
+			]
+		}
+	}
     },
     "32": {
         "description": "Determine the greatest common divisor of two integers. Use <a href='http://en.wikipedia.org/wiki/Euclidean_algorithm'>Euclid's algorithm</a>.\n",
@@ -520,14 +577,29 @@
         "function-name": "gcd",
         "abstract-example": "\\( a,b\\mapsto k\\) satisfying \\(k\\geq 0\\) and for any \\(d\\) so that \\(d| a\\) and \\(d| b\\) then \\(d| k\\).",
 	"category": "Arithmetic",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN 36 63", "output": "9"},
+				{"input": "FN (-3) (-6)", "output": "3"},
+				{"input": "FN (-3) 6", "output": "3"}
+			]
+		}
+	}
     },
     "33": {
         "description": "Determine whether two positive integer numbers are coprime. Two numbers are coprime if their greatest common divisor equals 1.\n",
         "difficulty": 1,
         "function-name": "coprime",
         "abstract-example": "\\( a,b\\mapsto \\mathbf{True}\\) if \\(\\mathrm{gcd}(a,b)=1\\) and \\(\\mathbf{False}\\) otherwise.",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN 36 63", "output": "False"},
+				{"input": "FN 35 64", "output": "True"}
+			]
+		}
+	}
     },
     "34": {
         "description": "Calculate Euler's totient function \\(\\phi(n)\\).  That is, the number of integers in the range \\(1,2,\\ldots,n\\) that are relatively prime to \\(n\\).",
@@ -535,7 +607,14 @@
         "function-name": "totient",
         "abstract-example": "\\( \\displaystyle n\\mapsto \\sum_{\\substack{1\\leq i\\leq n\\\\\\mathrm{gcd}(i,n)=1}} 1\\)",
 	"category": "Arithmetic",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN 10", "output": "4"},
+				{"input": "FN 33", "output": "20"}
+			]
+		}
+	}
     },
     "35": {
         "description": "List the prime factors of a given positive integer in ascending order, repeating factors if they occur multiple times.",
@@ -543,7 +622,13 @@
         "function-name": "factor",
         "abstract-example": "\\( n\\mapsto (p_1,p_2,\\ldots,p_k)\\) satisfying that \\(p_i\\) is prime for all \\(i\\), \\(p_i\\leq p_j\\) if \\(i\\leq j\\), and \\(\\displaystyle n=p_1p_2\\cdots p_k\\).",
 	"category": "Arithmetic",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN 315", "output": "[3, 3, 5, 7]"}
+			]
+		}
+	}
     },
     "36": {
         "description": "List the prime factors of a given number and their multiplicity.",
@@ -551,7 +636,13 @@
         "function-name": "factors",
         "abstract-example": "\\( n\\mapsto \\big((p_1,a_1),(p_2,a_2),\\ldots,(p_k,a_k)\\big)\\) satisfying that \\(p_i\\) is prime for all \\(i\\), \\(p_i\\leq p_j\\) if \\(i\\leq j\\), and \\(n=p_1^{a_1}p_2^{a_2}\\cdots p_k^{a_k}\\).",
 	"category": "Arithmetic",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN 315", "output": "[(3,2),(5,1),(7,1)]"}
+			]
+		}
+	}
     },
     "37": {
         "description": "Calculate Euler's totient function \\(\\phi(n)\\) using the efficient formula \\[\\phi(n)=(p_1-1)p_1^{a_1-1}(p_2-1)p_2^{a_2-1}\\cdots(p_k-1)p_k^{a_k-1}\\] where \\(n=p_1^{a_1}p_2^{a_2}\\cdots p_k^{a_k}\\) is the prime factorization of \\(n\\).",
@@ -573,7 +664,13 @@
         "function-name": "primes",
         "abstract-example": "\\( i,j\\mapsto (p_1,p_2,\\ldots, p_k)\\) where \\(i\\leq p_n\\leq j\\) exhaustively list the primes between \\(i\\) and \\(j\\).",
 	"category": "Arithmetic",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN 10 20", "output": "[11,13,17,19]"}
+			]
+		}
+	}
     },
     "40": {
         "description": "Goldbach's conjecture states that any <i>even</i> integer greater than 2 can be written as the sum of two primes.  For example, \\(28=5+23\\).  This conjecture has not been proved, but has been verified up to very large numbers.  Given a number, write it as the sum of two primes.",
@@ -581,14 +678,26 @@
         "function-name": "goldbach",
         "abstract-example": "\\( 2n\\mapsto p_1,p_2\\) where \\(p_1,p_2\\) are prime and \\(2n=p_1+p_2\\).",
 	"category": "Arithmetic",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN 28", "output": "(5,23)"}
+			]
+		}
+	}
     },
     "41": {
         "description": "Given a range of integers by its lower and upper limit, print a list of all even numbers and their Goldbach composition.\n",
         "difficulty": 2,
         "function-name": "goldbach range",
 	"category": "Arithmetic",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN 9 20", "output": "[(3,7),(5,7),(3,11),(3,13),(5,13),(3,17)]"}
+			]
+		}
+	}
     },
     "46": {
         "description": "Define binary functions for and, or, nand, nor, xor, implies, and equivalent (for logical equivalence) which succeed or fail according to the result of their respective operations; e.g. and(A,B) will succeed, if and only if both A and B succeed.\n  Given a composition of binary operators that it itself a binary operator, make a truth table for it.",
@@ -673,9 +782,6 @@
         "example": "",
         "language-overrides": {
 		"haskell": {
-			"notes": [
-				"In Haskell you can create a tree data-structure with <code class='code'>data Tree a = Empty | Branch a (Tree a) (Tree a)    deriving Show</code>"
-			],
 			"examples": [
 				{"input": "FN (Branch 'x' (Branch 'x' Empty Empty) Empty)", "output": "False"},
 				{"input": "FN (Branch 'x' (Branch 'x' Empty Empty) (Branch 'x' Empty Empty))", "output": "True"},
@@ -692,9 +798,6 @@
         "example": "",
         "language-overrides": {
 		"haskell": {
-			"notes": [
-				"In Haskell you can create a tree data-structure with <code class='code'>data Tree a = Empty | Branch a (Tree a) (Tree a)    deriving Show</code>"
-			],
 			"examples": [
 				{"input": "FN [3, 2, 5, 7, 1]", "output": "Branch 3 (Branch 2 (Branch 1 Empty Empty) Empty) (Branch 5 Empty (Branch 7 Empty Empty))"},
 				{"input": "symmetric_tree_ . FN $ [3, 2, 5, 7, 4]", "output": "False"},
@@ -711,9 +814,6 @@
         "example": "",
         "language-overrides": {
 		"haskell": {
-			"notes": [
-				"In Haskell you can create a tree data-structure with <code class='code'>data Tree a = Empty | Branch a (Tree a) (Tree a)    deriving Show</code>"
-			],
 			"examples": [
 				{"input": "FN 5", "output": "[Branch 0 (Branch 0 (Branch 0 Empty Empty) Empty) (Branch 0 Empty (Branch 0 Empty Empty)),\nBranch 0 (Branch 0 Empty (Branch 0 Empty Empty)) (Branch 0 (Branch 0 Empty Empty) Empty)]"}
 			]
@@ -728,9 +828,6 @@
         "example": "",
         "language-overrides": {
 		"haskell": {
-			"notes": [
-				"In Haskell you can create a tree data-structure with <code class='code'>data Tree a = Empty | Branch a (Tree a) (Tree a)    deriving Show</code>"
-			],
 			"examples": [
 				{"input": "FN 3", "output": "[Branch 0 (Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty Empty)) (Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty Empty)),\nBranch 0 (Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty Empty)) (Branch 0 (Branch 0 Empty Empty) Empty),\nBranch 0 (Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty Empty)) (Branch 0 Empty (Branch 0 Empty Empty)),\nBranch 0 (Branch 0 (Branch 0 Empty Empty) Empty) (Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty Empty)),\nBranch 0 (Branch 0 (Branch 0 Empty Empty) Empty) (Branch 0 (Branch 0 Empty Empty) Empty),\nBranch 0 (Branch 0 (Branch 0 Empty Empty) Empty) (Branch 0 Empty (Branch 0 Empty Empty)),\nBranch 0 (Branch 0 Empty (Branch 0 Empty Empty)) (Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty Empty)),\nBranch 0 (Branch 0 Empty (Branch 0 Empty Empty)) (Branch 0 (Branch 0 Empty Empty) Empty),\nBranch 0 (Branch 0 Empty (Branch 0 Empty Empty)) (Branch 0 Empty (Branch 0 Empty Empty)),\nBranch 0 (Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty Empty)) (Branch 0 Empty Empty),\nBranch 0 (Branch 0 (Branch 0 Empty Empty) Empty) (Branch 0 Empty Empty),\nBranch 0 (Branch 0 Empty (Branch 0 Empty Empty)) (Branch 0 Empty Empty),\nBranch 0 (Branch 0 Empty Empty) (Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty Empty)),\nBranch 0 (Branch 0 Empty Empty) (Branch 0 (Branch 0 Empty Empty) Empty),\nBranch 0 (Branch 0 Empty Empty) (Branch 0 Empty (Branch 0 Empty Empty))]"}
 			]
@@ -743,7 +840,13 @@
         "function-name": "height balanced trees",
 	"category": "Binary Trees",
         "example": "",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "length $ FN 15", "output": "1553"}
+			]
+		}
+	}
     },
     "61a": {
         "description": "Count the leaves of a binary tree. A leaf is a node with no successor.",
@@ -751,7 +854,13 @@
         "function-name": "count leaves",
 	"category": "Binary Trees",
         "example": "",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN $ Branch 1 (Branch 2 Empty (Branch 4 Empty Empty)) (Branch 2 Empty Empty)", "output": "2"}
+			]
+		}
+	}
     },
     "61b": {
         "description": "Find the leaves of a binary tree.",
@@ -759,7 +868,13 @@
         "function-name": "leaves",
 	"category": "Binary Trees",
         "example": "",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN $ Branch 1 (Branch 2 Empty (Branch 4 Empty Empty)) (Branch 2 Empty Empty)", "output": "[4,2]"}
+			]
+		}
+	}
     },
     "62a": {
         "description": "Find the internal nodes of a binary tree.  That is, all of the non-leaf nodes.",
@@ -767,7 +882,13 @@
         "function-name": "nodes",
 	"category": "Binary Trees",
         "example": "",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN $ Branch 1 (Branch 2 Empty (Branch 4 Empty Empty)) (Branch 2 Empty Empty)", "output": "[1,2]"}
+			]
+		}
+	}
     },
     "62b": {
         "description": "Find the nodes at a given height in a tree.",
@@ -775,15 +896,27 @@
         "function-name": "nodes at height",
 	"category": "Binary Trees",
         "example": "",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN 1 $ Branch 1 (Branch 2 Empty (Branch 4 Empty Empty)) (Branch 2 Empty Empty)", "output": "[2,2]"}
+			]
+		}
+	}
     },
     "63": {
-        "description": "Construct a complete binary tree.  A complete binary tree of height \\(h\\) is one where every level up to \\(h-1\\) is full and all nodes at level \\(h\\) are as left as possible.",
+        "description": "Construct a complete binary tree with a given number of nodes.  A complete binary tree of height \\(h\\) is one where every level up to \\(h-1\\) is full and all nodes at level \\(h\\) are as left as possible.",
         "difficulty": 2,
         "function-name": "complete tree",
 	"category": "Binary Trees",
         "example": "",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN 4", "output": "Branch 0 (Branch 0 (Branch 0 Empty Empty) Empty) (Branch 0 Empty Empty)"}
+			]
+		}
+	}
     },
     "64": {
         "description": "Layout a tree. As a preparation for drawing the tree, a layout algorithm is required to determine the position of each node in a rectangular grid. Several layout methods are conceivable, one of them is shown in the illustration below:<br/><img src='images/64tree.svg'>",
@@ -791,7 +924,13 @@
         "function-name": "layout tree",
 	"category": "Binary Trees",
         "example": "",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN $ Branch 'n' (Branch 'k' (Branch 'c' (Branch 'a' Empty Empty) (Branch 'h' (Branch 'g' (Branch 'e' Empty Empty) Empty) Empty)) (Branch 'm' Empty Empty)) (Branch 'u' (Branch 'p' Empty (Branch 's' (Branch 'q' Empty Empty) Empty)) Empty)", "output": "Branch ('n',(7,0)) (Branch ('k',(5,1)) (Branch ('c',(1,2)) (Branch ('a',(0,3)) Empty Empty) (Branch ('h',(4,3)) (Branch ('g',(1,4)) (Branch ('e',(0,5)) Empty Empty) Empty) Empty)) (Branch ('m',(6,2)) Empty Empty)) (Branch ('u',(11,1)) (Branch ('p',(0,2)) Empty (Branch ('s',(2,3)) (Branch ('q',(0,4)) Empty Empty) Empty)) Empty)"}
+			]
+		}
+	}
     },
     "65": {
         "description": "Layout a tree in a more spaced out way.  An alternative layout method is depicted in the illustration below: <br><img src='images/65tree.svg'>",

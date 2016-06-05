@@ -330,8 +330,11 @@ This should undo the encoding from problem 11.</p>
 				<p class="description">Lotto: Draw \(k\) different random numbers from the set \(1,2,\ldots, n\).
 </p>
 				<p class="abstract-example">\( i,n \mapsto ({a_1}, {a_2}, \ldots, {a_i}) \) where \((a_k)_{k=1,\ldots, i}\) is a random sequence of integers with no repetitions satisfying \(1\leq a_k\leq n\).</p>
+				<h4 class="notes">Note:
+					<div class="note">Haskell is a purely functional language, so in order to get non-deterministic results, you must use <emph>monads</emph>.  Read about monads in Haskell to get your bearings. To make Haskell's random-number monads available, add <code class='code'>import System.Random</code> to the top of your problems file.  To get a single random number between \(i\) and \(j\) wrapped in a monad, you can use the code <code class='code'>newStdGen &gt;&gt;= (\g -&gt; return (head (randomRs (i, j) g)))</code></div>
+				</h4>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">lotto_ 5 10</code><code class="code output">[6,9,7,4,2]</code><code class="code input">lotto_ 5 10</code><code class="code output">[1,2,7,3,8]</code>
 					</div>
 				</h4>
 			</div>
@@ -343,8 +346,11 @@ This should undo the encoding from problem 11.</p>
 				<p class="description">Generate a random permutation of the elements of a list.
 </p>
 				<p class="abstract-example">\( (x_1,\ldots,x_n)\mapsto (x_{a_1}, x_{a_2}, \ldots, x_{a_n}) \) where \((a_k)_{k=1,\ldots, n}\) is a random permutation of \(1,2,\ldots,n\).</p>
+				<h4 class="notes">Note:
+					<div class="note">Haskell is a purely functional language, so in order to get non-deterministic results, you must use <emph>monads</emph>.  Read about monads in Haskell to get your bearings. To make Haskell's random-number monads available, add <code class='code'>import System.Random</code> to the top of your problems file.  To get a single random number between \(i\) and \(j\) wrapped in a monad, you can use the code <code class='code'>newStdGen &gt;&gt;= (\g -&gt; return (head (randomRs (i, j) g)))</code></div>
+				</h4>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">permute_ [1..10]</code><code class="code output">[9,5,6,7,1,8,4,3,10,2]</code><code class="code input">permute_ [1..10]</code><code class="code output">[4,7,10,5,2,9,3,8,1,6]</code>
 					</div>
 				</h4>
 			</div>
@@ -356,7 +362,7 @@ This should undo the encoding from problem 11.</p>
 				<p class="description">Generate all combinations of \(k\) elements from a list.  For example, you might want to find all possible committees of size 3 from a list of names of size 12.  There would be 220 such possibilities since the order of the comittee doesn't matter for combinations.  You can read more about combinations at <a href='https://en.wikipedia.org/wiki/Combination'>Wikipedia: Combinations</a>.</p>
 				<p class="abstract-example">\( k, (x_1,\ldots,x_n)\mapsto \big((x_1,\ldots,x_k), (x_1,x_3,\ldots,x_{k+1}),(x_1,x_2,x_4,\ldots,x_{k+1}),\ldots  \big)\)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">combinations_ 3 ['a'..'e']</code><code class="code output">[&quot;abc&quot;,&quot;abd&quot;,&quot;abe&quot;,&quot;acd&quot;,&quot;ace&quot;,&quot;ade&quot;,&quot;bcd&quot;,&quot;bce&quot;,&quot;bde&quot;,&quot;cde&quot;]</code>
 					</div>
 				</h4>
 			</div>
@@ -368,7 +374,8 @@ This should undo the encoding from problem 11.</p>
 				<p class="description">List every way that a set of size 9 can be split into disjoint groups of sizes 2,3, and 4.</p>
 				<p class="abstract-example">\( (x_1,\ldots,x_9)\mapsto \big([(x_1,x_2),(x_3,x_4,x_5),(x_6,\ldots,x_9)], [(x_1,x_3),(x_2,x_4,x_5),(x_6,\ldots,x_9)], \ldots \big)\)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">group234_ [&quot;aldo&quot;,&quot;beat&quot;,&quot;carla&quot;,&quot;david&quot;,&quot;evi&quot;,&quot;flip&quot;,&quot;gary&quot;,&quot;hugo&quot;,&quot;ida&quot;]</code><code class="code output">[[[&quot;aldo&quot;,&quot;beat&quot;],[&quot;carla&quot;,&quot;david&quot;,&quot;evi&quot;],[&quot;flip&quot;,&quot;gary&quot;,&quot;hugo&quot;,&quot;ida&quot;]],...]
+(altogether 1260 solutions)</code>
 					</div>
 				</h4>
 			</div>
@@ -380,7 +387,8 @@ This should undo the encoding from problem 11.</p>
 				<p class="description">Given a list of sizes \((a,b,c,\ldots)\), list every way that a set of size \(k\) can be split into disjoint groups of sizes \(a,b,c,\ldots\).</p>
 				<p class="abstract-example"></p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">group_ [2,2,5] [&quot;aldo&quot;,&quot;beat&quot;,&quot;carla&quot;,&quot;david&quot;,&quot;evi&quot;,&quot;flip&quot;,&quot;gary&quot;,&quot;hugo&quot;,&quot;ida&quot;]</code><code class="code output">[[[&quot;aldo&quot;,&quot;beat&quot;],[&quot;carla&quot;,&quot;david&quot;],[&quot;evi&quot;,&quot;flip&quot;,&quot;gary&quot;,&quot;hugo&quot;,&quot;ida&quot;]],...]
+(altogether 756 solutions)</code>
 					</div>
 				</h4>
 			</div>
@@ -393,7 +401,7 @@ This should undo the encoding from problem 11.</p>
 </p>
 				<p class="abstract-example">\( (L_1,\ldots,L_n)\mapsto (L_{a_1},\ldots,L_{a_n})\) satisfying \(|L_{a_i}|\leq |L_{a_j}|\) whenever \(i\leq j\).</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">sort_by_length_ [&quot;abc&quot;,&quot;de&quot;,&quot;fgh&quot;,&quot;de&quot;,&quot;ijkl&quot;,&quot;mn&quot;,&quot;o&quot;]</code><code class="code output">[&quot;o&quot;,&quot;de&quot;,&quot;de&quot;,&quot;mn&quot;,&quot;abc&quot;,&quot;fgh&quot;,&quot;ijkl&quot;]</code>
 					</div>
 				</h4>
 			</div>
@@ -406,7 +414,7 @@ This should undo the encoding from problem 11.</p>
 </p>
 				<p class="abstract-example">\( (L_1,\ldots,L_n)\mapsto (L_{a_1},\ldots,L_{a_n})\) satisfying \(\#\{k:|L_{k}|=|L_{a_i}|\}\leq \#\{k:|L_{k}|=|L_{a_j}|\}\) whenever \(i\leq j\).</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">sort_by_length_frequency_ [&quot;abc&quot;, &quot;de&quot;, &quot;fgh&quot;, &quot;de&quot;, &quot;ijkl&quot;, &quot;mn&quot;, &quot;o&quot;]</code><code class="code output">[&quot;ijkl&quot;,&quot;o&quot;,&quot;abc&quot;,&quot;fgh&quot;,&quot;de&quot;,&quot;de&quot;,&quot;mn&quot;]</code>
 					</div>
 				</h4>
 			</div>
@@ -419,7 +427,7 @@ This should undo the encoding from problem 11.</p>
 </p>
 				<p class="abstract-example">\( n\mapsto \mathbf{True}\) if \(n\) is prime and \(\mathbf{False}\) otherwise.</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">prime_ 7</code><code class="code output">True</code><code class="code input">prime_ 6</code><code class="code output">False</code>
 					</div>
 				</h4>
 			</div>
@@ -432,7 +440,7 @@ This should undo the encoding from problem 11.</p>
 </p>
 				<p class="abstract-example">\( a,b\mapsto k\) satisfying \(k\geq 0\) and for any \(d\) so that \(d| a\) and \(d| b\) then \(d| k\).</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">gcd_ 36 63</code><code class="code output">9</code><code class="code input">gcd_ (-3) (-6)</code><code class="code output">3</code><code class="code input">gcd_ (-3) 6</code><code class="code output">3</code>
 					</div>
 				</h4>
 			</div>
@@ -445,7 +453,7 @@ This should undo the encoding from problem 11.</p>
 </p>
 				<p class="abstract-example">\( a,b\mapsto \mathbf{True}\) if \(\mathrm{gcd}(a,b)=1\) and \(\mathbf{False}\) otherwise.</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">coprime_ 36 63</code><code class="code output">False</code><code class="code input">coprime_ 35 64</code><code class="code output">True</code>
 					</div>
 				</h4>
 			</div>
@@ -457,7 +465,7 @@ This should undo the encoding from problem 11.</p>
 				<p class="description">Calculate Euler's totient function \(\phi(n)\).  That is, the number of integers in the range \(1,2,\ldots,n\) that are relatively prime to \(n\).</p>
 				<p class="abstract-example">\( \displaystyle n\mapsto \sum_{\substack{1\leq i\leq n\\\mathrm{gcd}(i,n)=1}} 1\)</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">totient_ 10</code><code class="code output">4</code><code class="code input">totient_ 33</code><code class="code output">20</code>
 					</div>
 				</h4>
 			</div>
@@ -469,7 +477,7 @@ This should undo the encoding from problem 11.</p>
 				<p class="description">List the prime factors of a given positive integer in ascending order, repeating factors if they occur multiple times.</p>
 				<p class="abstract-example">\( n\mapsto (p_1,p_2,\ldots,p_k)\) satisfying that \(p_i\) is prime for all \(i\), \(p_i\leq p_j\) if \(i\leq j\), and \(\displaystyle n=p_1p_2\cdots p_k\).</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">factor_ 315</code><code class="code output">[3, 3, 5, 7]</code>
 					</div>
 				</h4>
 			</div>
@@ -481,7 +489,7 @@ This should undo the encoding from problem 11.</p>
 				<p class="description">List the prime factors of a given number and their multiplicity.</p>
 				<p class="abstract-example">\( n\mapsto \big((p_1,a_1),(p_2,a_2),\ldots,(p_k,a_k)\big)\) satisfying that \(p_i\) is prime for all \(i\), \(p_i\leq p_j\) if \(i\leq j\), and \(n=p_1^{a_1}p_2^{a_2}\cdots p_k^{a_k}\).</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">factors_ 315</code><code class="code output">[(3,2),(5,1),(7,1)]</code>
 					</div>
 				</h4>
 			</div>
@@ -518,7 +526,7 @@ This should undo the encoding from problem 11.</p>
 				<p class="description">List all prime numbers in a given range.</p>
 				<p class="abstract-example">\( i,j\mapsto (p_1,p_2,\ldots, p_k)\) where \(i\leq p_n\leq j\) exhaustively list the primes between \(i\) and \(j\).</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">primes_ 10 20</code><code class="code output">[11,13,17,19]</code>
 					</div>
 				</h4>
 			</div>
@@ -530,7 +538,7 @@ This should undo the encoding from problem 11.</p>
 				<p class="description">Goldbach's conjecture states that any <i>even</i> integer greater than 2 can be written as the sum of two primes.  For example, \(28=5+23\).  This conjecture has not been proved, but has been verified up to very large numbers.  Given a number, write it as the sum of two primes.</p>
 				<p class="abstract-example">\( 2n\mapsto p_1,p_2\) where \(p_1,p_2\) are prime and \(2n=p_1+p_2\).</p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">goldbach_ 28</code><code class="code output">(5,23)</code>
 					</div>
 				</h4>
 			</div>
@@ -543,7 +551,7 @@ This should undo the encoding from problem 11.</p>
 </p>
 				<p class="abstract-example"></p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">goldbach_range_ 9 20</code><code class="code output">[(3,7),(5,7),(3,11),(3,13),(5,13),(3,17)]</code>
 					</div>
 				</h4>
 			</div>
@@ -645,9 +653,6 @@ This should undo the encoding from problem 11.</p>
 				<h4 class="function-name-header">Function Name:<span class="function-name"> symmetric_tree_</span></h4>
 				<p class="description">Determine whether a given binary tree is symmetric.  A binary tree is symmetric if, cutting at the root the left side's branches are a reflection of the right side's.  That is, we only care about the structure of the tree and not the contents of the nodes.</p>
 				<p class="abstract-example"></p>
-				<h4 class="notes">Note:
-					<div class="note">In Haskell you can create a tree data-structure with <code class='code'>data Tree a = Empty | Branch a (Tree a) (Tree a)    deriving Show</code></div>
-				</h4>
 				<h4 class="examples">Examples:
 					<div class="example-contents"><code class="code input">symmetric_tree_ (Branch 'x' (Branch 'x' Empty Empty) Empty)</code><code class="code output">False</code><code class="code input">symmetric_tree_ (Branch 'x' (Branch 'x' Empty Empty) (Branch 'x' Empty Empty))</code><code class="code output">True</code><code class="code input">symmetric_tree_ (Branch 'x' (Branch 'y' Empty Empty) (Branch 'z' Empty Empty))</code><code class="code output">True</code>
 					</div>
@@ -661,9 +666,6 @@ This should undo the encoding from problem 11.</p>
 				<p class="description">Construct a binary search tree (dictionary) of minimum depth from a list of numbers.  Information about binary search trees can be found <a href='https://en.wikipedia.org/wiki/Binary_search_tree'>on Wikipedia</a>.
 </p>
 				<p class="abstract-example"></p>
-				<h4 class="notes">Note:
-					<div class="note">In Haskell you can create a tree data-structure with <code class='code'>data Tree a = Empty | Branch a (Tree a) (Tree a)    deriving Show</code></div>
-				</h4>
 				<h4 class="examples">Examples:
 					<div class="example-contents"><code class="code input">construct_search_tree_ [3, 2, 5, 7, 1]</code><code class="code output">Branch 3 (Branch 2 (Branch 1 Empty Empty) Empty) (Branch 5 Empty (Branch 7 Empty Empty))</code><code class="code input">symmetric_tree_ . construct_search_tree_ $ [3, 2, 5, 7, 4]</code><code class="code output">False</code><code class="code input">symmetric_tree_ . construct_search_tree_ $ [5, 3, 18, 1, 4, 12, 21]</code><code class="code output">True</code>
 					</div>
@@ -676,9 +678,6 @@ This should undo the encoding from problem 11.</p>
 				<h4 class="function-name-header">Function Name:<span class="function-name"> balanced_symmetric_trees_</span></h4>
 				<p class="description">Construct all completely balanced, symmetric binary trees of a given size.</p>
 				<p class="abstract-example"></p>
-				<h4 class="notes">Note:
-					<div class="note">In Haskell you can create a tree data-structure with <code class='code'>data Tree a = Empty | Branch a (Tree a) (Tree a)    deriving Show</code></div>
-				</h4>
 				<h4 class="examples">Examples:
 					<div class="example-contents"><code class="code input">balanced_symmetric_trees_ 5</code><code class="code output">[Branch 0 (Branch 0 (Branch 0 Empty Empty) Empty) (Branch 0 Empty (Branch 0 Empty Empty)),
 Branch 0 (Branch 0 Empty (Branch 0 Empty Empty)) (Branch 0 (Branch 0 Empty Empty) Empty)]</code>
@@ -692,9 +691,6 @@ Branch 0 (Branch 0 Empty (Branch 0 Empty Empty)) (Branch 0 (Branch 0 Empty Empty
 				<h4 class="function-name-header">Function Name:<span class="function-name"> height_balanced_trees_of_height_</span></h4>
 				<p class="description">Given a height, construct all height-balanced binary trees of that height.  In a height-balanced binary tree, the following property holds for every node: The height of its left subtree and the height of its right subtree are almost equal, which means their difference is not greater than one.</p>
 				<p class="abstract-example"></p>
-				<h4 class="notes">Note:
-					<div class="note">In Haskell you can create a tree data-structure with <code class='code'>data Tree a = Empty | Branch a (Tree a) (Tree a)    deriving Show</code></div>
-				</h4>
 				<h4 class="examples">Examples:
 					<div class="example-contents"><code class="code input">height_balanced_trees_of_height_ 3</code><code class="code output">[Branch 0 (Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty Empty)) (Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty Empty)),
 Branch 0 (Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty Empty)) (Branch 0 (Branch 0 Empty Empty) Empty),
@@ -722,7 +718,7 @@ Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty (Branch 0 Empty Empty))]</code>
 				<p class="description">Given a number of nodes, construct all height-balanced binary trees with that number of nodes.  It might help to first find the maximum and minimum number of nodes that a height-balanced tree of a certain height can have.</p>
 				<p class="abstract-example"></p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">length $ height_balanced_trees_ 15</code><code class="code output">1553</code>
 					</div>
 				</h4>
 			</div>
@@ -734,7 +730,7 @@ Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty (Branch 0 Empty Empty))]</code>
 				<p class="description">Count the leaves of a binary tree. A leaf is a node with no successor.</p>
 				<p class="abstract-example"></p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">count_leaves_ $ Branch 1 (Branch 2 Empty (Branch 4 Empty Empty)) (Branch 2 Empty Empty)</code><code class="code output">2</code>
 					</div>
 				</h4>
 			</div>
@@ -746,7 +742,7 @@ Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty (Branch 0 Empty Empty))]</code>
 				<p class="description">Find the leaves of a binary tree.</p>
 				<p class="abstract-example"></p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">leaves_ $ Branch 1 (Branch 2 Empty (Branch 4 Empty Empty)) (Branch 2 Empty Empty)</code><code class="code output">[4,2]</code>
 					</div>
 				</h4>
 			</div>
@@ -758,7 +754,7 @@ Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty (Branch 0 Empty Empty))]</code>
 				<p class="description">Find the internal nodes of a binary tree.  That is, all of the non-leaf nodes.</p>
 				<p class="abstract-example"></p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">nodes_ $ Branch 1 (Branch 2 Empty (Branch 4 Empty Empty)) (Branch 2 Empty Empty)</code><code class="code output">[1,2]</code>
 					</div>
 				</h4>
 			</div>
@@ -770,7 +766,7 @@ Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty (Branch 0 Empty Empty))]</code>
 				<p class="description">Find the nodes at a given height in a tree.</p>
 				<p class="abstract-example"></p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">nodes_at_height_ 1 $ Branch 1 (Branch 2 Empty (Branch 4 Empty Empty)) (Branch 2 Empty Empty)</code><code class="code output">[2,2]</code>
 					</div>
 				</h4>
 			</div>
@@ -779,10 +775,10 @@ Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty (Branch 0 Empty Empty))]</code>
 			<h3 class="problem-num">Problem 63<span class="difficulty-2"></span></h3>
 			<div class="problem-contents">
 				<h4 class="function-name-header">Function Name:<span class="function-name"> complete_tree_</span></h4>
-				<p class="description">Construct a complete binary tree.  A complete binary tree of height \(h\) is one where every level up to \(h-1\) is full and all nodes at level \(h\) are as left as possible.</p>
+				<p class="description">Construct a complete binary tree with a given number of nodes.  A complete binary tree of height \(h\) is one where every level up to \(h-1\) is full and all nodes at level \(h\) are as left as possible.</p>
 				<p class="abstract-example"></p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">complete_tree_ 4</code><code class="code output">Branch 0 (Branch 0 (Branch 0 Empty Empty) Empty) (Branch 0 Empty Empty)</code>
 					</div>
 				</h4>
 			</div>
@@ -794,7 +790,7 @@ Branch 0 (Branch 0 Empty Empty) (Branch 0 Empty (Branch 0 Empty Empty))]</code>
 				<p class="description">Layout a tree. As a preparation for drawing the tree, a layout algorithm is required to determine the position of each node in a rectangular grid. Several layout methods are conceivable, one of them is shown in the illustration below:<br/><img src='images/64tree.svg'></p>
 				<p class="abstract-example"></p>
 				<h4 class="examples">Examples:
-					<div class="example-contents">
+					<div class="example-contents"><code class="code input">layout_tree_ $ Branch 'n' (Branch 'k' (Branch 'c' (Branch 'a' Empty Empty) (Branch 'h' (Branch 'g' (Branch 'e' Empty Empty) Empty) Empty)) (Branch 'm' Empty Empty)) (Branch 'u' (Branch 'p' Empty (Branch 's' (Branch 'q' Empty Empty) Empty)) Empty)</code><code class="code output">Branch ('n',(7,0)) (Branch ('k',(5,1)) (Branch ('c',(1,2)) (Branch ('a',(0,3)) Empty Empty) (Branch ('h',(4,3)) (Branch ('g',(1,4)) (Branch ('e',(0,5)) Empty Empty) Empty) Empty)) (Branch ('m',(6,2)) Empty Empty)) (Branch ('u',(11,1)) (Branch ('p',(0,2)) Empty (Branch ('s',(2,3)) (Branch ('q',(0,4)) Empty Empty) Empty)) Empty)</code>
 					</div>
 				</h4>
 			</div>
