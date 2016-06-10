@@ -938,7 +938,13 @@
         "function-name": "layout tree spaced",
 	"category": "Binary Trees",
         "example": "",
-        "language-overrides": {}
+        "language-overrides": {
+		"haskell": {
+			"examples": [
+				{"input": "FN $ Branch 'n' (Branch 'k' (Branch 'c' (Branch 'a' Empty Empty) (Branch 'e' (Branch 'd' Empty Empty) (Branch 'g' Empty Empty))) (Branch 'm' Empty Empty)) (Branch 'u' (Branch 'p' Empty (Branch 'q' Empty Empty)) Empty)", "output": "Branch ('n',(14,0)) (Branch ('k',(6,1)) (Branch ('c',(2,2)) (Branch ('a',(0,3)) Empty Empty) (Branch ('e',(4,3)) (Branch ('d',(3,4)) Empty Empty) (Branch ('g',(5,4)) Empty Empty))) (Branch ('m',(10,2)) Empty Empty)) (Branch ('u',(22,1)) (Branch ('p',(20,2)) Empty (Branch ('q',(21,3)) Empty Empty)) Empty)"}
+			]
+		}
+	}
     },
     "66": {
         "description": "Layout a tree in a compact way.  Yet another layout strategy is shown in the illustration below: <br><img src='images/66tree.svg'>",
